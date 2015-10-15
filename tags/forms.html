@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+
+<h2>Form 1</h2>
+<form method="post"
+      enctype="application/x-www-form-urlencoded"
+      action="https://pizza.example.com/order.cgi">
+ <p><label>Customer name: <input name="custname"></label></p>
+ <p><label>Telephone: <input type=tel name="custtel"></label></p>
+ <p><label>E-mail address: <input type=email name="custemail"></label></p>
+ <fieldset>
+  <legend> Pizza Size </legend>
+  <p><label> <input type=radio name=size value="small"> Small </label></p>
+  <p><label> <input type=radio name=size value="medium"> Medium </label></p>
+  <p><label> <input type=radio name=size value="large"> Large </label></p>
+ </fieldset>
+ <fieldset>
+  <legend> Pizza Toppings </legend>
+  <p><label> <input type=checkbox name="topping" value="bacon"> Bacon </label></p>
+  <p><label> <input type=checkbox name="topping" value="cheese"> Extra Cheese </label></p>
+  <p><label> <input type=checkbox name="topping" value="onion"> Onion </label></p>
+  <p><label> <input type=checkbox name="topping" value="mushroom"> Mushroom </label></p>
+ </fieldset>
+ <p><label>Preferred delivery time: <input type=time min="11:00" max="21:00" step="900" name="delivery"></label></p>
+ <p><label>Delivery instructions: <textarea name="comments"></textarea></label></p>
+ <p><button>Submit order</button></p>
+</form>
+<h2>Form 2</h2>
+
+<form action="http://www.google.com/search" method="get">
+ <label>Google: <input type="search" name="q"></label> <input type="submit" value="Search...">
+</form>
+<form action="http://www.bing.com/search" method="get">
+ <label>Bing: <input type="search" name="q"></label> <input type="submit" value="Search...">
+</form>
+<h2>Form 3</h2>
+
+<form>
+<p><label>Full name: <input name=fn> <small>Format: First Last</small></label></p>
+<p><label>Age: <input name=age type=number min=0></label></p>
+<p><label>Post code: <input name=pc> <small>Format: AB12 3CD</small></label></p>
+<input type="range" min="-100" max="100" value="0" step="10" name="power" list="powers">
+<datalist id="powers">
+ <option label="0" value="0">
+ <option label="-30" value="-30">
+ <option label="30" value="30">
+ <option label="++50" value="++50">
+</datalist>
+</form>
+
+<h2>Create new account</h2>
+<form action="/newaccount" method=post
+      oninput="up2.setCustomValidity(up2.value != up.value ? 'Passwords do not match.' : '')">
+ <p>
+  <label for="username">E-mail address:</label>
+  <input id="username" type=email required name=un>
+ <p>
+  <label for="password1">Password:</label>
+  <input id="password1" type=password required name=up>
+ <p>
+  <label for="password2">Confirm password:</label>
+  <input id="password2" type=password name=up2>
+ <p>
+  <input type=submit value="Create account">
+</form>
+<h2>Min and Max element</h2>
+</body>
+</html>
