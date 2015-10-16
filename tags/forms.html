@@ -6,10 +6,8 @@
 </head>
 <body>
 
-<h2>Form 1</h2>
-<form method="post"
-      enctype="application/x-www-form-urlencoded"
-      action="https://pizza.example.com/order.cgi">
+<h2>Regular Piazza Order Form with user input area, time, text area, radio and checkbox selection</h2>
+<form>
  <p><label>Customer name: <input name="custname"></label></p>
  <p><label>Telephone: <input type=tel name="custtel"></label></p>
  <p><label>E-mail address: <input type=email name="custemail"></label></p>
@@ -30,7 +28,9 @@
  <p><label>Delivery instructions: <textarea name="comments"></textarea></label></p>
  <p><button>Submit order</button></p>
 </form>
-<h2>Form 2</h2>
+
+
+<h2>Search Form</h2>
 
 <form action="http://www.google.com/search" method="get">
  <label>Google: <input type="search" name="q"></label> <input type="submit" value="Search...">
@@ -38,19 +38,35 @@
 <form action="http://www.bing.com/search" method="get">
  <label>Bing: <input type="search" name="q"></label> <input type="submit" value="Search...">
 </form>
-<h2>Form 3</h2>
+
+<h2>User Information Form with label tags to show the format for the input</h2>
 
 <form>
 <p><label>Full name: <input name=fn> <small>Format: First Last</small></label></p>
 <p><label>Age: <input name=age type=number min=0></label></p>
 <p><label>Post code: <input name=pc> <small>Format: AB12 3CD</small></label></p>
-<input type="range" min="-100" max="100" value="0" step="10" name="power" list="powers">
+</form>
+
+<h2>Form with different type of datalist tags</h2>
+<form>
+<p>An example of range type datalist  <input type="range" min="-100" max="100" value="0" step="10" name="power" list="powers"></p>
 <datalist id="powers">
  <option label="0" value="0">
  <option label="-30" value="-30">
  <option label="30" value="30">
  <option label="++50" value="++50">
 </datalist>
+<br>
+<p> An example of URL type datalist  <input type="url" name="location" list="urls">
+<datalist id="urls">
+ <option label="MIME: Format of Internet Message Bodies" value="http://tools.ietf.org/html/rfc2045">
+ <option label="HTML 4.01 Specification" value="http://www.w3.org/TR/html4/">
+ <option label="Form Controls" value="http://www.w3.org/TR/xforms/slice8.html#ui-commonelems-hint">
+ <option label="Scalable Vector Graphics (SVG) 1.1 Specification" value="http://www.w3.org/TR/SVG/">
+ <option label="Feature Sets - SVG 1.1 - 20030114" value="http://www.w3.org/TR/SVG/feature.html">
+ <option label="The Single UNIX Specification, Version 3" value="http://www.unix-systems.org/version3/">
+</datalist>
+</p>
 </form>
 
 <h2>Create new account</h2>
@@ -68,6 +84,59 @@
  <p>
   <input type=submit value="Create account">
 </form>
-<h2>Min and Max element</h2>
+<h2>Form with readonly and required attributes</h2>
+
+<form method="post">
+ <table>
+  <tr> 
+  	 <th> Product ID</th>
+  	 <th> Product name</th> 
+  	 <th> Price</th>
+  <tr>
+   <td> <input readonly="readonly" name="1.pid" value="H412"></td>
+   <td> <input required="required" name="1.pname" value="Floor lamp Ulke"></td>
+   <td> $<input required="required" type="number" min="0" step="0.01" name="1.pprice" value="49.99"></td>
+  </tr>
+  <tr>
+   <td> <input readonly="readonly" name="2.pid" value="FG28"></td>
+   <td> <input required="required" name="2.pname" value="Table lamp Ulke"></td>
+   <td> $<input required="required" type="number" min="0" step="0.01" name="2.pprice" value="24.99"></td>
+  </tr>
+  </table>
+</form>
+
+<h2>Form with Min and Max Attributes</h2>
+<form>
+	<p>Can not pick data greater than 2010-12-31  <input name=bday type=date max="2010-12-31"></p>
+	<p>Can not pick numbers less than 1  <input name=quantity required="" type="number" min="1" value="1">	</p>
+</form>
+
+<h2>Form with placeholder attributes</h2>
+<form>
+	<fieldset>
+ <legend>Mail Account</legend>
+ <p><label>Name: <input type="text" name="fullname" placeholder="John Ratzenberger"></label></p>
+ <p><label>Address: <input type="email" name="address" placeholder="john@example.net"></label></p>
+ <p><label>Password: <input type="password" name="password"></label></p>
+ <p><label>Description: <input type="text" name="desc" placeholder="My Email Account"></label></p>
+</fieldset>
+</form>
+
+<h2>Form with select element</h2>
+<form>
+	<p>
+ <label for="unittype">Select unit type:</label>
+ <select id="unittype" name="unittype">
+  <option value="1"> Miner </option>
+  <option value="2"> Puffer </option>
+  <option value="3" selected> Snipey </option>
+  <option value="4"> Max </option>
+  <option value="5"> Firebot </option>
+ </select>
+</p>
+
+</form>
+
+
 </body>
 </html>
