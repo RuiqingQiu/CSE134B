@@ -10,15 +10,23 @@
 	  	<h1>Vice/Virtue</h1>
 
       <form class="loginForm" action="index_submit" method="get" accept-charset="utf-8">
-        <ul>
-          <li><label for="usermail">Email</label>
-          <input class="textInput" type="email" name="usermail" placeholder="Email" required></li>
-          <li><label for="password">Password</label>
-          <input class="textInput" type="password" name="password" placeholder="Password" required></li>
-          <li>
-          <input type="submit" value="Login"></li>
-       </ul>
+      	<table>
+      	<tr>
+        <td><label for="usermail">Email</label></td>
+          <td><input class="textInput" type="email" name="usermail" placeholder="Email" required></td>
+         </tr>
+         <tr style="height: 15px"></tr>
+         <tr>
+          <td><label for="password">Password</label></td>
+          <td><input class="textInput" type="password" name="password" placeholder="Password" required></td>
+          </tr>
+       		</table>
+       		<div class="buttons">
+       		<input class="loginButton" type="submit" value="Login">
+          <input class="signUpButton" type="submit" value="Sign Up">
+          </div>
       </form>
+
     </div>
 
 	</body>

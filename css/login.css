@@ -27,24 +27,76 @@ body {
   transform: translate(-50%, -75%); */
 }
 
+@media (max-width: 450px) {
+  .login {
+  	width: auto;
+  	margin: 0 20px;
+  }
+}
+
 .login h1 {
 	text-align: center;
 }
 
 .login .loginForm {
 	font-size: 1.5em;
+	width: 100%;
 }
 
-.login .loginForm ul {
-	list-style-type:none;
+.login .loginForm table {
+	/*margin: 0 auto; */
+	width: 100%;
+	margin-bottom: 25px;
 }
 
 .login .loginForm input {
 	font-size: 1.0em;
 	font-family: 'Helvetica', sans-serif;
+	width: 100%;
+}
+
+.login .loginForm input[type=button] {
+  background:none;
+  border:none;
+  color:blue;
 }
 
 .login .loginForm .textInput {
 	text-align: left;
 }
+
+.login .loginForm .buttons {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.login .loginForm .loginButton {
+	width: 49%;
+	display: inline-block;
+	margin: 0;
+	padding: 15px;
+	background:none;
+	background-color: #214864;
+  border:none;
+  color:white;
+  -webkit-border-radius: 5px; //For Safari, etc.
+    -moz-border-radius: 5px; //For Mozilla, etc.
+    border-radius: 5px; //CSS3 Feature
+}
+
+.login .loginForm .signUpButton {
+	width: 49%;
+	display: inline-block;
+	margin: 0;
+	padding: 15px;
+	background:none;
+  border:none;
+  color:white;
+  background-color: #48BA87;
+  -webkit-border-radius: 5px; //For Safari, etc.
+    -moz-border-radius: 5px; //For Mozilla, etc.
+    border-radius: 5px; //CSS3 Feature
+}
+
 
