@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Test for the canvas tag</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <canvas id="myCanvas" width="750" height="500"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      context.font = '16pt Roboto';
+      context.fillStyle = 'blue';
+      context.fillText('This rectangle and text was created by canvas', 100, 100);
+      context.beginPath();
+      context.rect(188,250, 200, 100);
+      context.fillStyle = 'green';
+      context.fill();
+      context.lineWidth = 15;
+      context.strokeStyle = 'black';
+      context.stroke();
+    </script>
+  </body>
+</html>

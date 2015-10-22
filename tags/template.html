@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test for template tag</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template id="myTemplate">
+      <img src="http://example.org/" alt="Google Logo">
+      <div id="comment"></div>
+    </template>
+    <script>
+      var templateTag = document.querySelector('#myTemplate');
+      templateTag.content.querySelector('img').src = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
+      templateTag.content.querySelector('#comment').innerHTML = "This comment was filled in using the template tag and Javascript!";
+      var cloneOfTemplate = document.importNode(templateTag.content, true);
+      document.body.appendChild(cloneOfTemplate);
+    </script>
+    <noscript>You don't get to see the secret text because Javascript is turned off or not supported!</noscript>
+  </body>
+</html>
