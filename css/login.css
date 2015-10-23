@@ -63,6 +63,7 @@ body {
 
 .login .loginForm .textInput {
 	text-align: left;
+	padding: 5px;
 }
 
 .login .loginForm .buttons {
@@ -81,9 +82,16 @@ body {
   border:none;
   color:white;
   -webkit-border-radius: 5px; //For Safari, etc.
-    -moz-border-radius: 5px; //For Mozilla, etc.
-    border-radius: 5px; //CSS3 Feature
+  -moz-border-radius: 5px; //For Mozilla, etc.
+  border-radius: 5px; //CSS3 Feature
+  opacity: 1.0;
 }
+
+.login .loginForm .loginButton:hover {
+	opacity: 0.75;
+	cursor: pointer;
+}
+
 
 .login .loginForm .signUpButton {
 	width: 49%;
@@ -95,8 +103,15 @@ body {
   color:white;
   background-color: #48BA87;
   -webkit-border-radius: 5px; //For Safari, etc.
-    -moz-border-radius: 5px; //For Mozilla, etc.
-    border-radius: 5px; //CSS3 Feature
+  -moz-border-radius: 5px; //For Mozilla, etc.
+  border-radius: 5px; //CSS3 Feature
+  opacity: 1.0;
+
+}
+
+.login .loginForm .signUpButton:hover {
+	opacity: 0.75;
+	cursor: pointer;
 }
 
 
