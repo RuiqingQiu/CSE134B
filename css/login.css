@@ -6,11 +6,16 @@ html {
 }
 
 body {
-	font-family: 'Helvetica', sans-serif;
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	margin: 0;
+  font-family: 'Helvetica', sans-serif;
+  background: -webkit-linear-gradient(left top, #2196F3, #3F51B5); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, red, blue); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, red, blue); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #2196F3, #1A237E); /* Standard syntax */
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 .login {
@@ -27,6 +32,10 @@ body {
   transform: translate(-50%, -75%); */
 }
 
+.login h1 {
+	color: white;
+}
+
 @media (max-width: 450px) {
   .login {
   	width: auto;
@@ -36,6 +45,7 @@ body {
 
 .login h1 {
 	text-align: center;
+	color: #E0E0E0;
 }
 
 .login .loginForm {
@@ -46,13 +56,24 @@ body {
 .login .loginForm table {
 	/*margin: 0 auto; */
 	width: 100%;
-	margin-bottom: 25px;
+	padding-bottom: 25px;
+	padding-top: 25px;
+	padding-left: 15px;
+	padding-right: 20px;
+	margin-bottom: 15px;
+	background-color: white;
+	-webkit-border-radius: 5px; //For Safari, etc.
+  -moz-border-radius: 5px; //For Mozilla, etc.
+  border-radius: 5px; //CSS3 Feature
 }
 
 .login .loginForm input {
 	font-size: 1.0em;
 	font-family: 'Helvetica', sans-serif;
 	width: 100%;
+	-webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .login .loginForm input[type=button] {
@@ -66,10 +87,42 @@ body {
 	padding: 5px;
 }
 
+.login .loginForm label {
+	position: relative;
+	float:right;
+	height: 50px;
+	width: 50px;
+}
+
+.login .loginForm .svgTd {
+	height: 50px;
+	width: 50px;
+}
+
+.login .loginForm .emailIcon {
+	display: inline-block;
+	width: 30px;
+	top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-75%);
+  -moz-transform: translateY(-75%);
+  -ms-transform: translateY(-75%);
+  transform: translate(-50%, -50%);
+}
+
+.login .loginForm p {
+	display: none;
+	text-align: center;
+	color: white;
+}
+
 .login .loginForm .buttons {
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	padding-left: 2px;
+	-webkit-transition: bottom 1s, height 0.5s;
+	transition: bottom 1s, height 0.5s;
 }
 
 .login .loginForm .loginButton {
