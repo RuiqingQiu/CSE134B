@@ -34,13 +34,6 @@ i  {
   ms-transform: translateY(-75%);
   transform: translate(-50%, -75%); */
 }
-.welcome h1 {
-	text-align: center;
-	color: #808080;
-	margin-bottom: 150px;
-	font-size: 3em;
-	
-}
 
 @media (max-width: 450px) {
   .login {
@@ -48,6 +41,15 @@ i  {
   	margin: 0 20px;
   }
 }
+
+.welcome h1 {
+	text-align: center;
+	color: #808080;
+	margin-bottom: 150px;
+	font-size: 3.5em;
+	
+}
+
 
 .welcome h2 {
    width: 100%; 
