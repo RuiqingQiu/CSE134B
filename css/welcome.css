@@ -1,4 +1,4 @@
-	html {
+html {
 	height: 100%;
 	width: 100%;
 	margin: 0;
@@ -45,7 +45,6 @@ i  {
 .welcome h1 {
 	text-align: center;
 	color: #808080;
-	margin-bottom: 150px;
 	font-size: 3.5em;
 	
 }
