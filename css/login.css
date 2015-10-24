@@ -126,6 +126,7 @@ body {
 	padding-left: 2px;
 	-webkit-transition: bottom 1s, height 0.5s;
 	transition: bottom 1s, height 0.5s;
+  -webkit-appearance:none;
 }
 
 .login .loginForm .loginButton {
