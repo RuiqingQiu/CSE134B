@@ -130,6 +130,7 @@ body {
 }
 
 .login .loginForm .loginButton {
+  -webkit-appearance:none;
 	width: 49%;
 	display: inline-block;
 	margin: 0;
@@ -154,6 +155,7 @@ body {
 
 
 .login .loginForm .signUpButton {
+  -webkit-appearance:none;
 	width: 49%;
 	display: inline-block;
 	margin: 0;
