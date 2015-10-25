@@ -114,23 +114,23 @@ span#others_text{
 
 
 input#save{
-	 -webkit-appearance:none;
+	-webkit-appearance:none;
 	width: 49%;
 	display: inline-block;
 	margin: 0;
 	padding: 15px;
 	background: none;
-  border: none;
-  color: white;
-  background-color: #48BA87;
-  -webkit-border-radius: 5px; /*For Safari, etc. */
-  -moz-border-radius: 5px; /* For Mozilla, etc. */
-  border-radius: 5px; /* CSS3 Feature */
-  opacity: 1.0;
-  font-size: medium;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+	border: none;
+	color: white;
+	background-color: #48BA87;
+	-webkit-border-radius: 5px; /*For Safari, etc. */
+	-moz-border-radius: 5px; /* For Mozilla, etc. */
+	border-radius: 5px; /* CSS3 Feature */	
+	opacity: 1.0;
+	font-size: medium;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 input#save:hover{
