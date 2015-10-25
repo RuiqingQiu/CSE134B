@@ -29,6 +29,18 @@ div.forms {
 	background-color: white;
 	border-radius: 25px;
 }
+
+@media (max-width: 450px) {
+  div.forms {
+  	position: relative;
+	margin: 0 auto;
+	top: 0%;
+	width: 400px;
+	background-color: white;
+	border-radius: 25px;
+  }
+}
+
 h2{
 	text-align:center;
 	background-color: #bdbdbd;
