@@ -43,6 +43,15 @@ i  {
 }
 
 
+@media (max-width: 499px) {
+  .welcome {
+  	width: auto;
+  	margin: 0 20px;
+  }
+}
+
+
+
 .welcome h2 {
    width: 100%; 
    text-align: center; 
