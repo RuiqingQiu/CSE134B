@@ -1,0 +1,80 @@
+/* basic structure & layout */
+html{height: 100%;}
+body{
+    height:100%;   
+    background: -webkit-linear-gradient(left top, #BBDEFB, #B0C4DE); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right,#BBDEFB, #B0C4DE); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #BBDEFB, #B0C4DE); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right,  #BBDEFB, #B0C4DE); /* Standard syntax */ 
+    font-family: Helvetica, san-sarif;
+}
+footer{text-align: center;}
+#habit-list{list-style: none; padding:0;}
+#habit-list>li{position:relative; padding:5%; background:rgba(255,255,255,1); border:1px solid rgba(255, 255, 255, 0.3); border-radius:5px; margin:5px; padding:0;}
+
+/* habit info */
+.habit-info{padding:0;}
+.habit-info>li{list-style:none; float:left; height:100%; padding:0; margin-right:5px; vertical-align: center;}
+.habit-name{margin:0; padding:0; height:100%; display:inline-block; vertical-align: middle; line-height:60px;}
+.habit-icon{width:60px; height:60px; margin:0; border-radius:5px;}
+.habit-name{margin:0; padding:0; height:100%; display: inline-block;}
+
+.message{position:absolute; display:none; text-align:center; color:orange;}
+
+/* operations (for a existing habit) */
+.habit-op{position:absolute; right:5px;display:inline-block; height: 100%; line-height: 60px;}
+.op{border-radius: 50%; box-shadow: 0 0 3px gray; padding: 5px; vertical-align: middle;}
+.op:hover{box-shadow: 0 0 5px gray;}
+.op:active{box-shadow: 0 0 10px gray;}
+.op:focus{outline-style:none;}
+
+.op-done{background:rgba(0, 177, 106, 0.8); border:2px solid rgba(0, 128, 0, 0.3);}
+.op-done:hover{background:#00B16A;}
+.op-done:active{background:#00B16A; border:2px solid green;}
+
+.op-edit{background:rgba(247, 202, 24, 0.8); border:2px solid rgba(255, 255, 0, 0.3);}
+.op-edit:hover{background:#F7CA18;}
+.op-edit:active{background:#F7CA18; border:2px solid yellow;}
+
+.op-del{background:rgba(242, 38, 19, 0.7); border:2px solid rgba(255,0,0,0.3);}
+.op-del:hover{background:#F22613;}
+.op-del:active{background:#F22613; border:2px solid red;}
+
+/* add habit */
+#addHabit{position:fixed; bottom: 40px; right:20px;background:rgba(33, 72, 100, 1.0); width: 60px; vertical-align: middle; font-size:36px; text-align: center; color:white; height:60px; border:2px solid rgba(85,85,85,0.7); border-radius: 50%;box-shadow: 0 0 3px gray;}
+#addHabit:hover{background: rgba(33, 72, 100, 0.7);border:1px solid rgba(85,85,85,0.7);box-shadow: 0 0 5px gray;}
+#addHabit:active{border: 2px solid gray;background: rgba(33, 72, 100);box-shadow: 0 0 10px gray;}
+#addHabit:focus{outline-style:none;}
+
+/* phone */
+@media only screen
+    and (max-width: 768px) {
+    #habit-list>li{height: 130px;}
+    .habit-name{font-size: 16px;}
+    .message{left:20%;bottom:0px;}
+    .habit-op{top: 5px;}
+    .op{width:40px; height:40px;}
+}
+    
+/* tablet */
+@media only screen
+    and (min-width: 769px) 
+    and (max-width: 1024px) {
+    /*section{margin:5px;}*/
+    #habit-list>li{height: 60px;}
+    .habit-name{font-size: 16px;}
+    .message{right:200px;}
+    .habit-op{top: 5px;}
+    .op{width:40px; height:40px;}
+}
+
+/* desktop */
+@media only screen
+    and (min-width: 1024px) {
+    section{margin:100px;}
+    #habit-list>li{height: 60px;}
+    .habit-name{font-size: 24px;}
+    .message{right:30%;}
+    .habit-op{top: 3px;}
+    .op{width:50px; height:50px;}
+}
