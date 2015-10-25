@@ -57,7 +57,7 @@ img.icon:hover{
 	transform: scale(1.3);
 	cursor: pointer;
 }
-span#others{
+span#others_text{
 	padding-right: 5px;
 }
 
@@ -83,7 +83,7 @@ input#save{
 input#save:hover{
 	cursor: pointer;
 }
-p#save{
+p#save_p{
 	text-align: center;
 }
 form{
