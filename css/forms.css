@@ -24,7 +24,7 @@ p{
 div.forms {
 	position: relative;
 	margin: 0 auto;
-	top: 5%;
+	top: 0%;
 	width: 500px;
 	background-color: white;
 	border-radius: 25px;
@@ -60,13 +60,31 @@ img.icon:hover{
 span#others{
 	padding-right: 5px;
 }
+
 input#title{
 	height: 30px;
 	width: 350px;
+	font-size:20px;
+
 }
 input#others{
 	height: 30px;
 	width: 250px;
+	font-size:20px;
+
+}
+input#save{
+	font-size: large;
+	width: 100px;
+	background-color: #EFEFEF;
+	border-radius: 25px;
+}
+
+input#save:hover{
+	cursor: pointer;
+}
+p#save{
+	text-align: center;
 }
 form{
 	padding-left: 25px;
