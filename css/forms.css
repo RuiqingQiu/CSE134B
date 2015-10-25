@@ -29,16 +29,27 @@ div.forms {
 	background-color: white;
 	border-radius: 25px;
 }
+input#title{
+	height: 30px;
+	width: 350px;
+	font-size:20px;
 
-@media (max-width: 450px) {
+}
+@media (max-width: 500px) {
   div.forms {
   	position: relative;
 	margin: 0 auto;
 	top: 0%;
-	width: 400px;
+	width: 350px;
 	background-color: white;
 	border-radius: 25px;
   }
+  input#title{
+	height: 30px;
+	width: 250px;
+	font-size:20px;
+  }
+  
 }
 
 h2{
@@ -73,12 +84,7 @@ span#others_text{
 	padding-right: 5px;
 }
 
-input#title{
-	height: 30px;
-	width: 350px;
-	font-size:20px;
 
-}
 input#others{
 	height: 30px;
 	width: 250px;
