@@ -48,6 +48,31 @@ i  {
   	width: auto;
   	margin: 0 20px;
   }
+  
+  .welcome h1 {
+	text-align: center;
+	color: #808080;
+	font-size: 2.5em;
+	
+}
+
+  .welcome h2 {
+  text-align: center;
+  font-size: 50%;
+  
+  }
+  
+  .welcome a.button {
+	  font-size: 15px;
+  }
+  
+  .welcome a.button span{
+   padding-left: 36px;
+   background: url(../img/icon.png) no-repeat 0 -4px;
+   background-position: 5px -1px;
+   
+}
+
 }
 
 
