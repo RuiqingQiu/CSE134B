@@ -79,12 +79,6 @@ body {
   box-sizing: border-box;
 }
 
-.login .loginForm input[type=button] {
-  background:none;
-  border:none;
-  color:blue;
-}
-
 .login .loginForm .textInput {
 	text-align: left;
 	padding: 5px;
