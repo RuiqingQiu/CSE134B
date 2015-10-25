@@ -91,10 +91,12 @@ padding-left: 11px;
 text-decoration: none;
 text-shadow: #fff 0 1px 0;
 float: left;
-margin-left: 165px;
-margin-right: 50px;
+margin: 0 auto;
+margin-left: 30%;
+margin-right: 20%;
+/*
 margin-bottom: 15px;
-display: block;
+*/display: block;
 color: #597390;
 line-height: 24px;
 font-size: 20px;
@@ -130,6 +132,5 @@ padding-left: 36px;
 background: url(../img/icon.png) no-repeat 0 -4px;
 background-position: 5px 1px;
 }
-	
 
 
