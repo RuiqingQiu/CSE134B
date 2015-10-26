@@ -28,6 +28,29 @@ choose whatever they want to have as an icon. We added a simple hover effect to 
 For the frequency, we renamed it to two section “weekly frequency” to indicate on which dates the user would like to perform such activity and “daily frequency” to indicate how many times per day would he like to perform. Based on this information, our developer’s goals are to make sure we keep track how many days he kept doing it or how many days he missed. The sample layout didn’t provide options more than 3 times per day but we feel like there may be things one would like
 to perform more than 3 times so we put a optional box where user can input any values.
 
+
+
+##List of Tracked Habits Page:
+
+We removed the 85% and the thumb-up icon aside it. The reason is that it is confusing to users what that 85% means. is that percentage out of the times you done for today, for total times, or for total number of days. If it stands for the latter two, we do not really have a goal for a habit because a habit is something the user normally want to keep going on instead of keep for a period and just let it go. Also, we already have a progress bar compare with the best record as well as some text for it, so this duplication will only take space and may confuse users. As for the thumb-up icon aside the percentage, it makes this whole part very like social network; however, this wireframe does not seems to have social connect functionality, since others does not seems to be able to see the current user’s habits.
+
+We also removed the thumb-down button, we believe that let people click to indicate that they have done a practice of the habit is reasonable. However, there is no need to let them to press the button to show that they did not do it. A more reasonable way is that when this current date passes but the user did not click the button, then it mean that the user skipped this habit for today.
+
+We changed the button icon for buttons that had thumb-up icon originally to a check icon, because this icon is widely known as “like” in social network like Facebook. Here we actually use it to let users check if they have done the thing. So we just use a check sign instead so we can avoid confusing users.
+
+We got rid of the swipe for desktop because it is not appropriate to have finger swipes for desktop. For mobile there are several reasons why we also removed the swipe action: first, swipe is not typical in mobile websites/web apps, although it is common in native mobile apps; second, it is actually not very intuitive since there is totally no indication for that (we cannot assume every user knows to swipe); the fact that the check button mentioned above is already there instead of hidden in swipe, this will let a lot of people assume it to be the only action they can have; lastly, swipe out and choose actually requires 2 actions for users while a button will only need one.
+
+As mentioned above that we keep only 3 buttons there, and we make it into a group with different icon and color with green and check icon for done, yellow and pencil icon for edit, and red trash bin icon for delete. We made it this way because this color arrangement actually tells users how dangerous an action can be, and the icons makes it very understandable for users since it follows the convention for icon meanings. Just in case (i.e. for users who are not familiar with the web or apps), we added name attribute for those icons so that a tooltip will show up if the user really don’t understand the icons.
+
+We also changed the text by explicitly say whether the number stands for number of days or number of times. This makes the app much easier to understand in the case that the habit should be done several times a day.
+
+We make the habit list into a list of cards rather than the big block with horizontal lines separating things this will make it much easier for users to differentiate different habits. Especially in the fact that environment light and different device types and settings will make a horizontal line very different in visibility. 
+
+We added a heading for this page and explicitly tell users that this page is a list of habits they put into the system to keep track of so that new users will understand what this page is for. Especially when our list of habits likes more like cards rather than lists.
+
+We also created the fixed "add" button so it will always be at a consistant place users can always easily add habit without scrolling up and down to user it or looking for it everywhere.
+
+
 ### Version
 0.3.0
 
@@ -37,8 +60,8 @@ This Project has these 5 main html files:
 
 * _welcome.html_ - welcome page
 * _login.html_ - user login page
-* _add.html_- a super fast port of Markdown to JavaScript
-* _edit.html_ - great UI boilerplate for modern web apps
-* _list.html_ - evented I/O for the backend
+* _add.html_- page for adding a habbit
+* _edit.html_ - page for editing a habit
+* _list.html_ - page to show the list of existing habits
 
 (All the CSS and JavaScript file has corresponding name to the html. add.html & edit.html use both the forms.html)
