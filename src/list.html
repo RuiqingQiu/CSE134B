@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtue / Vice</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/list.css">
+</head>
+<body>
+    <header>
+        <!-- <img src="" alt="Virtue / Vice"> -->
+    </header>
+    <section>
+        <h1>Here are habits you want to track:</h1>
+        <ul id="habit-list">
+            <li>
+                <ul class="habit-info">
+                    <li><img class="habit-icon" src="../img/image-4.jpg" alt="habit icon"></li>
+                    <li><div class="habit-name">Spend less money</div></li>
+                </ul>
+                <div class="message">
+                    Completed <strong>1/3</strong> for today!<br>
+                    <strong>10</strong> days in a row! Best Record: <strong>20</strong><br>
+                    <svg height="25" width="200">
+                        <line x1="0" y1="0" x2="100" y2="0" style="stroke:rgba(65, 131, 215, 0.8);stroke-width:25" />
+                        <line x1="100" y1="0" x2="200" y2="0" style="stroke:rgba(171,171,171,0.6);stroke-width:25" />
+                    </svg>
+                </div>
+                <div class="habit-op">
+                    <button type="button" class="op op-done" onclick="showMsg(this);">Done</button>
+                    <button type="button" class="op op-edit" onclick="location.href='forms.html'">Edit</button>
+                    <button type="button" class="op op-del" onclick="deleteHabit(this);">Del</button>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <button type="button" id="addHabit" onclick="location.href='add_forms.html'">+</button>
+
+    <footer>
+        Team XYZ reserve all rights
+    </footer>
+
+    <script type="text/javascript">
+        function showMsg(element){
+            var msgElement = (element.parentNode.parentNode.getElementsByClassName("message"))[0];
+            // alert(msgElement.innerHTML);
+            msgElement.style.display = "inline-block";
+        }
+
+        function deleteHabit(element){
+            var child = element.parentNode.parentNode;
+            var parent = child.parentNode;
+            parent.removeChild(child);
+        }
+    </script>
+</body>
+</html>
