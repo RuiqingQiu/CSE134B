@@ -53,8 +53,7 @@ img.icon{
 @media (max-width: 500px) {
   div.forms {
   	position: relative;
-	width: auto;
-  	margin: 0 20px;
+  	margin: 0 auto;
 	top: 0%;
 	width: 350px;
 	background-color: white;
