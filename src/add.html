@@ -7,25 +7,17 @@
 		<link rel="stylesheet" href="../css/forms.css">
 	</head>
 	<body>
-		<!--
-		<p id="demo"></p>
-			<script>		
-				var width = window.innerWidth;
-				//document.getElementById("demo").innerHTML = "Screen Width: " + screen.width;
-				document.getElementById("demo").innerHTML = "Screen Width: " + width;
 
-			</script>
-		-->
 		<div class="forms">
-			<h2>Edit A Habit</h2>
+			<h2>Add A Habit</h2>
 			<form>
 				<p><label><span id="title_text">Habit Title</span></label></p>
 				<p><input id="title" type="text" name="fullname" placeholder="Exercise 30 minutes"></p>
 				<p><label>Habit Icon</label></p>
-				<img class="icon" src="../img/sleep.jpg" alt=""/>
-				<img class="icon" src="../img/eat.jpg" alt=""/>
-				<img class="icon" src="../img/smoke.jpg" alt=""/>
-				<img class="icon" src="../img/add.png" alt=""/>
+				<img id="icon1" class="icon" onclick="selectImage('icon1');" src="../img/sleep.jpg" alt="sleep image"/>
+				<img id="icon2" class="icon" onclick="selectImage('icon2');" src="../img/eat.jpg" alt="eat image"/>
+				<img id="icon3" class="icon" onclick="selectImage('icon3');" src="../img/smoke.jpg" alt="smoke image"/>
+				<img id="icon4" class="icon" src="../img/add.png" alt="find a image"/>
 				<p><label>Weekly Frequency</label></p>
 				<div id="ck-button">
 					<label> <input type="checkbox" name="date" value="sunday"><span>Sun</span></label>
@@ -51,5 +43,15 @@
 			</form>
 
 		</div>
+		<script>
+			function selectImage(name) {
+				//Clear all the other effects
+				document.getElementById('icon1').style.border = "none";
+				document.getElementById('icon2').style.border = "none";
+				document.getElementById('icon3').style.border = "none";
+				var image = document.getElementById(name);
+				image.style.border = "5px solid #42A5F5";
+			}
+		</script>
 	</body>
 </html>
