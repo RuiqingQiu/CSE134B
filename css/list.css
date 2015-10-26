@@ -58,7 +58,8 @@ footer{text-align: center;}
 /* phone */
 @media only screen
     and (max-width: 500px) {
-        .message{right:5px;bottom:80px;}
+        section{width:350px;margin: 0 auto;}
+        .message{right:5px;bottom:80px;font-size: small;}
 }
 
 /* desktop */
