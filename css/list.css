@@ -24,6 +24,7 @@ body{
 
 /* operations (for a existing habit) */
 .habit-op{position:absolute; right:5px;display:inline-block; height: 100%; line-height: 60px;width:100%;text-align:center;top:170px;margin:0 auto;}
+.habit-op img{height: 90%;}
 .op{width:60px; height:60px;margin-right:5px;border-radius: 50%; box-shadow: 0 0 3px gray; padding: 5px; vertical-align: middle;}
 .op:hover{box-shadow: 0 0 5px gray;}
 .op:active{box-shadow: 0 0 10px gray;}
