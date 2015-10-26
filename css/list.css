@@ -1,5 +1,6 @@
 /* basic structure & layout */
 html{height: 100%;}
+h1{color:#888;text-align: center;}
 body{
     height:100%;   
     background: -webkit-linear-gradient(left top, #BBDEFB, #B0C4DE); /* For Safari 5.1 to 6.0 */
@@ -14,12 +15,20 @@ footer{text-align: center;}
 
 /* habit info */
 .habit-info{padding:0;}
-.habit-info>li{list-style:none; float:left; height:100%; padding:0; margin-right:5px; vertical-align: center;}
-.habit-name{margin:0; padding:0; height:100%; display:inline-block; vertical-align: middle; line-height:60px;}
-.habit-icon{width:60px; height:60px; margin:0; border-radius:5px;}
-.habit-name{margin:0; padding:0; height:100%; display: inline-block;}
+.habit-info>li{list-style:none; height:100%; padding:0; margin-right:5px; vertical-align: center;}
+.habit-name{margin:0; padding:0; height:100%; display:inline-block; vertical-align: middle; line-height:60px;color:#888;}
+.habit-icon{margin:0; border-radius:5px;}
 
-.message{position:absolute; display:none; text-align:center; color:orange;}
+.message{position:absolute; display:inline-block; visibility: hidden; text-align:center; color:#888;}
+.message-total{visibility: visible;}
+
+    #habit-list>li{height: 240px;}
+    .habit-name{font-size: 24px;}
+    .habit-info{margin-left:20px;}
+    .habit-icon{width:100px; height:100px;}
+
+    .habit-op{width:100%;text-align:center;top:170px;margin:0 auto;}
+    .op{width:60px; height:60px;margin-right:5px;}
 
 /* operations (for a existing habit) */
 .habit-op{position:absolute; right:5px;display:inline-block; height: 100%; line-height: 60px;}
@@ -48,33 +57,13 @@ footer{text-align: center;}
 
 /* phone */
 @media only screen
-    and (max-width: 768px) {
-    #habit-list>li{height: 130px;}
-    .habit-name{font-size: 16px;}
-    .message{left:20%;bottom:0px;}
-    .habit-op{top: 5px;}
-    .op{width:50px; height:50px;}
-}
-    
-/* tablet */
-@media only screen
-    and (min-width: 769px) 
-    and (max-width: 1024px) {
-    /*section{margin:5px;}*/
-    #habit-list>li{height: 60px;}
-    .habit-name{font-size: 16px;}
-    .message{right:200px;}
-    .habit-op{top: 5px;}
-    .op{width:50px; height:50px;}
+    and (max-width: 500px) {
+        .message{right:5px;bottom:80px;}
 }
 
 /* desktop */
 @media only screen
-    and (min-width: 1024px) {
-    section{margin:100px;}
-    #habit-list>li{height: 60px;}
-    .habit-name{font-size: 24px;}
-    .message{right:30%;}
-    .habit-op{top: 3px;}
-    .op{width:50px; height:50px;}
+    and (min-width: 500px) {
+    section{width:500px;margin: 0 auto;}
+    .message{right:60px;bottom:80px;}
 }
