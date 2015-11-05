@@ -1,0 +1,26 @@
+{
+  "name": "cse134b-team-xyz",
+  "version": "1.0.0",
+  "description": "CSE134B Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RuiqingQiu/CSE134B.git"
+  },
+  "author": "Timothy Chang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RuiqingQiu/CSE134B/issues"
+  },
+  "homepage": "https://github.com/RuiqingQiu/CSE134B#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.4.2"
+  }
+}
