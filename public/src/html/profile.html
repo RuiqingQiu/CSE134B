@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>User Profile</title>
+		<link rel="stylesheet" href="../css/profile.css">
+		<link rel="stylesheet" href="../css/normalize.css">
+	</head>
+	<body>
+	<nav>
+      <ul>
+        <li><a href="welcome.html">Home</a></li>
+        <li class="sub">
+		    <a href="login.html">Settings</a>
+			<ul>
+			    <li><a href="profile.html">Profiles</a></li>
+				<li><a href="login.html">Log Out</a></li>
+			</ul>
+		</li>
+      </ul>
+    </nav>
+	  <div class="profile">
+	    <br>
+	  	<h1>virtue / <i>vice</i></h1>
+
+        <form class="profile-form">
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" placeholder="ex: Huang">
+				<label for="firstname">First Name</label>
+                <input type="text" name="firstname" placeholder="ex: Qing">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" placeholder="ex: hq123@gmail.com">
+				<label for="height">Height</label>
+                <input type="text" name="height" placeholder="ex: 170cm / 6'2 ">
+				<label for="weight">Weight</label>
+                <input type="text" name="weight" placeholder="ex: 70kg / 150lb ">
+				<p id="save">
+				<input class="savebutton" type="submit" value="Save">
+				</p>
+        </form>
+	  </div>
+	  <footer>&copy; Team XYZ
+      </footer>
+	</body>
+</html>

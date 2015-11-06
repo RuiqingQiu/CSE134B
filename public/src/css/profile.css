@@ -84,7 +84,7 @@ nav ul > li.sub{
     background: url(../../img/ic_keyboard_arrow_down_white_18dp.png) right center no-repeat;
 }
 
-div.welcome {
+div.profile {
 	position: relative;
 	margin: 0 auto;
 	top: 0%;
@@ -100,14 +100,14 @@ i  {
 	font-style: italic;
 }
 
-.welcome{
+.profile{
 	position: relative;
 	margin: 0 auto;
     top: 15%;
     width: 500px;
 }
 
-.welcome h1 {
+.profile h1 {
 	text-align: center;
 	color: #808080;
 	font-size: 3.5em;
@@ -117,48 +117,48 @@ i  {
 
 /* mobile version*/
 @media (max-width: 499px) {
-  .welcome {
+  .profile {
   	width: auto;
   	margin: 0 20px;
   }
   
-  .welcome h1 {
+  .profile h1 {
 	text-align: center;
 	color: #808080;
 	font-size: 2.5em;
 	
   }
-
-  .welcome h2 {
-  text-align: center;
-  font-size: 50%;
-  }
    
 }
 
-.welcome h2 {
-   width: 100%; 
-   text-align: center; 
-   border-bottom: 1px solid #000; 
-   line-height: 0.1em;
-   margin: 10px 0 20px; 
-   margin-top: 150px;
-   margin-bottom: 100px;
-   font-size: 130%;
-   font-weight:100;
-   
-} 
-
-.welcome h2 span { 
-    background:#fff; 
-    padding:0 10px; 
+.profile-form{
+    margin:0 auto;
+	margin-top:30px;
+	margin-bottom:30px;
+	width:242px;
+	text-align:left
 }
-p#add{
+
+.profile-form label{
+    font-style:italic
+}
+
+.profile-form input{
+    display:block;
+	margin:0 0 15px 0;
+	padding:10px;
+	width:220px;
+	border:1px solid #3c3c3c;
+	border-radius:2px;
+	background-color:white
+}
+
+p#save{
 	text-align:center;
-	margin-top: 200px;
 	
 }
-.welcome .addbutton {
+
+.profile .profile-form .savebutton {
  -webkit-appearance:none;
 	width: 49%;
 	display: inline-block;
@@ -176,41 +176,12 @@ p#add{
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 20px;
+  margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 
-.welcome .addbutton:hover {
-	opacity: 0.75;
-	cursor: pointer;
-}
-
-p#list{
-	text-align:center;
-	
-}
-.welcome .listbutton {
- -webkit-appearance:none;
-	width: 49%;
-	display: inline-block;
-	margin: 0;
-	padding: 15px;
-	background:none;
-	background-color: #214864;
-  border:none;
-  color:white;
-  -webkit-border-radius: 5px; /*For Safari, etc. */
-  -moz-border-radius: 5px; /* For Mozilla, etc. */
-  border-radius: 5px; /* CSS3 Feature */
-  opacity: 1.0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size: 20px;
-  margin-bottom: 50px;
-}
-
-
-.welcome .listbutton:hover {
+.profile .profile-form .savebutton:hover {
 	opacity: 0.75;
 	cursor: pointer;
 }

@@ -5,15 +5,33 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Welcome to Virtue/Vice!</title>
 		<link rel="stylesheet" href="../css/welcome.css">
+		<link rel="stylesheet" href="../css/normalize.css">
 	</head>
 	<body>
+	<nav>
+      <ul>
+        <li><a href="welcome.html">Home</a></li>
+        <li class="sub">
+		    <a href="login.html">Settings</a>
+			<ul>
+			    <li><a href="profile.html">Profiles</a></li>
+				<li><a href="login.html">Log Out</a></li>
+			</ul>
+		</li>
+      </ul>
+    </nav>
 	  <div class="welcome">
+	    <br>
 	  	<h1>virtue / <i>vice</i></h1>
 
         <h2><span>keep your habits in line</span></h2>
 
-	    <p id="add"><input class="addbutton" type="button" value="add a habit" onclick="location.href='add.html'">
+	    <p id="add"><input class="addbutton" type="button" value="Add a Habit" onclick="location.href='add.html'">
+		</p>
+		<p id="list"><input class="listbutton" type="button" value="List Habits" onclick="location.href='list.html'">
 		</p>
 	  </div>
+	  <footer>&copy; Team XYZ
+      </footer>
 	</body>
 </html>
