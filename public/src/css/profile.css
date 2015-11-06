@@ -117,6 +117,15 @@ i  {
 
 /* mobile version*/
 @media (max-width: 499px) {
+  div.profile {
+  	position: relative;
+  	margin: 0 auto;
+	top: 0%;
+	width: 350px;
+	background-color: white;
+	border-radius: 25px;
+  }
+  
   .profile {
   	width: auto;
   	margin: 0 20px;
@@ -186,6 +195,23 @@ p#save{
 	cursor: pointer;
 }
 
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+
+#profile {
+padding-bottom:40px;
+}
+#footer {
+	background:#214864;
+	width:100%;
+	height:40px;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
 footer {
   text-align:center;
   color:white;
@@ -193,5 +219,6 @@ footer {
   position: relative;
   margin: 0 auto;
   border-top:1px solid #eee;
-  line-height:40px;font-size:16px;
+  line-height:40px;
+  font-size:16px;
 }
