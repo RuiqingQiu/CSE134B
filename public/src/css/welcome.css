@@ -86,12 +86,12 @@ nav ul > li.sub{
 
 div.welcome {
 	position: relative;
-	margin: 0 auto;
+	margin: 0 auto ;
 	top: 0%;
 	width: 500px;
 	background-color: white;
 	border-radius: 25px;
-	bottom: auto;
+/* 	bottom: auto; */
 }
 
 i  {
