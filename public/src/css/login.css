@@ -70,7 +70,7 @@ body {
   border-radius: 5px; /* CSS3 Feature */
 }
 
-.login .loginForm input {
+.login .loginForm button, input {
 	font-size: 1.0em;
 	font-family: 'Helvetica', sans-serif;
 	width: 100%;
