@@ -10,14 +10,19 @@
 
 		<div class="forms">
 			<h2>Add A Habit</h2>
-			<form>
+			<form name="habitForm">
 				<p><label><span id="title_text">Habit Title</span></label></p>
 				<p><input id="title" type="text" name="fullname" placeholder="Exercise 30 minutes"></p>
 				<p><label>Habit Icon</label></p>
 				<img id="icon1" class="icon" onclick="selectImage('icon1');" src="../../img/sleep.jpg" alt="sleep image"/>
 				<img id="icon2" class="icon" onclick="selectImage('icon2');" src="../../img/salad.jpg" alt="eat image"/>
 				<img id="icon3" class="icon" onclick="selectImage('icon3');" src="../../img/run.jpg" alt="run image"/>
-				<img id="icon4" class="icon" src="../../img/add.png" alt="find a image"/>
+				<img id="icon4" class="icon" src="../../img/add.png" alt="find a image" onclick="chooseFile();"/>
+				<div style="height:0px;overflow:hidden">
+				   <input type="file" id="profilePhotoFileUpload" name="fileInput" />
+				</div>
+				
+				
 				<p><label>Weekly Frequency</label></p>
 				<div id="ck-button">
 					<label> <input type="checkbox" name="date" value="sunday"><span>Sun</span></label>
@@ -32,17 +37,20 @@
 
 				<p><label>Daily Frequency</label></p>
 				<div id="daily-button">
-					<label> <input type="checkbox" name="day" value="one"><span>1</span></label>
-					<label> <input type="checkbox" name="day" value="two"><span>2</span></label>
-					<label> <input type="checkbox" name="day" value="three"><span>3</span></label>
+					<label> <input type="checkbox" name="day" value="1"><span>1</span></label>
+					<label> <input type="checkbox" name="day" value="2"><span>2</span></label>
+					<label> <input type="checkbox" name="day" value="3"><span>3</span></label>
 					<span id="times">times</span>
 				</div>
 				<p><label><span id="others_text">Others: </span><input id="others" type="text" name="day" placeholder="More than 3 times"></label></p>
-				<p id="save_p"><input id="save" type="button" value="Save It" onclick="location.href='list.html'"></p>
+				<p id="save_p"><input id="save" type="button" value="Save It" onclick="addHabit()"></p>
 
 			</form>
 
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="../../lib/parse-1.6.7.min.js"></script>
+		<script src="../js/add.js"></script>
 		<script>
 			function selectImage(name) {
 				//Clear all the other effects
@@ -52,6 +60,11 @@
 				var image = document.getElementById(name);
 				image.style.border = "5px solid #42A5F5";
 			}
+		</script>
+		<script>
+				   function chooseFile() {
+				      $("#profilePhotoFileUpload").click();
+				   }
 		</script>
 	</body>
 </html>
