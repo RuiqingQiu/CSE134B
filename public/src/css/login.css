@@ -30,6 +30,12 @@ body {
   -moz-transform: translateY(-75%);
   -ms-transform: translateY(-75%);
   transform: translate(-50%, -75%); */
+  background-color: white;
+  -webkit-border-radius: 25px; /*For Safari, etc. */
+  -moz-border-radius: 25px; /* For Mozilla, etc. */
+  border-radius: 25px; /* CSS3 Feature */
+  padding-bottom: 25px;
+
 }
 
 @media (max-width: 450px) {
@@ -43,6 +49,7 @@ body {
   font-size: 3.5em;
   text-align: center;
   color: #808080;
+  margin: 0;
 }
 
 .login h1 i {
@@ -64,13 +71,10 @@ body {
 	padding-left: 15px;
 	padding-right: 20px;
 	margin-bottom: 15px;
-	background-color: white;
-  -webkit-border-radius: 5px; /*For Safari, etc. */
-  -moz-border-radius: 5px; /* For Mozilla, etc. */
-  border-radius: 5px; /* CSS3 Feature */
+
 }
 
-.login .loginForm input {
+.login .loginForm button, input {
 	font-size: 1.0em;
 	font-family: 'Helvetica', sans-serif;
 	width: 100%;
@@ -117,10 +121,15 @@ body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	padding-left: 2px;
+	padding-left: 20px;
+  padding-right: 20px;
 	-webkit-transition: bottom 1s, height 0.5s;
 	transition: bottom 1s, height 0.5s;
   -webkit-appearance:none;
+  padding-bottom: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .login .loginForm .loginButton {
