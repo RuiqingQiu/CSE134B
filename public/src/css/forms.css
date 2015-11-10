@@ -6,6 +6,7 @@ html {
 }
 
 body {
+  position: relative;
   font-family: 'Helvetica', sans-serif;
   background: -webkit-linear-gradient(left top, #BBDEFB, #B0C4DE) fixed; /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(bottom right,#BBDEFB, #B0C4DE) fixed; /* For Opera 11.1 to 12.0 */
@@ -28,6 +29,13 @@ div.forms {
 	background-color: white;
 	border-radius: 25px;
 	bottom: auto;
+	opacity: 1.0;
+}
+input#image{
+	height: 50px;
+	width: 350px;
+	font-size:medium;
+
 }
 input#title{
 	height: 30px;
@@ -224,4 +232,64 @@ span#times{
     cursor: pointer;
 }
 
+
+
+div.container{
+	position: absolute;
+	top: 10%; bottom: 50%;
+	left:50%;
+    margin-left:-200px;
+    height:440px;
+    width:400px;
+    background-color: white;
+	visibility: hidden;
+}
+div.action
+{
+    width: 400px;
+    height: 30px;
+    margin: 10px 0;    
+}
+div.cropped>img
+{
+    margin-right: 10px;
+}
+div.imageBox
+{
+    position: relative;
+    height: 400px;
+    width: 400px;
+    border:1px solid #aaa;
+    background: #fff;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    cursor:move;
+}
+
+div.imageBox div.thumbBox
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+    box-sizing: border-box;
+    border: 1px solid rgb(102, 102, 102);
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+    background: none repeat scroll 0% 0% transparent;
+}
+
+.imageBox .spinner
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    line-height: 400px;
+    background: rgba(0,0,0,0.7);
+}
 
