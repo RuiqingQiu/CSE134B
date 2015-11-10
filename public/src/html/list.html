@@ -12,7 +12,7 @@
         <ul id="habit-list">
             <script id="list-template" type="text/x-handlebars-template">
                 {{#each this}}
-                <li>
+                <li class="habit-entry" id="{{id}}">
                     <ul class="habit-info">
                         <li><div class="habit-name">{{title}}</div></li>
                         <li><img class="habit-icon" src="../../img/sleep.jpg" alt="habit icon"></li>
@@ -34,7 +34,7 @@
                         <button type="button" class="op op-edit" onclick="location.href='edit.html'" title="edit habit">
                             <img src="../../img/edit.svg" alt="Edit">
                         </button>
-                        <button type="button" class="op op-del" onclick="deleteHabit(this);" title="delete habit">
+                        <button type="button" class="op op-del"  title="delete habit">
                             <img src="../../img/delete.svg" alt="Del">
                         </button>
                     </div>
@@ -62,8 +62,28 @@
             listHabits();
         });
 
-        function deleteHabit(){
-
+        function deleteHabit(id){
+            // need to confirm first
+            var habit = Parse.Object.extend("Habit");
+            // var currUser = Parse.User.current();
+            var query = new Parse.Query(habit);
+            // query.equalTo("user_id", currUser);
+            // query.equalTo("id", id);
+            var toDelete = query.get(id, {
+                success: function(obj) {
+                    obj.destroy({
+                        success: function(obj) {
+                            alert("deleted!");
+                        },
+                        error: function(obj, error) {
+                            alert("Error: " + error.code + " " + error.message);
+                        }
+                    });
+                },
+                error: function(obj, error) {
+                    alert("Error: " + error.code + " " + error.message);
+                }                
+            });
         }
 
         function listHabits(){
@@ -92,6 +112,12 @@
                     console.log(JSON.stringify(jsonArray));
 
                     renderHBTemplate($("#list-template"), jsonArray, $("#habit-list"));
+
+                    $(".habit-entry .op-del").click(function(event){
+                        event.preventDefault();
+                        var toDelete = $(this).closest(".habit-entry").attr("id");
+                        deleteHabit(toDelete);
+                    });
                 },
                 error: function(error) {
                     alert("Error: " + error.code + " " + error.message);
@@ -109,11 +135,11 @@
             msgElement.style.visibility="visible";
         }
 
-        function deleteHabit(element){
-            var child = element.parentNode.parentNode;
-            var parent = child.parentNode;
-            parent.removeChild(child);
-        }
+        // function deleteHabit(element){
+        //     var child = element.parentNode.parentNode;
+        //     var parent = child.parentNode;
+        //     parent.removeChild(child);
+        // }
 
     </script>
 </body>
