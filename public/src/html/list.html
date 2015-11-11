@@ -15,7 +15,7 @@
                 <li class="habit-entry" id="{{id}}">
                     <ul class="habit-info">
                         <li><div class="habit-name">{{title}}</div></li>
-                        <li><img class="habit-icon" src="../../img/sleep.jpg" alt="habit icon"></li>
+                        <li><img class="habit-icon" src="{{icon_image._url}}" alt="habit icon"></li>
                     </ul>
                     <div class="message">
                         <span class="message-total">
@@ -112,7 +112,7 @@
 
                         HABIT.jsonArray[i] = jsonData;
                     }
-                    // console.log(JSON.stringify(jsonArray));
+                    console.log(HABIT.jsonArray);
 
                     renderHBTemplate($("#list-template"), HABIT.jsonArray, $("#habit-list"));
 
