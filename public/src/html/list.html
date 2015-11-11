@@ -8,7 +8,7 @@
 </head>
 <body>
     <section>
-        <h1 onclick="doSomething();">Habit List</h1>
+        <h1>Habit List</h1>
         <ul id="habit-list">
             <script id="list-template" type="text/x-handlebars-template">
                 {{#each this}}
@@ -25,10 +25,10 @@
                                 <line x1="0" y1="0" x2="{{progress}}" y2="0" style="stroke:rgba(65, 131, 215, 0.8);stroke-width:25" />
                             </svg>
                         </span><br>
-                        <span class="message-today">Completed <strong>1/1</strong> for today!</span>
+                        <span class="message-today">Completed <strong>{{daily_current}}/{{daily_frequency}}</strong> for today!</span>
                     </div>
                     <div class="habit-op">
-                        <button type="button" class="op op-done" onclick="showMsg(this);" title="done">
+                        <button type="button" class="op op-done" title="done">
                             <img src="../../img/done.svg" alt="Done">
                         </button>
                         <button type="button" class="op op-edit" onclick="location.href='edit.html'" title="edit habit">
@@ -49,9 +49,12 @@
     <script type="text/javascript" src="../../lib/parse-1.6.7.min.js"></script>
     <script type="text/javascript" src="../../lib/handlebars-v4.0.4.js"></script>
     <script type="text/javascript">
-        const PROGRESS_BAR_LENGTH = 150;
+        var CONST = {};
+        CONST.PROGRESS_BAR_LENGTH = 150;
+        var HABIT = {};
+        HABIT.jsonArray =[];
 
-        $( document ).ready(function() {
+        $(document).ready(function() {
             Parse.initialize("ULppY5RxxZUo8yekihZdVH3uHLm24j5Q6298Un4O",
                            "mDAyhkdhlv6qH9lT9WFzMCeML6ycMa1S8oWlybVG");
 
@@ -68,7 +71,6 @@
             // var currUser = Parse.User.current();
             var query = new Parse.Query(habit);
             // query.equalTo("user_id", currUser);
-            // query.equalTo("id", id);
             var toDelete = query.get(id, {
                 success: function(obj) {
                     obj.destroy({
@@ -95,28 +97,35 @@
                 success: function(results) {
                     // var a = JSON.stringify(results);
                     // console.log(a);
-                    var jsonArray =[];
+                    
                     for (var i = 0; i < results.length; i++){
                         var jsonData = {}
                         jsonData.id = results[i].id;
                         jsonData.title = results[i].get('title');
                         jsonData.icon_image = results[i].get('icon_image');
                         // jsonData.weekly_frequency = results[i].get('weekly_frequency');
+                        jsonData.daily_current = results[i].get('daily_current');
                         jsonData.daily_frequency = results[i].get('daily_frequency');
                         jsonData.current_value = results[i].get('current_value');
                         jsonData.max_value = results[i].get('max_value');
-                        jsonData.progress = jsonData.current_value / jsonData.max_value * PROGRESS_BAR_LENGTH;
+                        jsonData.progress = jsonData.current_value / jsonData.max_value * CONST.PROGRESS_BAR_LENGTH;
 
-                        jsonArray[i] = jsonData;
+                        HABIT.jsonArray[i] = jsonData;
                     }
-                    console.log(JSON.stringify(jsonArray));
+                    // console.log(JSON.stringify(jsonArray));
 
-                    renderHBTemplate($("#list-template"), jsonArray, $("#habit-list"));
+                    renderHBTemplate($("#list-template"), HABIT.jsonArray, $("#habit-list"));
 
                     $(".habit-entry .op-del").click(function(event){
                         event.preventDefault();
                         var toDelete = $(this).closest(".habit-entry").attr("id");
                         deleteHabit(toDelete);
+                    });
+
+                    $(".habit-entry .op-done").click(function(event){
+                        event.preventDefault();
+                        var toDo = $(this).closest(".habit-entry").attr("id");
+                        doHabit(toDo);
                     });
                 },
                 error: function(error) {
@@ -124,6 +133,33 @@
                 }
             });
         }
+
+        function doHabit(id){            
+            var habit = Parse.Object.extend("Habit");
+            // var currUser = Parse.User.current();
+            var query = new Parse.Query(habit);
+            // query.equalTo("user_id", currUser);
+            var toDelete = query.get(id, {
+                success: function(obj) {
+                    var daily_current = obj.get("daily_current");
+                    if(daily_current < obj.get("daily_frequency")){
+                        obj.set("daily_current", ++daily_current);
+                        obj.save({
+                            success: function(obj) {
+                                console.log("id:"+id);
+                            },
+                            error: function(obj, error) {
+                                alert("Error: " + error.code + " " + error.message);
+                            }
+                        });
+                    }
+                },
+                error: function(obj, error) {
+                    alert("Error: " + error.code + " " + error.message);
+                }                
+            });
+        }
+
 
         function renderHBTemplate(tmpl, data, parent){
             var template = Handlebars.compile($(tmpl).html());
@@ -134,12 +170,6 @@
             var msgElement = (element.parentNode.parentNode.getElementsByClassName("message"))[0];
             msgElement.style.visibility="visible";
         }
-
-        // function deleteHabit(element){
-        //     var child = element.parentNode.parentNode;
-        //     var parent = child.parentNode;
-        //     parent.removeChild(child);
-        // }
 
     </script>
 </body>
