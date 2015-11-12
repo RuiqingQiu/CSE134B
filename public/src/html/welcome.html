@@ -6,48 +6,51 @@
 		<title>Welcome to Virtue/Vice!</title>
 		<link rel="stylesheet" href="../css/welcome.css">
 		<link rel="stylesheet" href="../css/normalize.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+		<link rel="stylesheet" href="../css/animate.css">
+		<link rel="stylesheet" href="../css/bootstrap.min.css">		
 	</head>
 	<body>
-
-
-	<nav>
-	  <ul>
-	    <li><a href="welcome.html">Home</a></li>
-	    <li class="sub">
-		    <a href="login.html">Settings</a>
-			<ul>
-			    <li><a href="profile.html">Profiles</a></li>
-				<li><a href="login.html">Log Out</a></li>
-			</ul>
-		</li>
-	  </ul>	
-	</nav>
 	<div id="wrapper">
-	<!--<nav>
-	  <ul>
-	    <li><a href="welcome.html">Home</a></li>
-	    <li class="sub">
-		    <a href="login.html">Settings</a>
+	<nav>
+      <ul>
+        <li><a href="welcome.html">Home</a></li>
+        <li class="sub">
+		    <a href="#" onclick="AutoNotify()">Settings</a>
 			<ul>
 			    <li><a href="profile.html">Profiles</a></li>
-				<li><a href="login.html">Log Out</a></li>
+				<li><a href="login.html"  onclick="notifyMe()">Log Out</a></li>
 			</ul>
 		</li>
-	  </ul>	
-	</nav>-->
+      </ul>
+    </nav>
+	
 	  <div class="welcome" id="welcome">
 	    <br>
 	  	<h1>virtue / <i>vice</i></h1>
 
         <h2><span>keep your habits in line</span></h2>
-
+	
 	    <p id="add"><input class="addbutton" type="button" value="Add a Habit" onclick="location.href='add.html'">
 		</p>
 		<p id="list"><input class="listbutton" type="button" value="List Habits" onclick="location.href='list.html'">
 		</p>
+		
 	  </div>
-	  <footer>&copy; Team XYZ</footer>
+	  <div id="footer">
+	  <footer>&copy; Team XYZ
+      </footer>
+	  </div><!-- #footer -->
 	</div>  
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../../lib/parse-1.6.7.min.js"></script>
+	<script src="../js/bootstrap-notify.min.js"></script>
+	<script src="../js/welcome.js"></script>
 	</body>
+	<script>
+	$.notify("Hello, Dear Customer!!!");
+	</script>
+	<script>
+	console.log(Notification.permission);
+   </script>
 </html>
