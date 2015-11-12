@@ -120,8 +120,9 @@ function addHabit(){
 							}, {
 							  success: function(habits) {
 							    console.log("Successfully logged in!");
-							    //window.location.href = "list.html";
 							    alert("Your habit has been added");
+							    window.location.href = "list.html";
+
 							  },
 							  error: function(habits, error) {
 							    console.log("Did not insert correctly");						
@@ -170,6 +171,8 @@ function addHabit(){
 							    console.log("Successfully logged in!");
 							    //window.location.href = "list.html";
 							    alert("Your habit has been added");
+							    window.location.href = "list.html";
+
 							  },
 							  error: function(habits, error) {
 							    console.log("Did not insert correctly");
@@ -222,6 +225,8 @@ function addHabit(){
 							    console.log("Successfully logged in!");
 							    //window.location.href = "list.html";
 							    alert("Your habit has been added");
+							    window.location.href = "list.html";
+
 							  },
 							  error: function(habits, error) {
 							    console.log("Did not insert correctly");
@@ -268,6 +273,8 @@ function addHabit(){
 			    console.log("Successfully logged in!");
 			    //window.location.href = "list.html";
 			    alert("Your habit has been added");
+				window.location.href = "list.html";
+
 			  },
 			  error: function(habits, error) {
 			    console.log("Did not insert correctly");
