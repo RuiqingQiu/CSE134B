@@ -5,17 +5,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Add a habit</title>
 		<link rel="stylesheet" href="../css/forms.css">
-		<link rel="stylesheet" href="../../lib/bootstrap-customized.css">
+		<link rel="stylesheet" href="../css/modal.css">
 		<script type="text/javascript" src="../../lib/jquery-2.1.4.min.js"></script>
 		<script src="../../lib/parse-1.6.7.min.js"></script>
 		<script src="../js/add.js"></script>
 		<script src="../js/cropbox.js"></script>
-		<script src="../../lib/bootstrap-customized.js"></script>
+		<script src="../js/modal.js"></script>
 	</head>
 	<body>
 
 		<div class="forms" id="habit-form">
-			<h2>Add AAA Habit</h2>
+			<h2>Add A Habit</h2>
 			<form name="habitForm">
 				<p><label><span id="title_text">Habit Title</span></label></p>
 				<p><input id="title" type="text" name="fullname" placeholder="Exercise 30 minutes"></p>
@@ -69,39 +69,37 @@
 		        <button id="btnCrop" class="btn btn-success" onclick="saveImageSelector()">Save</button> 
 		        <button id="btnCancel" onclick="closeImageSelector()" class="btn btn-danger">Cancel</button>
 
-			 </div>   
+			 </div>
+		        
 		    </div>
 		    <div class="cropped">
 		    	<img id="cropped" style="display: none" src="" alt="image">
 		    </div>
 		</div>
 		
-		
-		
-	  <!-- Modal -->
-	  <div class="modal fade" id="myModal" role="dialog">
-	    <div class="modal-dialog">
-	    
-	      <!-- Modal content-->
-	      <div class="modal-content">
-	        <div class="modal-header">
-	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h4 class="modal-title">Cancel Confirmation</h4>
-	        </div>
-	        <div class="modal-body">
-	          <p>Are you sure you want to cancel?</p>
-	        </div>
-	        <div class="modal-footer">
-	          <button type="button" class="btn btn-info" data-dismiss="modal" onclick="location.href ='list.html'">Yes</button>
-			  <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-
-	        </div>
-	      </div>
-	      
-	    </div>
-	  </div>
-  		
-		
-		
+		<div class="modal2">
+		  <!-- Modal -->
+		  <div class="modal fade" id="modal_save_image" role="dialog">
+		    <div class="modal-dialog">
+		    
+		      <!-- Modal content-->
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h4 class="modal-title">Cancel Confirmation</h4>
+		        </div>
+		        <div class="modal-body">
+		          <p>Are you sure you want to cancel and exit?</p>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-primary" data-dismiss="modal">Yes</button>
+		          <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+		        </div>
+		      </div>
+		      
+		    </div>
+		  </div>
+		  
+		</div>
 	</body>
 </html>

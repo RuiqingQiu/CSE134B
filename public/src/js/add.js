@@ -112,7 +112,7 @@ function addHabit(){
 							  current_value: cur_val,
 							  daily_frequency: 3,
 							  daily_current: 0,
-							  icon_image: parseFile,
+							  icon_image: null,
 							  max_value:max_val,
 							  title: habit_title,
 							  user_id: Parse.User.current(),
@@ -120,9 +120,8 @@ function addHabit(){
 							}, {
 							  success: function(habits) {
 							    console.log("Successfully logged in!");
+							    //window.location.href = "list.html";
 							    alert("Your habit has been added");
-							    window.location.href="list.html";
-
 							  },
 							  error: function(habits, error) {
 							    console.log("Did not insert correctly");						
@@ -161,7 +160,7 @@ function addHabit(){
 							  current_value: cur_val,
 							  daily_frequency: 3,
 							  daily_current: 0,
-							  icon_image: parseFile,
+							  icon_image: null,
 							  max_value:max_val,
 							  title: habit_title,
 							  user_id: Parse.User.current(),
@@ -169,9 +168,8 @@ function addHabit(){
 							}, {
 							  success: function(habits) {
 							    console.log("Successfully logged in!");
+							    //window.location.href = "list.html";
 							    alert("Your habit has been added");
-							    window.location.href="list.html";
-
 							  },
 							  error: function(habits, error) {
 							    console.log("Did not insert correctly");
@@ -214,7 +212,7 @@ function addHabit(){
 							  current_value: cur_val,
 							  daily_frequency: 3,
 							  daily_current: 0,
-							  icon_image: parseFile,
+							  icon_image: null,
 							  max_value:max_val,
 							  title: habit_title,
 							  user_id: Parse.User.current(),
@@ -224,7 +222,6 @@ function addHabit(){
 							    console.log("Successfully logged in!");
 							    //window.location.href = "list.html";
 							    alert("Your habit has been added");
-							    window.location.href="list.html";
 							  },
 							  error: function(habits, error) {
 							    console.log("Did not insert correctly");
@@ -271,7 +268,6 @@ function addHabit(){
 			    console.log("Successfully logged in!");
 			    //window.location.href = "list.html";
 			    alert("Your habit has been added");
-				window.location.href="list.html";
 			  },
 			  error: function(habits, error) {
 			    console.log("Did not insert correctly");
