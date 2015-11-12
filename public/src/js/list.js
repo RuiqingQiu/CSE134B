@@ -112,13 +112,11 @@
             });
         }
 
+        function dismissHabit(){
+            
+        }
 
         function renderHBTemplate(tmpl, data, parent){
             var template = Handlebars.compile($(tmpl).html());
             $(parent).append(template(data));
-        }
-
-        function showMsg(element){
-            var msgElement = (element.parentNode.parentNode.getElementsByClassName("message"))[0];
-            msgElement.style.visibility="visible";
         }
