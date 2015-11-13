@@ -17,6 +17,15 @@
                         <li><div class="habit-name">{{title}}</div></li>
                         <li><img class="habit-icon" src="{{icon_image._url}}" alt="habit icon"></li>
                     </ul>
+                    <div class="dropdown">
+                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Edit</a></li>
+                        <li><a href="#">Delete/a></li>
+                      </ul>
+                    </div>
                     <div class="message">
                         <span class="message-total">
                             <strong>{{current_value}}</strong> day(s) in a row! Best Record: <strong>{{max_value}}</strong><br>
