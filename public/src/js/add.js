@@ -95,7 +95,7 @@ function selectImage(name) {
 	}
 }
 function error_checking(){
-	
+	return 0;
 }
 
 function addHabit(){
