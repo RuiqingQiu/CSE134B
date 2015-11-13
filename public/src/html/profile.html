@@ -5,25 +5,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>User Profile</title>
 		<link rel="stylesheet" href="../css/profile.css">
+		<link rel="stylesheet" href="../css/navigation.css">
 		<link rel="stylesheet" href="../css/normalize.css">
 		<link rel="stylesheet" href="../css/animate.css">
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
 	</head>
 	<body>
+		<header>
+		<nav>
+		  <ul>
+			<li><a href="welcome.html">Home</a></li>
+			<li><a href="profile.html">Setting</a></li>
+			<li><a href="login.html"  onclick="Logout()">Log Out</a></li>
+			<li><a href="#" onclick="progressBar()">ProgressBar</a></li>
+		  </ul>
+		</nav>
+	</header>
 	<div id="wrapper">
-	<nav>
-      <ul>
-        <li><a href="welcome.html">Home</a></li>
-        <li class="sub">
-		    <a href="login.html">Settings</a>
-			<ul>
-			    <li><a href="profile.html">Profiles</a></li>
-				<li><a href="login.html">Log Out</a></li>
-			</ul>
-		</li>
-		<li><a href="#" onclick="progressBar()">Progress Bar</a></li>
-      </ul>
-    </nav>
 	  <div class="profile" id="profile">
 	    <br>
 	  	<h1>virtue / <i>vice</i></h1>
@@ -41,16 +39,16 @@
         </div>
 		             
 	  </div>
-	  <div id="footer">
+	</div>  
 	  <footer>&copy; Team XYZ
       </footer>
-	  </div>
-	</div>  
+	  
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="../../lib/parse-1.6.7.min.js"></script>
 	<script src="../js/bootstrap-notify.min.js"></script>
 	<script src="../js/profile.js"></script>
+	<script src="../js/navigation.js"></script>
 	<script>
 		$( document ).ready(function() {
 		Parse.initialize("ULppY5RxxZUo8yekihZdVH3uHLm24j5Q6298Un4O",

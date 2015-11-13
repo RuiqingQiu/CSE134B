@@ -17,73 +17,6 @@ body {
   margin: 0;
 }
 
-nav {
-    background-color: #214864;
-    border: 1px solid #333;
-    color: #fff;
-    display: block;
-	margin: 0 auto;
-    overflow: hidden;
-	margin-bottom: 15px;
-}
-nav ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-nav ul li {
-    margin: 0;
-    display: inline-block;
-    list-style-type: none;
-    transition: all 0.2s;
-}
-
-nav > ul > li > a {
-    color: white;
-    display: block;
-    line-height: 2em;
-    padding: 0.5em 2em;
-    text-decoration: none;
-
-}
-
-nav li > ul{
-    display : none;
-    margin-top:1px;
-    background-color: #bbb;
-
-}
-
-nav li > ul li{
-    display: block;
-}
-
-nav  li > ul li a {
-    color: white;
-	-color: #111;
-    display: block;
-    line-height: 2em;
-    padding: 0.5em 2em;
-    text-decoration: none;
-}
-
-nav li:hover {
-/*    background-color: #214864;
-	opacity: 0.75;
-*/	
-	background-color: #666;
-}
-
-nav li:hover > ul{
-    position:absolute;
-    display : block;
-	background-color: #214864;
-}
-
-nav ul > li.sub{
-    background: url(../../img/ic_keyboard_arrow_down_white_18dp.png) right center no-repeat;
-}
-
 div.welcome {
 	position: relative;
 	margin: 0 auto;
@@ -227,18 +160,11 @@ p#list{
 #wrapper {
 	min-height:100%;
 	position:relative;
+	margin: 60px auto;
 }
 
 #welcome {
 padding-bottom:40px;
-}
-#footer {
-	background:#214864;
-	width:100%;
-	height:40px;
-	position:absolute;
-	bottom:0;
-	left:0;
 }
 
 footer {
@@ -248,4 +174,5 @@ footer {
   margin: 0 auto;
   border-top:1px solid #eee;
   line-height:40px;font-size:16px;
+  background:#214864;
 }
