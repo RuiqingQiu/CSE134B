@@ -73,7 +73,7 @@
 		        
 		    </div>
 		    <div class="cropped">
-		    	<img id="cropped" style="display: none" src="" alt="image">
+		    	<img id="cropped" style="display: none" src="../../img/default.jpg" alt="image">
 		    </div>
 		</div>
 		
@@ -99,6 +99,12 @@
 		    </div>
 		  </div>
 		  <script>
-		  			  </script>
+			//For setting up trigger when others text field changed
+			$('#others').on('input',function(e){
+				document.getElementById('day1').checked = false;
+				document.getElementById('day2').checked = false;
+				document.getElementById('day3').checked = false;
+			});
+		  </script>
 	</body>
 </html>
