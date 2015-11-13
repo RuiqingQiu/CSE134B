@@ -112,11 +112,12 @@
             });
         }
 
-        function dismissHabit(){
-            
+		function dismissHabit(){		
+          		
         }
-
         function renderHBTemplate(tmpl, data, parent){
             var template = Handlebars.compile($(tmpl).html());
             $(parent).append(template(data));
         }
+
+       
