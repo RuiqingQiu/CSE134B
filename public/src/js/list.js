@@ -25,6 +25,7 @@
                     obj.destroy({
                         success: function(obj) {
                             alert("deleted!");
+                            location.reload();
                         },
                         error: function(obj, error) {
                             alert("Error: " + error.code + " " + error.message);
@@ -65,7 +66,13 @@
 
                     renderHBTemplate($("#list-template"), HABIT.jsonArray, $("#habit-list"));
 
-                    $(".habit-entry .op-del").click(function(event){
+                    $(".habit-entry .edit").click(function(event){
+                        event.preventDefault();
+                        var toEdit = $(this).closest(".habit-entry").attr("id");
+                        editHabit(toEdit);
+                    });
+
+                    $(".habit-entry .del").click(function(event){
                         event.preventDefault();
                         var toDelete = $(this).closest(".habit-entry").attr("id");
                         deleteHabit(toDelete);
@@ -75,6 +82,12 @@
                         event.preventDefault();
                         var toDo = $(this).closest(".habit-entry");
                         doHabit($(toDo));
+                    });
+
+                    $(".habit-entry .op-dismiss").click(function(event){
+                        event.preventDefault();
+                        var toDo = $(this).closest(".habit-entry");
+                        // doHabit($(toDo));
                     });
                 },
                 error: function(error) {
@@ -113,8 +126,14 @@
         }
 
 		function dismissHabit(){		
-          		
+          	
         }
+
+        function editHabit(id){
+            // GLOBAL.objectId = id;
+            location.href='edit.html';
+        }
+
         function renderHBTemplate(tmpl, data, parent){
             var template = Handlebars.compile($(tmpl).html());
             $(parent).append(template(data));
