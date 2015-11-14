@@ -4,6 +4,7 @@
     <title>Virtue / Vice</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../lib/bootstrap-customized.css">
     <link rel="stylesheet" type="text/css" href="../css/list.css">
 </head>
 <body>
@@ -18,12 +19,12 @@
                         <li><img class="habit-icon" src="{{icon_image._url}}" alt="habit icon"></li>
                     </ul>
                     <div class="dropdown">
-                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <span class="caret"></span>
+                      <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <img class="settings-img" src="../../img/wrench.svg" alt="settings">
                       </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Edit</a></li>
-                        <li><a href="#">Delete/a></li>
+                      <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+                        <li><a href="#" class="edit">Edit</a></li>
+                        <li><a href="#" class="delete">Delete</a></li>
                       </ul>
                     </div>
                     <div class="message">
@@ -40,10 +41,11 @@
                         <button type="button" class="op op-done" title="done">
                             <img src="../../img/done.svg" alt="Done">
                         </button>
+                        <!--
                         <button type="button" class="op op-edit" onclick="location.href='edit.html'" title="edit habit">
                             <img src="../../img/edit.svg" alt="Edit">
-                        </button>
-                        <button type="button" class="op op-del"  title="delete habit">
+                        </button>-->
+                        <button type="button" class="op op-dismiss"  title="dismiss">
                             <img src="../../img/delete.svg" alt="Del">
                         </button>
                     </div>
@@ -55,8 +57,10 @@
 
     <button type="button" id="addHabit" onclick="location.href='add.html'" title="add habit">+</button>
     <script type="text/javascript" src="../../lib/jquery-2.1.4.min.js"></script>
+    <script src="../../lib/bootstrap-customized.js"></script>
     <script type="text/javascript" src="../../lib/parse-1.6.7.min.js"></script>
     <script type="text/javascript" src="../../lib/handlebars-v4.0.4.js"></script>
+    <script type="text/javascript" src="../js/edit.js"></script>
     <script type="text/javascript" src="../js/list.js"></script>
 </body>
 </html>
