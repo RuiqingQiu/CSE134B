@@ -125,7 +125,7 @@ function error_checking(){
 	}
 	//Daily frequency including others
 	if(daily_freq == 0){
-		if(document.getElementById("others").value){
+		if(document.getElementById("others").value > 0){
 			daily_freq = document.getElementById("others").value;
 		}
 		else{
