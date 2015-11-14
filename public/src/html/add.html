@@ -6,14 +6,25 @@
 		<title>Add a habit</title>
 		<link rel="stylesheet" href="../css/forms.css">
 		<link rel="stylesheet" href="../../lib/bootstrap-customized.css">
+		<link rel="stylesheet" href="../css/navigation.css">
+
 		<script type="text/javascript" src="../../lib/jquery-2.1.4.min.js"></script>
 		<script src="../../lib/parse-1.6.7.min.js"></script>
 		<script src="../js/add.js"></script>
 		<script src="../js/cropbox.js"></script>
+		<script src="../js/navigation.js"></script>
 		<script src="../../lib/bootstrap-customized.js"></script>
 	</head>
 	<body>
-
+	<header>
+		<nav>
+		  <ul>
+			<li><a href="welcome.html">Home</a></li>
+			<li><a href="profile.html">Setting</a></li>
+			<li><a href="login.html"  onclick="Logout()">Log Out</a></li>
+		  </ul>
+		</nav>
+	</header>
 		<div class="forms" id="habit-form">
 			<h2>Add A Habit</h2>
 			<form name="habitForm">
