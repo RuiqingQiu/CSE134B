@@ -23,10 +23,12 @@ body{
 .message-total{visibility: visible;}
 .message-total>svg{margin: 15px auto;}
 
+
 .dropdown{position:absolute;top:0;right:0;}
 .dropdown-toggle{background:transparent;border:0;}
 .dropdown-toggle:hover{background:rgba(200,200,200,0.8);border:1 solid rgba(200,200,200,0.9);border-radius: 4px;}
 .settings-img{width:30px;}
+.dropdown-menu>li>a{padding: 10px 5px 10px 5px !important;font-size:18px;color:#888;}
 .dropdown-menu>li>a:hover{background: rgba(200,200,200,0.8)}
 
 /* operations (for a existing habit) */
