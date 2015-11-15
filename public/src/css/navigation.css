@@ -36,7 +36,13 @@ nav > ul > li > a {
 	
 }
 
-nav>ul>li>a:hover{	color: white !important;}
+a#logout {
+	position:absolute;
+	top:0;
+	right:0;
+}
+
+nav>ul>li>a:hover{	color: white ;}
 
 nav li:hover {
 /*    background-color: #214864;
@@ -44,4 +50,36 @@ nav li:hover {
 */	
 	background-color: rgba(51,110,123, 0.7);
 
+}
+
+footer {
+  text-align:center;
+  color:white;
+  background-color: #214864;
+  position: relative;
+  margin: 0 auto;
+  border-top:1px solid #eee;
+  line-height:40px;
+  font-size:16px;
+}
+
+.alert-minimalist {
+	background-color: rgb(241, 242, 240);
+	border-color: rgba(149, 149, 149, 0.3);
+	border-radius: 3px;
+	color: rgb(149, 149, 149);
+	padding: 10px;
+}
+.alert-minimalist > [data-notify="icon"] {
+	height: 50px;
+	margin-right: 12px;
+}
+.alert-minimalist > [data-notify="title"] {
+	color: rgb(51, 51, 51);
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.alert-minimalist > [data-notify="message"] {
+	font-size: 80%;
 }
