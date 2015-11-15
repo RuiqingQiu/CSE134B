@@ -4,14 +4,16 @@ $( document ).ready(function() {
 
 	 if(Parse.User.current() == null || Parse.User.current().authenticated() == null) {
                 window.location.href = "login.html";
-            }				   
+            }
+			else{
+				console.log(Parse.User.current().id);
+			}			   
 });
 
 
 function progressBar() {
 
 	var cur_user = Parse.User.current();
-	//console.log(cur_user);
 	var User = Parse.Object.extend("_User");
 	var query = new Parse.Query(User);
 	query.get(cur_user.id, {
@@ -65,8 +67,8 @@ function Notification(){
 	var x = document.getElementById("myonoffswitch").checked;
     console.log(x);
 	
+	// check enable of notification
 	var cur_user = Parse.User.current();
-	//console.log(cur_user);
 	var User = Parse.Object.extend("_User");
 	var query = new Parse.Query(User);
 	query.get(cur_user.id, {

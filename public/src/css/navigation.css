@@ -56,7 +56,11 @@ footer {
   text-align:center;
   color:white;
   background-color: #214864;
-  position: relative;
+  position:fixed;
+  bottom:0;
+  right:0;
+  width:100%;
+  /*position: relative;*/
   margin: 0 auto;
   border-top:1px solid #eee;
   line-height:40px;
