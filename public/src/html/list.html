@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../../lib/bootstrap-customized.css">
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
     <link rel="stylesheet" type="text/css" href="../css/list.css">
 </head>
 <body>
@@ -13,7 +14,7 @@
         <ul id="habit-list">
             <script id="list-template" type="text/x-handlebars-template">
                 {{#each this}}
-                <li class="habit-entry" id="{{id}}">
+                <li class="animated slideInLeft habit-entry" id="{{id}}">
                     <ul class="habit-info">
                         <li><div class="habit-name">{{title}}</div></li>
                         <li><img class="habit-icon" src="{{icon_image._url}}" alt="habit icon"></li>
