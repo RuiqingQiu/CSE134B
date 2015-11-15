@@ -144,11 +144,9 @@ function addHabit(){
 		var Habit = Parse.Object.extend("Habit");
 		var habit = new Habit();
 		var url = document.getElementById("cropped").src;
-		console.log(url);
 		var parseFile = new Parse.File();
 		
 		if (url.substring(0, 4) == "file" || url.substring(0, 4) == "http") {
-			console.log("enter here");
 			var lastFive = url.substr(url.length - 5); // => "Tabs1"
 			//Sleep
 			if(lastFive == "p.jpg"){
@@ -270,8 +268,6 @@ function addHabit(){
 				query.find({
 			    	success: function(images) {
 						for (var i = 0; i < images.length; i++) {
-							console.log("hello");
-							console.log(images[i].get("Image"));
 							parseFile = images[i].get("Image"); 
 							//Fields from the form table 
 							var cur_val = 0; //Since add habit, default to be 0
@@ -343,7 +339,7 @@ function addHabit(){
 			if(document.getElementById("others").value){
 				daily_freq = parseInt(document.getElementById("others").value);
 			}
-		     habit.save({
+		    habit.save({
 				  current_value: cur_val,
 				  daily_frequency: daily_freq,
 				  daily_current: 0,
