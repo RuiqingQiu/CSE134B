@@ -131,7 +131,7 @@
 
         function editHabit(id){
             // GLOBAL.objectId = id;
-            location.href='edit.html';
+            location.href='edit.html?objectID='+id;
         }
 
         function renderHBTemplate(tmpl, data, parent){

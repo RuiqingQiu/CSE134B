@@ -11,7 +11,7 @@ body{
 }
 
 #habit-list{list-style: none; padding:0;}
-#habit-list>li{position:relative; height: 240px;padding:5%; background:rgba(255,255,255,1); border:1px solid rgba(255, 255, 255, 0.3); border-radius:5px; margin:5px; padding:0;}
+#habit-list>li{position:relative; height: 240px;padding:5%; background:rgba(255,255,255,1); border:1px solid rgba(255, 255, 255, 0.3); border-radius:5px; margin:20px 5px; padding:0;}
 
 /* habit info */
 .habit-info{padding:0;margin-left:20px;}
@@ -27,6 +27,7 @@ body{
 .dropdown-toggle{background:transparent;border:0;}
 .dropdown-toggle:hover{background:rgba(200,200,200,0.8);border:1 solid rgba(200,200,200,0.9);border-radius: 4px;}
 .settings-img{width:30px;}
+.dropdown-menu>li>a:hover{background: rgba(200,200,200,0.8)}
 
 /* operations (for a existing habit) */
 .habit-op{position:absolute; right:5px;display:inline-block; height: 100%; line-height: 60px;width:100%;text-align:center;top:170px;margin:0 auto;}
