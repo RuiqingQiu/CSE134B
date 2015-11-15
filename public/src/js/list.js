@@ -58,8 +58,11 @@
                         jsonData.daily_frequency = results[i].get('daily_frequency');
                         jsonData.current_value = results[i].get('current_value');
                         jsonData.max_value = results[i].get('max_value');
-                        jsonData.progress = jsonData.current_value / jsonData.max_value * CONST.PROGRESS_BAR_LENGTH;
-
+                        if(jsonData.max_value > 0){
+                            jsonData.progress = jsonData.current_value / jsonData.max_value * CONST.PROGRESS_BAR_LENGTH;
+                        }else{
+                            jsonData.progress = 0;
+                        }
                         HABIT.jsonArray[i] = jsonData;
                     }
                     console.log(HABIT.jsonArray);
