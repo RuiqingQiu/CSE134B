@@ -7,8 +7,10 @@ $( document ).ready(function() {
 
 
 function Logout() {
+	
+	Parse.User.logOut();
 
-  // Let's check if the browser supports notifications
+// Let's check if the browser supports notifications
   if (!("Notification" in window)) {
     alert("This browser does not support desktop notification");
   }
@@ -36,6 +38,33 @@ function Logout() {
   // At last, if the user has denied notifications, and you 
   // want to be respectful there is no need to bother them any more.
 	
-  Parse.User.logOut();
+ 
+}
 
+function test() {
+$.notify({
+	icon: 'https://randomuser.me/api/portraits/med/men/77.jpg',
+	title: 'Byron Morgan',
+	message: 'Momentum reduce child mortality effectiveness incubation empowerment connect.'
+},{
+	newest_on_top: true,
+	placement: {
+		from: "top",
+		align: "right"
+	},
+	type: 'minimalist',
+	delay: 5000,
+	icon_type: 'image',
+	template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+		'<img data-notify="icon" class="img-circle pull-left">' +
+		'<span data-notify="title">{1}</span>' +
+		'<span data-notify="message">{2}</span>' +
+		'<div style="margin-top:10px">' +
+			'<p id=test style="text-align:center;">' +
+			'<input class="addbutton" type="button" value="Confirm">' +
+			'<input class="addbutton" type="button" value="Cancel" style="margin-left:5px">' +
+			'</p>' +
+		'</div>' +
+	'</div>'
+});
 }

@@ -9,7 +9,6 @@
 		<link rel="stylesheet" href="../css/normalize.css">
 		<link rel="stylesheet" href="../css/animate.css">
 		<link rel="stylesheet" href="../css/bootstrap.min.css">	
-		
 	</head>
 	<body>
 	<header>
@@ -17,7 +16,7 @@
 		  <ul>
 			<li><a href="welcome.html">Home</a></li>
 			<li><a href="profile.html">Setting</a></li>
-			<li><a href="login.html"  onclick="Logout()">Log Out</a></li>
+			<li><a href="login.html"  id="logout" onclick="Logout()">Log Out</a></li>
 		  </ul>
 		</nav>
 	</header>
@@ -47,7 +46,31 @@
 	<script src="../js/navigation.js"></script>
 	</body>
 	<script>
-	$.notify("Hello, Dear Customer!!!");
+	$( document ).ready(function() {
+		Parse.initialize("ULppY5RxxZUo8yekihZdVH3uHLm24j5Q6298Un4O",
+                   "mDAyhkdhlv6qH9lT9WFzMCeML6ycMa1S8oWlybVG");	 
+
+		var cur_user = Parse.User.current();
+		//console.log(cur_user);
+		var User = Parse.Object.extend("_User");
+		var query = new Parse.Query(User);
+		query.get(cur_user.id, {
+			success:function(user) {
+			var username = user.get("username");
+            console.log(username);
+	
+            console.log(user.get("Enable_notification"));
+			
+			if (user.get("Enable_notification")) {
+			$.notify("Hello, Dear "+username + " !!!");}
+		},
+			error: function(cur_user, error){
+			console.log(cur_user.id + "was not retrieved successfully.")
+			// The object was not retrieved successfully.
+            // error is a Parse.Error with an error code and message.
+			}
+		});	
+		});
 	</script>
 	<script>
 	console.log(Notification.permission);

@@ -9,13 +9,6 @@ $( document ).ready(function() {
 			}
 });
 
-function notifyMe() {
-
-  
-
- 
-}
-
 
 function AutoNotify() {
 	

@@ -158,7 +158,6 @@ p#list{
 }
 
 #wrapper {
-	min-height:100%;
 	position:relative;
 	margin: 60px auto;
 }
@@ -167,12 +166,4 @@ p#list{
 padding-bottom:40px;
 }
 
-footer {
-  text-align:center;
-  color:white;
-  position: relative;
-  margin: 0 auto;
-  border-top:1px solid #eee;
-  line-height:40px;font-size:16px;
-  background:#214864;
-}
+
