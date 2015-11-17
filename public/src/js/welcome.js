@@ -21,7 +21,6 @@ $( document ).ready(function() {
             console.log(user.get("Enable_notification"));
 			
 			if (user.get("Enable_notification")) {
-			$.notify("Hello, Dear "+username + " !!!");}
 			
 			$.notify({
 				title: 'Welcome',
@@ -33,15 +32,16 @@ $( document ).ready(function() {
 					align: "right"
 					},
 					type: 'minimalist',
-					delay: 3000,
+					delay: 1000,
 					template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
 					'<span data-notify="title">{1}</span>' +
 					'<span data-notify="message">{2}</span>' +
 					'</div>'
 			});
+			}
 		},
 			error: function(cur_user, error){
-			console.log(cur_user.id + "was not retrieved successfully.")
+			console.log("Us was not retrieved successfully.")
 			// The object was not retrieved successfully.
             // error is a Parse.Error with an error code and message.
 			}

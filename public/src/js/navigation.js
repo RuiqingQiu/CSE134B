@@ -8,37 +8,9 @@ $( document ).ready(function() {
 
 function Logout() {
 	
-	Parse.User.logOut();
-
-// Let's check if the browser supports notifications
-  if (!("Notification" in window)) {
-    alert("This browser does not support desktop notification");
-  }
-
-  // Let's check whether notification permissions have already been granted
-  else if (Notification.permission === "granted") {
-    // If it's okay let's create a notification
-    var notification = new Notification(
-				"Log Out Succesfully", {
-					body: "Bye-bye."
-				}
-			);
-  }
-
-  // Otherwise, we need to ask the user for permission
-  else if (Notification.permission !== 'denied') {
-    Notification.requestPermission(function (permission) {
-      // If the user accepts, let's create a notification
-      if (permission === "granted") {
-        var notification = new Notification("Hi there!");
-      }
-    });
-	console.log(Notification.permission);
-  }
-  // At last, if the user has denied notifications, and you 
-  // want to be respectful there is no need to bother them any more.
+	window.location.href = "login.html";
 	
- 
+	Parse.User.logOut();
 }
 
 function test() {
@@ -62,7 +34,7 @@ $.notify({
 		'<div style="margin-top:10px">' +
 			'<p id=test style="text-align:center;">' +
 			'<input class="addbutton" type="button" value="Confirm">' +
-			'<input class="addbutton" type="button" value="Cancel" style="margin-left:5px">' +
+			'<input class="addbutton" type="button" value="Cancel" style="margin-left:5px" onclick="Logout()">' +
 			'</p>' +
 		'</div>' +
 	'</div>'
