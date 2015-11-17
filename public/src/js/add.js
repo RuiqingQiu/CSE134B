@@ -202,8 +202,9 @@ function addHabit(){
 								}, {
 								  success: function(habits) {
 								    console.log("Successfully logged in!");
-								    alert("Your habit has been added");
-								    window.location.href = "list.html";
+								    $('#modal_save_data').modal('show');
+									//alert("Your habit has been added");
+								    //window.location.href = "list.html";
 
 								  },
 								  error: function(habits, error) {
@@ -256,10 +257,7 @@ function addHabit(){
 								}, {
 								  success: function(habits) {
 								    console.log("Successfully logged in!");
-								    //window.location.href = "list.html";
-								    alert("Your habit has been added");
-								    window.location.href = "list.html";
-
+								   	$('#modal_save_data').modal('show');
 								  },
 								  error: function(habits, error) {
 								    console.log("Did not insert correctly");
@@ -313,9 +311,7 @@ function addHabit(){
 								}, {
 								  success: function(habits) {
 								    console.log("Successfully logged in!");
-								    //window.location.href = "list.html";
-								    alert("Your habit has been added");
-								    window.location.href = "list.html";
+								    $('#modal_save_data').modal('show');
 
 								  },
 								  error: function(habits, error) {
@@ -367,9 +363,7 @@ function addHabit(){
 				}, {
 				  success: function(habits) {
 				    console.log("Successfully logged in!");
-				    alert("Your habit has been added");
-					window.location.href = "list.html";
-
+				    $('#modal_save_data').modal('show');
 				  },
 				  error: function(habits, error) {
 				    console.log("Did not insert correctly");

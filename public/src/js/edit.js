@@ -111,8 +111,7 @@ function saveEditedHabit(){
 						            habit.save({
 						                success: function(obj) {
 						                    console.log("successfully saved");
-						                    alert("The changes to your habit have been saved.");
-											window.location.href = "list.html";
+						                   	$('#modal_save_data').modal('show');
 						                },
 						                error: function(obj, error) {
 						                    alert("Error: " + error.code + " " + error.message);
@@ -167,8 +166,8 @@ function saveEditedHabit(){
 						            habit.save({
 						                success: function(obj) {
 						                    console.log("successfully saved");
-						                    alert("Your habit has been added");
-											window.location.href = "list.html";
+						                    $('#modal_save_data').modal('show');
+
 						                },
 						                error: function(obj, error) {
 						                    alert("Error: " + error.code + " " + error.message);
@@ -224,8 +223,7 @@ function saveEditedHabit(){
 						            habit.save({
 						                success: function(obj) {
 						                    console.log("successfully saved");
-						                    alert("Your habit has been added");
-											window.location.href = "list.html";
+						                    $('#modal_save_data').modal('show');
 						                },
 						                error: function(obj, error) {
 						                    alert("Error: " + error.code + " " + error.message);
@@ -274,8 +272,8 @@ function saveEditedHabit(){
 			            habit.save({
 			                success: function(obj) {
 			                    console.log("successfully saved");
-			                    alert("Your habit has been added");
-								window.location.href = "list.html";
+			                    $('#modal_save_data').modal('show');
+
 			                },
 			                error: function(obj, error) {
 			                    alert("Error: " + error.code + " " + error.message);
@@ -321,8 +319,7 @@ function saveEditedHabit(){
 		            habit.save({
 		                success: function(obj) {
 		                    console.log("successfully saved");
-		                    alert("Your habit has been added");
-							window.location.href = "list.html";
+		                    $('#modal_save_data').modal('show');
 		                },
 		                error: function(obj, error) {
 		                    alert("Error: " + error.code + " " + error.message);
