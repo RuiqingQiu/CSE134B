@@ -7,7 +7,6 @@
             Parse.initialize("ULppY5RxxZUo8yekihZdVH3uHLm24j5Q6298Un4O",
                            "mDAyhkdhlv6qH9lT9WFzMCeML6ycMa1S8oWlybVG");
 
-            // console.log(Parse.User.current());
             if(Parse.User.current() == null || Parse.User.current().authenticated() == null) {
                 window.location.href = "login.html";
             }
@@ -45,9 +44,7 @@
             query.equalTo("user_id", currUser);
             query.find({
                 success: function(results) {
-                    // var a = JSON.stringify(results);
-                    // console.log(a);
-                    
+                    // var a = JSON.stringify(results);                    
                     for (var i = 0; i < results.length; i++){
                         var jsonData = {}
                         jsonData.id = results[i].id;
@@ -65,7 +62,7 @@
                         }
                         HABIT.jsonArray[i] = jsonData;
                     }
-                    console.log(HABIT.jsonArray);
+                    // console.log(HABIT.jsonArray);
 
                     renderHBTemplate($("#list-template"), HABIT.jsonArray, $("#habit-list"));
 
@@ -77,8 +74,6 @@
 
                     $(".habit-entry .del").click(function(event){
                         event.preventDefault();
-                        // $('#deleteConfirmation').appendTo("body").modal('show');
-                        // $('section').remove('#deleteConfirmation');
                         var currentEntry = $(this).closest(".habit-entry");
                         $("#deleteConfirmation em").text($(currentEntry).find(".habit-name").text());
                         var toDelete = $(currentEntry).attr("id");
@@ -110,9 +105,7 @@
 
         function doHabit(el){            
             var habit = Parse.Object.extend("Habit");
-            // var currUser = Parse.User.current();
             var query = new Parse.Query(habit);
-            // query.equalTo("user_id", currUser);
             var toDelete = query.get($(el).attr("id"), {
                 success: function(obj) {
                     var daily_current = obj.get("daily_current");
@@ -121,7 +114,6 @@
                         obj.save({
                             success: function(obj) {
                                 var msg = $(el).find(".message-today");
-                                // alert(daily_current);
                                 msg.children(".daily-current").text(daily_current);
                                 msg.css("visibility","visible");
                             },
@@ -142,7 +134,6 @@
         }
 
         function editHabit(id){
-            // GLOBAL.objectId = id;
             location.href='edit.html?objectID='+id;
         }
 
