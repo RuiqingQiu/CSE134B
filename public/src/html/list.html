@@ -21,13 +21,16 @@
     </header>
 
     <section>
+    <noscript><p style=
+      "text-align: center; margin-bottom: 0;color:#a94442;background:#f2dede;border:1px solid #ebccd1;border-radius:5px;padding:5px;">Your browser doesn't support Javascript or Javascript is turned off! This website needs Javascript to function properly.</p></noscript>
+
         <h1>Habit List</h1>
         <ul id="habit-list">
             <script id="list-template" type="text/x-handlebars-template">
                 {{#each this}}
                 <li class="animated slideInLeft habit-entry" id="{{id}}">
                     <ul class="habit-info">
-                        <li><div class="habit-name">{{title}}</div></li>
+                        <li><div class="habit-name" title="{{title}}">{{title}}</div></li>
                         <li><img class="habit-icon" src="{{icon_image._url}}" alt="habit icon"></li>
                     </ul>
                     <div class="dropdown">
