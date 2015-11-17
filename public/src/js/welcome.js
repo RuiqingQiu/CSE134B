@@ -21,7 +21,6 @@ $( document ).ready(function() {
             console.log(user.get("Enable_notification"));
 			
 			if (user.get("Enable_notification")) {
-			$.notify("ssss");
 			$.notify({
 				title: 'Welcome',
 				message: 'Hello, Dear' +username + ' !!!'
@@ -41,7 +40,7 @@ $( document ).ready(function() {
 			}
 		},
 			error: function(cur_user, error){
-			console.log("Us was not retrieved successfully.")
+			console.log("User was not retrieved successfully.")
 			// The object was not retrieved successfully.
             // error is a Parse.Error with an error code and message.
 			}

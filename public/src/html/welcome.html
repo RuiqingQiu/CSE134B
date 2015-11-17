@@ -23,7 +23,7 @@
 		  <ul>
 			<li><a href="welcome.html">Home</a></li>
 			<li><a href="profile.html">Setting</a></li>
-			<li><a href="#" id="logout" data-toggle="modal" data-target="#modal_save_image">Log Out</a></li>
+			<li><a href="#" id="logout" data-toggle="modal" data-target="#modal_logout">Log Out</a></li>
 		  </ul>
 		</nav>
 	</header>
@@ -32,8 +32,11 @@
 	  <div class="welcome" id="welcome">
 	    <br>
 	  	<h1>virtue / <i>vice</i></h1>
-
+	  
         <h2><span>keep your habits in line</span></h2>
+		<noscript><p style="text-align: center; margin-bottom: 0;color:#a94442;background:#f2dede;border:1px solid #ebccd1;border-radius:5px;padding:5px;">
+			Your browser doesn't support Javascript or Javascript is turned off! This website needs Javascript to function properly.
+		</p></noscript>
 	
 	    <p id="add"><input class="addbutton" type="button" value="Add a Habit" onclick="location.href='add.html'">
 		</p>
@@ -43,7 +46,7 @@
 	  </div>
 	</div>  
 		<!-- Modal -->
-		  <div class="modal fade" id="modal_save_image" role="dialog">
+		  <div class="modal fade" id="modal_logout" role="dialog">
 		    <div class="modal-dialog">
 
 		      <!-- Modal content-->

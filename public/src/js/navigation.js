@@ -6,10 +6,8 @@ $( document ).ready(function() {
 });
 
 
-function Logout() {
-	
-	window.location.href = "login.html";
-	
+function Logout() {	
+	window.location.href = "login.html";	
 	Parse.User.logOut();
 }
 
