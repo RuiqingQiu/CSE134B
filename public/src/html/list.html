@@ -21,13 +21,16 @@
     </header>
 
     <section>
+    <noscript><p style=
+      "text-align: center; margin-bottom: 0;color:#a94442;background:#f2dede;border:1px solid #ebccd1;border-radius:5px;padding:5px;">Your browser doesn't support Javascript or Javascript is turned off! This website needs Javascript to function properly.</p></noscript>
+
         <h1>Habit List</h1>
         <ul id="habit-list">
             <script id="list-template" type="text/x-handlebars-template">
                 {{#each this}}
                 <li class="animated slideInLeft habit-entry" id="{{id}}">
                     <ul class="habit-info">
-                        <li><div class="habit-name">{{title}}</div></li>
+                        <li><div class="habit-name" title="{{title}}">{{title}}</div></li>
                         <li><img class="habit-icon" src="{{icon_image._url}}" alt="habit icon"></li>
                     </ul>
                     <div class="dropdown">
@@ -36,9 +39,10 @@
                       </button>
                       <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
                         <li><a href="#" class="edit">Edit</a></li>
-                        <li><a href="#" class="del">Delete</a></li>
+                        <li><a href="#" class="del" data-toggle="modal" data-target="#deleteConfirmation">Delete</a></li>
                       </ul>
                     </div>
+
                     <div class="message">
                         <span class="message-total">
                             <strong>{{current_value}}</strong> day(s) in a row! Best Record: <strong>{{max_value}}</strong><br>
@@ -53,10 +57,6 @@
                         <button type="button" class="op op-done" title="done">
                             <img src="../../img/done.svg" alt="Done">
                         </button>
-                        <!--
-                        <button type="button" class="op op-edit" title="edit habit">
-                            <img src="../../img/edit.svg" alt="Edit">
-                        </button>-->
                         <button type="button" class="op op-dismiss"  title="dismiss">
                             <img src="../../img/cross.svg" alt="Del">
                         </button>
@@ -66,6 +66,25 @@
             </script>
         </ul>
     </section>
+
+    <!-- modal -->
+    <div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Delete Habit Confirmation</h4>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to delete the habit <em></em>?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-delete">Delete</button>
+                <button type="button" class="btn btn-default btn-cancel" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+        </div>
+    </div>
 
     <!-- <footer>&copy; Team XYZ</footer> -->
 

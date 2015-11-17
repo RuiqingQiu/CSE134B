@@ -49,29 +49,5 @@
 	<script src="../js/bootstrap-notify.min.js"></script>
 	<script src="../js/profile.js"></script>
 	<script src="../js/navigation.js"></script>
-	<script>
-		$( document ).ready(function() {
-		Parse.initialize("ULppY5RxxZUo8yekihZdVH3uHLm24j5Q6298Un4O",
-                   "mDAyhkdhlv6qH9lT9WFzMCeML6ycMa1S8oWlybVG");	 
-
-		var cur_user = Parse.User.current();
-		//console.log(cur_user);
-		var User = Parse.Object.extend("_User");
-		var query = new Parse.Query(User);
-		query.get(cur_user.id, {
-			success:function(user) {
-				console.log(cur_user.id + " was retrieved successfully.")
-				// The object was retrieved successfully.
-		
-				document.getElementById("myonoffswitch").checked = user.get("Enable_notification");
-			},
-			error: function(cur_user, error){
-			console.log(cur_user.id + "was not retrieved successfully.")
-			// The object was not retrieved successfully.
-            // error is a Parse.Error with an error code and message.
-			}
-		});	
-		});
-		</script>
 	</body>
 </html>

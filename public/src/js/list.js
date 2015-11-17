@@ -24,7 +24,7 @@
                 success: function(obj) {
                     obj.destroy({
                         success: function(obj) {
-                            alert("deleted!");
+                            // floating text for delete success info
                             location.reload();
                         },
                         error: function(obj, error) {
@@ -77,8 +77,17 @@
 
                     $(".habit-entry .del").click(function(event){
                         event.preventDefault();
-                        var toDelete = $(this).closest(".habit-entry").attr("id");
-                        deleteHabit(toDelete);
+                        // $('#deleteConfirmation').appendTo("body").modal('show');
+                        // $('section').remove('#deleteConfirmation');
+                        var currentEntry = $(this).closest(".habit-entry");
+                        $("#deleteConfirmation em").text($(currentEntry).find(".habit-name").text());
+                        var toDelete = $(currentEntry).attr("id");
+
+                        $("#deleteConfirmation .btn-delete").click(function(event){
+                            event.preventDefault();
+                            deleteHabit(toDelete);
+                        });
+
                     });
 
                     $(".habit-entry .op-done").click(function(event){
@@ -90,8 +99,8 @@
                     $(".habit-entry .op-dismiss").click(function(event){
                         event.preventDefault();
                         var toDo = $(this).closest(".habit-entry");
-                        // doHabit($(toDo));
                     });
+
                 },
                 error: function(error) {
                     alert("Error: " + error.code + " " + error.message);

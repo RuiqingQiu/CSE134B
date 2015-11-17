@@ -19,7 +19,7 @@ function Logout() {
   else if (Notification.permission === "granted") {
     // If it's okay let's create a notification
     var notification = new Notification(
-				"Log Out Securely", {
+				"Log Out Succesfully", {
 					body: "Bye-bye."
 				}
 			);

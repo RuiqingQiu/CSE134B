@@ -1,5 +1,5 @@
 var QueryString = function () {
-  // This function is anonymous, is executed immediately and 
+  // This function is anonymous, is executed immediately and
   // the return value is assigned to QueryString!
   var query_string = {};
   var query = window.location.search.substring(1);
@@ -17,7 +17,7 @@ var QueryString = function () {
     } else {
       query_string[pair[0]].push(decodeURIComponent(pair[1]));
     }
-  } 
+  }
     return query_string;
 }();
 
@@ -64,7 +64,7 @@ function getHabit(){
         },
         error: function(obj, error) {
             alert("Error: " + error.code + " " + error.message);
-        }                
+        }
     });
 }
 function saveEditedHabit(){
@@ -73,7 +73,7 @@ function saveEditedHabit(){
 		var habit = new Habit();
 		var url = document.getElementById("cropped").src;
 		var parseFile = new Parse.File();
-		
+
 		if (url.substring(0, 4) == "file" || url.substring(0, 4) == "http") {
 			var lastFive = url.substr(url.length - 5); // => "Tabs1"
 			//Sleep
@@ -84,7 +84,7 @@ function saveEditedHabit(){
 				query.find({
 			    	success: function(images) {
 						for (var i = 0; i < images.length; i++) {
-							parseFile = images[i].get("Image"); 
+							parseFile = images[i].get("Image");
 							var habit = Parse.Object.extend("Habit");
 						    // var currUser = Parse.User.current();
 						    var query = new Parse.Query(habit);
@@ -95,7 +95,7 @@ function saveEditedHabit(){
 								    var weekly_freq = "";
 								    var allVals = [];
 								    $('#ck-button :checked').each(function() {
-								    	weekly_freq = weekly_freq + $(this).val() + " " 
+								    	weekly_freq = weekly_freq + $(this).val() + " "
 								    });
 								    var daily_freq = 0;
 									 $('#daily-button :checked').each(function(){
@@ -111,7 +111,7 @@ function saveEditedHabit(){
 						            habit.save({
 						                success: function(obj) {
 						                    console.log("successfully saved");
-						                    alert("Your habit has been added");
+						                    alert("The changes to your habit have been saved.");
 											window.location.href = "list.html";
 						                },
 						                error: function(obj, error) {
@@ -124,7 +124,7 @@ function saveEditedHabit(){
 						        }
 						    });
 							break;
-	           
+
 					}
 				},
 				    error: function(error) {
@@ -140,7 +140,7 @@ function saveEditedHabit(){
 				query.find({
 			    	success: function(images) {
 						for (var i = 0; i < images.length; i++) {
-							parseFile = images[i].get("Image"); 
+							parseFile = images[i].get("Image");
 							var habit = Parse.Object.extend("Habit");
 						    // var currUser = Parse.User.current();
 						    var query = new Parse.Query(habit);
@@ -151,7 +151,7 @@ function saveEditedHabit(){
 								    var weekly_freq = "";
 								    var allVals = [];
 								    $('#ck-button :checked').each(function() {
-								    	weekly_freq = weekly_freq + $(this).val() + " " 
+								    	weekly_freq = weekly_freq + $(this).val() + " "
 								    });
 								    var daily_freq = 0;
 									 $('#daily-button :checked').each(function(){
@@ -180,14 +180,14 @@ function saveEditedHabit(){
 						        }
 						    });
 							break;
-	           
+
 					}
 				},
 				    error: function(error) {
 				        alert(error);
 				    }
 				});
-	
+
 			}
 			//Run
 			else if(lastFive == "n.jpg"){
@@ -197,7 +197,7 @@ function saveEditedHabit(){
 				query.find({
 			    	success: function(images) {
 						for (var i = 0; i < images.length; i++) {
-							parseFile = images[i].get("Image"); 
+							parseFile = images[i].get("Image");
 							var habit = Parse.Object.extend("Habit");
 						    // var currUser = Parse.User.current();
 						    var query = new Parse.Query(habit);
@@ -208,7 +208,7 @@ function saveEditedHabit(){
 								    var weekly_freq = "";
 								    var allVals = [];
 								    $('#ck-button :checked').each(function() {
-								    	weekly_freq = weekly_freq + $(this).val() + " " 
+								    	weekly_freq = weekly_freq + $(this).val() + " "
 								    });
 								    var daily_freq = 0;
 									 $('#daily-button :checked').each(function(){
@@ -237,14 +237,14 @@ function saveEditedHabit(){
 						        }
 						    });
 							break;
-	           
+
 					}
 				},
 				    error: function(error) {
 				        alert(error);
 				    }
 				});
-	
+
 			}
 			else{
 				var habit = Parse.Object.extend("Habit");
@@ -258,7 +258,7 @@ function saveEditedHabit(){
 					    var weekly_freq = "";
 					    var allVals = [];
 					    $('#ck-button :checked').each(function() {
-					    	weekly_freq = weekly_freq + $(this).val() + " " 
+					    	weekly_freq = weekly_freq + $(this).val() + " "
 					    });
 					    var daily_freq = 0;
 						 $('#daily-button :checked').each(function(){
@@ -294,7 +294,7 @@ function saveEditedHabit(){
 			var fileUploadControl = $("#profilePhotoFileUpload")[0];
 			var name = document.getElementById("profilePhotoFileUpload").value.split(/(\\|\/)/g).pop();//the image
 			parseFile = new Parse.File(name, { base64: base64 });
-			//Fields from the form table 
+			//Fields from the form table
 			var habit = Parse.Object.extend("Habit");
 		    var query = new Parse.Query(habit);
 		    query.equalTo("objectId", QueryString.objectID);
@@ -305,7 +305,7 @@ function saveEditedHabit(){
 				    var weekly_freq = "";
 				    var allVals = [];
 				    $('#ck-button :checked').each(function() {
-				    	weekly_freq = weekly_freq + $(this).val() + " " 
+				    	weekly_freq = weekly_freq + $(this).val() + " "
 				    });
 				    var daily_freq = 0;
 					 $('#daily-button :checked').each(function(){
@@ -336,6 +336,6 @@ function saveEditedHabit(){
 		}
 	}
 
-    
-    
+
+
 }

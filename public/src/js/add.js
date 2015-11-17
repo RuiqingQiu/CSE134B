@@ -3,7 +3,7 @@ $(document).ready(function() {
                    "mDAyhkdhlv6qH9lT9WFzMCeML6ycMa1S8oWlybVG");
     if(Parse.User.current() == null || !Parse.User.current().authenticated()) {
         window.location.href = "login.html";
-    }	
+    }
 });
 
 function chooseFile() {
@@ -15,7 +15,7 @@ function closeImageSelector() {
 		document.getElementById("upload-image").style.visibility = "hidden";
 		document.getElementById("habit-form").style.opacity = "1.0";
 }
-// Save and display the image 
+// Save and display the image
 function saveImageSelector(image_data) {
 		document.getElementById("upload-image").style.visibility = "hidden";
 		document.getElementById("habit-form").style.opacity = "1.0";
@@ -72,7 +72,7 @@ window.onload = function() {
     document.querySelector('#btnZoomOut').addEventListener('click', function(){
         cropper.zoomOut();
     })
-		        
+
 };
 
 //Function for highlight images when selected
@@ -102,37 +102,53 @@ function error_checking(){
 	var daily_freq = 0;
 	var weekly_freq = "";
 	$('#ck-button :checked').each(function() {
-		weekly_freq = weekly_freq + $(this).val() + " " 
+		weekly_freq = weekly_freq + $(this).val() + " "
 	});
 	$('#daily-button :checked').each(function(){
 		daily_freq = parseInt($(this).val());
 	});
-	
+
 	if(habit_title == ""){
 		console.log("Please enter the title for your habit");
 		error = 1;
+		$("#title_error").css("display", "inline-block");
+	}
+	else {
+		$("#title_error").css("display", "none");
 	}
 	//Habit icon
 	//If user didn't choose an image
 	if(url.substr(url.length - 11) == "default.jpg"){
 		console.log("Please select an icon for your habit");
 		error = 1;
+		$("#habit_icon_error").css("display", "inline-block");
 	}
-	//Weekly frequency	
+	else {
+		$("#habit_icon_error").css("display", "none");
+	}
+	//Weekly frequency
 	if(weekly_freq == ""){
 		console.log("Please enter the weekly frequency for the habit");
 		error = 1;
+		$("#weekly_frequency_error").css("display", "inline-block");
+	}
+	else {
+  	$("#weekly_frequency_error").css("display", "none");
 	}
 	//Daily frequency including others
 	if(daily_freq == 0){
+		$("#daily_frequency_error").css("display", "none");
 		if(document.getElementById("others").value > 0){
 			daily_freq = document.getElementById("others").value;
 		}
 		else{
 			console.log("Please enter the daily frequency for the habit");
 			error = 1;
+			$("#daily_frequency_error").css("display", "inline-block");
 		}
-		
+	}
+	else {
+		$("#daily_frequency_error").css("display", "none");
 	}
 	return error;
 
@@ -145,7 +161,7 @@ function addHabit(){
 		var habit = new Habit();
 		var url = document.getElementById("cropped").src;
 		var parseFile = new Parse.File();
-		
+
 		if (url.substring(0, 4) == "file" || url.substring(0, 4) == "http") {
 			var lastFive = url.substr(url.length - 5); // => "Tabs1"
 			//Sleep
@@ -156,16 +172,16 @@ function addHabit(){
 				query.find({
 			    	success: function(images) {
 						for (var i = 0; i < images.length; i++) {
-							parseFile = images[i].get("Image"); 
-							//Fields from the form table 
+							parseFile = images[i].get("Image");
+							//Fields from the form table
 							var cur_val = 0; //Since add habit, default to be 0
 							var max_val = 0; //Max number of times, default to 0
 							var habit_title = document.forms["habitForm"]["fullname"].value; //The title of the habit
 						    var weekly_freq = "";
 						    var allVals = [];
 						     $('#ck-button :checked').each(function() {
-						     	weekly_freq = weekly_freq + $(this).val() + " " 
-						     });		
+						     	weekly_freq = weekly_freq + $(this).val() + " "
+						     });
 						     var daily_freq = 0;
 							 $('#daily-button :checked').each(function(){
 								daily_freq = parseInt($(this).val());
@@ -173,7 +189,7 @@ function addHabit(){
 							 if(document.getElementById("others").value){
 								 daily_freq = parseInt(document.getElementById("others").value);
 							 }
-				     
+
 						     habit.save({
 								  current_value: cur_val,
 								  daily_frequency: daily_freq,
@@ -182,20 +198,20 @@ function addHabit(){
 								  max_value:max_val,
 								  title: habit_title,
 								  user_id: Parse.User.current(),
-								  weekly_frequency: weekly_freq	  
+								  weekly_frequency: weekly_freq
 								}, {
 								  success: function(habits) {
 								    console.log("Successfully logged in!");
 								    alert("Your habit has been added");
 								    window.location.href = "list.html";
-	
+
 								  },
 								  error: function(habits, error) {
-								    console.log("Did not insert correctly");						
+								    console.log("Did not insert correctly");
 								  }
-							  });	
+							  });
 							break;
-	           
+
 					}
 				},
 				    error: function(error) {
@@ -211,23 +227,23 @@ function addHabit(){
 				query.find({
 			    	success: function(images) {
 						for (var i = 0; i < images.length; i++) {
-							parseFile = images[i].get("Image"); 
-							//Fields from the form table 
+							parseFile = images[i].get("Image");
+							//Fields from the form table
 							var cur_val = 0; //Since add habit, default to be 0
 							var max_val = 0; //Max number of times, default to 0
 							var habit_title = document.forms["habitForm"]["fullname"].value; //The title of the habit
 						    var weekly_freq = "";
 						    var allVals = [];
 						     $('#ck-button :checked').each(function() {
-						     	weekly_freq = weekly_freq + $(this).val() + " " 
-						     });	
+						     	weekly_freq = weekly_freq + $(this).val() + " "
+						     });
 						     var daily_freq = 0;
 							 $('#daily-button :checked').each(function(){
 								daily_freq = parseInt($(this).val());
 							 });
 							 if(document.getElementById("others").value){
 								 daily_freq = parseInt(document.getElementById("others").value);
-							 }					     
+							 }
 						     habit.save({
 								  current_value: cur_val,
 								  daily_frequency: daily_freq,
@@ -236,29 +252,29 @@ function addHabit(){
 								  max_value:max_val,
 								  title: habit_title,
 								  user_id: Parse.User.current(),
-								  weekly_frequency: weekly_freq	  
+								  weekly_frequency: weekly_freq
 								}, {
 								  success: function(habits) {
 								    console.log("Successfully logged in!");
 								    //window.location.href = "list.html";
 								    alert("Your habit has been added");
 								    window.location.href = "list.html";
-	
+
 								  },
 								  error: function(habits, error) {
 								    console.log("Did not insert correctly");
-							
+
 								  }
-							  });	
+							  });
 							break;
-	           
+
 					}
 				},
 				    error: function(error) {
 				        alert(error);
 				    }
 				});
-	
+
 			}
 			//Run
 			else if(lastFive == "n.jpg"){
@@ -268,15 +284,15 @@ function addHabit(){
 				query.find({
 			    	success: function(images) {
 						for (var i = 0; i < images.length; i++) {
-							parseFile = images[i].get("Image"); 
-							//Fields from the form table 
+							parseFile = images[i].get("Image");
+							//Fields from the form table
 							var cur_val = 0; //Since add habit, default to be 0
 							var max_val = 0; //Max number of times, default to 0
 							var habit_title = document.forms["habitForm"]["fullname"].value; //The title of the habit
 						    var weekly_freq = "";
 						    var allVals = [];
 						     $('#ck-button :checked').each(function() {
-						     	weekly_freq = weekly_freq + $(this).val() + " " 
+						     	weekly_freq = weekly_freq + $(this).val() + " "
 						     });
 						     var daily_freq = 0;
 							 $('#daily-button :checked').each(function(){
@@ -293,29 +309,29 @@ function addHabit(){
 								  max_value:max_val,
 								  title: habit_title,
 								  user_id: Parse.User.current(),
-								  weekly_frequency: weekly_freq	  
+								  weekly_frequency: weekly_freq
 								}, {
 								  success: function(habits) {
 								    console.log("Successfully logged in!");
 								    //window.location.href = "list.html";
 								    alert("Your habit has been added");
 								    window.location.href = "list.html";
-	
+
 								  },
 								  error: function(habits, error) {
 								    console.log("Did not insert correctly");
-							
+
 								  }
-							  });	
+							  });
 							break;
-	           
+
 					}
 				},
 				    error: function(error) {
 				        alert(error);
 				    }
 				});
-	
+
 			}
 		}
 		else{
@@ -323,14 +339,14 @@ function addHabit(){
 			var fileUploadControl = $("#profilePhotoFileUpload")[0];
 			var name = document.getElementById("profilePhotoFileUpload").value.split(/(\\|\/)/g).pop();//the image
 			parseFile = new Parse.File(name, { base64: base64 });
-			//Fields from the form table 
+			//Fields from the form table
 			var cur_val = 0; //Since add habit, default to be 0
 			var max_val = 0; //Max number of times, default to 0
 			var habit_title = document.forms["habitForm"]["fullname"].value; //The title of the habit
 		    var weekly_freq = "";
 		    var allVals = [];
 		    $('#ck-button :checked').each(function() {
-		    	weekly_freq = weekly_freq + $(this).val() + " " 
+		    	weekly_freq = weekly_freq + $(this).val() + " "
 		    });
 		    var daily_freq = 0;
 			 $('#daily-button :checked').each(function(){
@@ -347,19 +363,19 @@ function addHabit(){
 				  max_value:max_val,
 				  title: habit_title,
 				  user_id: Parse.User.current(),
-				  weekly_frequency: weekly_freq	  
+				  weekly_frequency: weekly_freq
 				}, {
 				  success: function(habits) {
 				    console.log("Successfully logged in!");
 				    alert("Your habit has been added");
 					window.location.href = "list.html";
-	
+
 				  },
 				  error: function(habits, error) {
 				    console.log("Did not insert correctly");
-			
+
 				  }
-			  });	
+			  });
 		}
 	}
 	//Else the error_checking will already display the missing fields

@@ -8,6 +8,24 @@ $( document ).ready(function() {
 			else{
 				console.log(Parse.User.current().id);
 			}			   
+			
+	var cur_user = Parse.User.current();
+		//console.log(cur_user);
+		var User = Parse.Object.extend("_User");
+		var query = new Parse.Query(User);
+		query.get(cur_user.id, {
+			success:function(user) {
+				console.log(cur_user.id + " was retrieved successfully.")
+				// The object was retrieved successfully.
+		
+				document.getElementById("myonoffswitch").checked = user.get("Enable_notification");
+			},
+			error: function(cur_user, error){
+			console.log(cur_user.id + "was not retrieved successfully.")
+			// The object was not retrieved successfully.
+            // error is a Parse.Error with an error code and message.
+			}
+		});	
 });
 
 

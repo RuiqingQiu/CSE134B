@@ -7,6 +7,45 @@ $( document ).ready(function() {
 			else{
 				console.log(Parse.User.current().id);
 			}
+			
+			var cur_user = Parse.User.current();
+			
+		//console.log(cur_user);
+		var User = Parse.Object.extend("_User");
+		var query = new Parse.Query(User);
+		query.get(cur_user.id, {
+			success:function(user) {
+			var username = user.get("username");
+            console.log(username);
+	
+            console.log(user.get("Enable_notification"));
+			
+			if (user.get("Enable_notification")) {
+			$.notify("Hello, Dear "+username + " !!!");}
+			
+			$.notify({
+				title: 'Welcome',
+				message: 'Hello, Dear' +username + ' !!!'
+			},{
+					newest_on_top: true,
+					placement: {
+					from: "top",
+					align: "right"
+					},
+					type: 'minimalist',
+					delay: 3000,
+					template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+					'<span data-notify="title">{1}</span>' +
+					'<span data-notify="message">{2}</span>' +
+					'</div>'
+			});
+		},
+			error: function(cur_user, error){
+			console.log(cur_user.id + "was not retrieved successfully.")
+			// The object was not retrieved successfully.
+            // error is a Parse.Error with an error code and message.
+			}
+		});	
 });
 
 
