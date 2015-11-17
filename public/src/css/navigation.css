@@ -6,8 +6,8 @@ header{
 }
 
 nav {
-    background-color: #214864;
-    border: 1px solid #333;
+    background-color: #EEE ;
+    border: 1px solid #EEE;
     color: #fff;
     display: block;
 	margin: 0 auto;
@@ -28,7 +28,8 @@ nav ul li {
 }
 
 nav > ul > li > a {
-    color: #ddd;
+    font-weight: bold;
+    color: gray;
     display: block;
     line-height: 2em;
     padding: 0.5em 2em;
@@ -42,13 +43,10 @@ a#logout {
 	right:0;
 }
 
-nav>ul>li>a:hover{	color: white ;}
+nav>ul>li>a:hover{	color: black ;}
 
-nav li:hover {
-/*    background-color: #214864;
-	opacity: 0.75;
-*/	
-	background-color: rgba(51,110,123, 0.7);
+nav li>a:hover {
+	background-color: rgba(131,137,138,0.3);
 
 }
 
