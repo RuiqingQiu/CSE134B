@@ -66,10 +66,10 @@ footer {
 }
 
 .alert-minimalist {
-	background-color: rgb(241, 242, 240);
-	border-color: rgba(149, 149, 149, 0.3);
+	background-color: #d9edf7;
+	border-color: #bce8f1;
 	border-radius: 3px;
-	color: rgb(149, 149, 149);
+	color: #31708f;
 	padding: 10px;
 }
 .alert-minimalist > [data-notify="icon"] {

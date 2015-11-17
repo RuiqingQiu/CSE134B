@@ -21,7 +21,7 @@ $( document ).ready(function() {
             console.log(user.get("Enable_notification"));
 			
 			if (user.get("Enable_notification")) {
-			
+			$.notify("ssss");
 			$.notify({
 				title: 'Welcome',
 				message: 'Hello, Dear' +username + ' !!!'
