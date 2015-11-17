@@ -48,9 +48,9 @@ body{
 .op-edit:hover{background:#F7CA18;}
 .op-edit:active{background:#F7CA18; border:2px solid yellow;}*/
 
-.op-dismiss{background:rgba(242, 38, 19, 0.7); border:2px solid rgba(255,0,0,0.3);}
-.op-dismiss:hover{background:#F22613;}
-.op-dismiss:active{background:#F22613; border:3px solid red;}
+.op-skip{background:rgba(242, 38, 19, 0.7); border:2px solid rgba(255,0,0,0.3);}
+.op-skip:hover{background:#F22613;}
+.op-skip:active{background:#F22613; border:3px solid red;}
 
 /* add habit */
 #addHabit{position:fixed; bottom: 40px; right:20px;background:rgba(33, 72, 100, 1.0); width: 60px;height:60px; vertical-align: middle; font-size:36px; padding: 5px;line-height: 100%;color:white; border:2px solid rgba(85,85,85,0.7); -webkit-appereance: none; border-radius: 50%; box-shadow: 0 0 3px gray;}

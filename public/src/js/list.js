@@ -91,9 +91,10 @@
                         doHabit($(toDo));
                     });
 
-                    $(".habit-entry .op-dismiss").click(function(event){
+                    $(".habit-entry .op-skip").click(function(event){
                         event.preventDefault();
-                        var toDo = $(this).closest(".habit-entry");
+                        var toSkip = $(this).closest(".habit-entry");
+                        $(toSkip).find(".message-today").css("visibility","visible");
                     });
 
                 },
@@ -127,10 +128,6 @@
                     alert("Error: " + error.code + " " + error.message);
                 }
             });
-        }
-
-		function dismissHabit(){		
-          	
         }
 
         function editHabit(id){
