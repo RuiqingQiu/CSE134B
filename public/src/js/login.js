@@ -18,7 +18,16 @@ function logIn(e) {
 
         error: function(user, error) {
           console.log("error!");
-          showMessage(error.message);
+          errorMessage = error.message;
+          switch(error.code) {
+            case 101:
+              errorMessage = "Invalid username or password."
+              break;
+            case 100:
+              errorMessage = "Internet is disconnected."
+              break;
+          }
+          showMessage(errorMessage);
         }
       });
 
@@ -37,7 +46,16 @@ function signUp(e) {
 
         error: function(user, error) {
           console.log("error!");
-          showMessage(error.message);
+          errorMessage = error.message;
+          switch(error.code) {
+            case 202:
+              errorMessage = "Username is already taken."
+              break;
+            case 100:
+              errorMessage = "Internet is disconnected."
+              break;
+          }
+          showMessage(errorMessage);
         }
       });
 }
