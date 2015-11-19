@@ -87,6 +87,20 @@
                         });
 
                     });
+                    $(".habit-entry .op-skip").click(function(event){
+						event.preventDefault();
+						var current = $(this).closest(".habit-entry");
+						$(this).closest(".habit-entry").css({
+							"filter": "grayscale(100%)", 
+							"-webkit-filter": "grayscale(100%)",
+							"-moz-filter": "grayscale(100%)",
+							"-ms-filter": "grayscale(100%)", 
+							"-o-filter": "grayscale(100%)", 
+							"filter": "url(resources.svg#desaturate)", 
+							"filter": "gray",
+							"-webkit-filter": "grayscale(1)"});
+
+					});
 
                     $(".habit-entry .op-done").click(function(event){
                         event.preventDefault();
