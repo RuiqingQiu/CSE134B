@@ -52,6 +52,7 @@
                         jsonData.daily_current = results[i].get('daily_current');
                         jsonData.daily_frequency = results[i].get('daily_frequency');
                         jsonData.current_value = results[i].get('current_value');
+                        console.log("current_value:"+jsonData.current_value);
                         jsonData.max_value = results[i].get('max_value');
                         if(jsonData.max_value > 0){
                             jsonData.progress = jsonData.current_value / jsonData.max_value * CONST.PROGRESS_BAR_LENGTH;
@@ -122,13 +123,11 @@
                                     // update continued days
                                     var max_value = $(el).find('max_value').text();
                                     var current_value = $(el).find('current_value').text();
-                                    obj.set("current_value", current_value++);
+                                    obj.set("current_value", ++current_value);
 
                                     // update max date
-                                    console.log("curVal:"+current_value);
-                                    console.log("cond: "+ current_value > max_value);
                                     if (current_value > max_value){
-                                        obj.set("max_value", max_value++);
+                                        obj.set("max_value", ++max_value);
                                     }
                                     obj.save({
                                         success: function(obj) {
