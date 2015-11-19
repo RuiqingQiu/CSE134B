@@ -127,7 +127,7 @@ function saveEditedHabit(){
 					}
 				},
 				    error: function(error) {
-				        alert(error);
+		            	alert("Error: " + error.code + " " + error.message);
 				    }
 				});
 			}
@@ -183,7 +183,7 @@ function saveEditedHabit(){
 					}
 				},
 				    error: function(error) {
-				        alert(error);
+		            	alert("Error: " + error.code + " " + error.message);
 				    }
 				});
 
@@ -239,7 +239,7 @@ function saveEditedHabit(){
 					}
 				},
 				    error: function(error) {
-				        alert(error);
+		            	alert("Error: " + error.code + " " + error.message);
 				    }
 				});
 

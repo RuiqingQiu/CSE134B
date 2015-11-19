@@ -109,7 +109,7 @@ function error_checking(){
 	});
 
 	if(habit_title == ""){
-		console.log("Please enter the title for your habit");
+		//console.log("Please enter the title for your habit");
 		error = 1;
 		$("#title_error").css("display", "inline-block");
 	}
@@ -119,7 +119,7 @@ function error_checking(){
 	//Habit icon
 	//If user didn't choose an image
 	if(url.substr(url.length - 11) == "default.jpg"){
-		console.log("Please select an icon for your habit");
+		//console.log("Please select an icon for your habit");
 		error = 1;
 		$("#habit_icon_error").css("display", "inline-block");
 	}
@@ -128,7 +128,7 @@ function error_checking(){
 	}
 	//Weekly frequency
 	if(weekly_freq == ""){
-		console.log("Please enter the weekly frequency for the habit");
+		//console.log("Please enter the weekly frequency for the habit");
 		error = 1;
 		$("#weekly_frequency_error").css("display", "inline-block");
 	}
@@ -142,7 +142,7 @@ function error_checking(){
 			daily_freq = document.getElementById("others").value;
 		}
 		else{
-			console.log("Please enter the daily frequency for the habit");
+			//console.log("Please enter the daily frequency for the habit");
 			error = 1;
 			$("#daily_frequency_error").css("display", "inline-block");
 		}
@@ -208,7 +208,7 @@ function addHabit(){
 
 								  },
 								  error: function(habits, error) {
-								    console.log("Did not insert correctly");
+									  alert("Error: " + error.code + " " + error.message);
 								  }
 							  });
 							break;
@@ -216,7 +216,7 @@ function addHabit(){
 					}
 				},
 				    error: function(error) {
-				        alert(error);
+		            	alert("Error: " + error.code + " " + error.message);
 				    }
 				});
 			}
@@ -260,7 +260,7 @@ function addHabit(){
 								   	$('#modal_save_data').modal('show');
 								  },
 								  error: function(habits, error) {
-								    console.log("Did not insert correctly");
+									  alert("Error: " + error.code + " " + error.message);
 
 								  }
 							  });
@@ -269,7 +269,7 @@ function addHabit(){
 					}
 				},
 				    error: function(error) {
-				        alert(error);
+		            	alert("Error: " + error.code + " " + error.message);
 				    }
 				});
 
@@ -315,7 +315,7 @@ function addHabit(){
 
 								  },
 								  error: function(habits, error) {
-								    console.log("Did not insert correctly");
+									  alert("Error: " + error.code + " " + error.message);
 
 								  }
 							  });
@@ -324,7 +324,7 @@ function addHabit(){
 					}
 				},
 				    error: function(error) {
-				        alert(error);
+		            	alert("Error: " + error.code + " " + error.message);
 				    }
 				});
 
@@ -366,7 +366,7 @@ function addHabit(){
 				    $('#modal_save_data').modal('show');
 				  },
 				  error: function(habits, error) {
-				    console.log("Did not insert correctly");
+		            alert("Error: " + error.code + " " + error.message);
 
 				  }
 			  });
