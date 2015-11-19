@@ -1,5 +1,7 @@
         var CONST = {};
         CONST.PROGRESS_BAR_LENGTH = 150;
+        CONST.REPEAT_TIME = 1000 * 10;
+        // MSG.C
         var HABIT = {};
         HABIT.jsonArray =[];
 
@@ -7,19 +9,17 @@
             Parse.initialize("ULppY5RxxZUo8yekihZdVH3uHLm24j5Q6298Un4O",
                            "mDAyhkdhlv6qH9lT9WFzMCeML6ycMa1S8oWlybVG");
 
-            // console.log(Parse.User.current());
             if(Parse.User.current() == null || Parse.User.current().authenticated() == null) {
                 window.location.href = "login.html";
             }
-            listHabits();
+            else{
+            	listHabits();
+            }
         });
 
         function deleteHabit(id){
-            // need to confirm first
             var habit = Parse.Object.extend("Habit");
-            // var currUser = Parse.User.current();
             var query = new Parse.Query(habit);
-            // query.equalTo("user_id", currUser);
             var toDelete = query.get(id, {
                 success: function(obj) {
                     obj.destroy({
@@ -45,9 +45,7 @@
             query.equalTo("user_id", currUser);
             query.find({
                 success: function(results) {
-                    // var a = JSON.stringify(results);
-                    // console.log(a);
-                    
+                    // var a = JSON.stringify(results);                    
                     for (var i = 0; i < results.length; i++){
                         var jsonData = {}
                         jsonData.id = results[i].id;
@@ -57,6 +55,7 @@
                         jsonData.daily_current = results[i].get('daily_current');
                         jsonData.daily_frequency = results[i].get('daily_frequency');
                         jsonData.current_value = results[i].get('current_value');
+                        console.log("current_value:"+jsonData.current_value);
                         jsonData.max_value = results[i].get('max_value');
                         if(jsonData.max_value > 0){
                             jsonData.progress = jsonData.current_value / jsonData.max_value * CONST.PROGRESS_BAR_LENGTH;
@@ -65,9 +64,13 @@
                         }
                         HABIT.jsonArray[i] = jsonData;
                     }
-                    console.log(HABIT.jsonArray);
+                    // console.log(HABIT.jsonArray);
 
                     renderHBTemplate($("#list-template"), HABIT.jsonArray, $("#habit-list"));
+
+                    for (var j = 0; j < HABIT.jsonArray.length; j++){
+                        setInterval(notifyHabit, CONST.REPEAT_TIME, HABIT.jsonArray[j].title, HABIT.jsonArray[j].icon_image._url);
+                    }
 
                     $(".habit-entry .edit").click(function(event){
                         event.preventDefault();
@@ -77,8 +80,6 @@
 
                     $(".habit-entry .del").click(function(event){
                         event.preventDefault();
-                        // $('#deleteConfirmation').appendTo("body").modal('show');
-                        // $('section').remove('#deleteConfirmation');
                         var currentEntry = $(this).closest(".habit-entry");
                         $("#deleteConfirmation em").text($(currentEntry).find(".habit-name").text());
                         var toDelete = $(currentEntry).attr("id");
@@ -89,6 +90,20 @@
                         });
 
                     });
+                    $(".habit-entry .op-skip").click(function(event){
+						event.preventDefault();
+						var current = $(this).closest(".habit-entry");
+						$(this).closest(".habit-entry").css({
+							"filter": "grayscale(100%)", 
+							"-webkit-filter": "grayscale(100%)",
+							"-moz-filter": "grayscale(100%)",
+							"-ms-filter": "grayscale(100%)", 
+							"-o-filter": "grayscale(100%)", 
+							"filter": "url(resources.svg#desaturate)", 
+							"filter": "gray",
+							"-webkit-filter": "grayscale(1)"});
+
+					});
 
                     $(".habit-entry .op-done").click(function(event){
                         event.preventDefault();
@@ -96,9 +111,10 @@
                         doHabit($(toDo));
                     });
 
-                    $(".habit-entry .op-dismiss").click(function(event){
+                    $(".habit-entry .op-skip").click(function(event){
                         event.preventDefault();
-                        var toDo = $(this).closest(".habit-entry");
+                        var toSkip = $(this).closest(".habit-entry");
+                        $(toSkip).find(".message-today").css("visibility","visible");
                     });
 
                 },
@@ -110,25 +126,59 @@
 
         function doHabit(el){            
             var habit = Parse.Object.extend("Habit");
-            // var currUser = Parse.User.current();
             var query = new Parse.Query(habit);
-            // query.equalTo("user_id", currUser);
             var toDelete = query.get($(el).attr("id"), {
                 success: function(obj) {
                     var daily_current = obj.get("daily_current");
-                    if(daily_current < obj.get("daily_frequency")){
+                    var daily_total = obj.get("daily_frequency");
+                    if(daily_current < daily_total){
                         obj.set("daily_current", ++daily_current);
                         obj.save({
                             success: function(obj) {
                                 var msg = $(el).find(".message-today");
-                                // alert(daily_current);
                                 msg.children(".daily-current").text(daily_current);
                                 msg.css("visibility","visible");
+                                
+                                if(daily_current == daily_total){
+
+                                    // update continued days
+                                    var max_value = $(el).find('max_value').text();
+                                    var current_value = $(el).find('current_value').text();
+                                    obj.set("current_value", ++current_value);
+
+                                    // update max date
+                                    if (current_value > max_value){
+                                        obj.set("max_value", ++max_value);
+                                    }
+                                    obj.save({
+                                        success: function(obj) {
+                                            // current-value: set in view
+                                            $(el).find(".current-value").text(current_value);
+
+                                            if(max_value == current_value){
+                                                // max-value: set in view
+                                                console.log("max:"+ max_value);
+                                                $(el).find(".max-value").text(max_value);
+                                            }
+
+                                            // update progress bar
+                                            $(el).find(".progress").attr('x2', max_value != 0 ? (current_value / max_value * CONST.PROGRESS_BAR_LENGTH)  : 0);
+                                        },
+                                        error: function(obj, error) {
+                                            alert("Error: " + error.code + " " + error.message);
+                                        }
+                                    });
+                                }
                             },
                             error: function(obj, error) {
                                 alert("Error: " + error.code + " " + error.message);
                             }
                         });
+                    }
+                    // completed today's task
+                    if(daily_current == daily_total){
+                        // TODO: show different message
+
                     }
                 },
                 error: function(obj, error) {
@@ -137,13 +187,41 @@
             });
         }
 
-		function dismissHabit(){		
-          	
+        function editHabit(id){
+            location.href='edit.html?objectID='+id;
         }
 
-        function editHabit(id){
-            // GLOBAL.objectId = id;
-            location.href='edit.html?objectID='+id;
+        function notifyHabit(habitName, imgURL) {
+            $.notify({
+                icon: imgURL,
+                title: habitName,
+                message: 'Did you do you the habit <em>'+ habitName+'</em>'
+            },{
+                newest_on_top: true,
+                placement: {
+                    from: "top",
+                    align: "right"
+                },
+                type: 'minimalist',
+                delay: 5000,
+                icon_type: 'image',
+                showProgressbar: true,
+                template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                    '<img data-notify="icon" class="img-circle pull-left">' +
+                    '<span data-notify="title">{1}</span>' +
+                    '<span data-notify="message">{2}</span>' +
+                    '<div style="margin-top:10px">' +
+                        '<p id=test style="text-align:center;">' +
+                        '<input class="addbutton" type="button" value="Confirm">' +
+                        '<input class="addbutton" type="button" value="Cancel" style="margin-left:5px" onclick="Logout()">' +
+                        '</p>' +
+                    '</div>' +
+                '</div>'
+            });
+        }
+
+        function printLog(){
+            console.log("notification");
         }
 
         function renderHBTemplate(tmpl, data, parent){
@@ -151,4 +229,6 @@
             $(parent).append(template(data));
         }
 
-       
+        // chk today's day & change color for item w/ date not match (maybe also sort?)
+
+       // ISSUE: which habit(s) should timer/notification work on?
