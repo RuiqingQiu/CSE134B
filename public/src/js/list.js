@@ -65,6 +65,10 @@
 
                     renderHBTemplate($("#list-template"), HABIT.jsonArray, $("#habit-list"));
 
+                    for (var j = 0; j < HABIT.jsonArray.length; j++){
+                        setInterval(printLog, 1000);
+                    }
+
                     $(".habit-entry .edit").click(function(event){
                         event.preventDefault();
                         var toEdit = $(this).closest(".habit-entry").attr("id");
@@ -168,6 +172,10 @@
 
         function editHabit(id){
             location.href='edit.html?objectID='+id;
+        }
+
+        function printLog(){
+            console.log("notification");
         }
 
         function renderHBTemplate(tmpl, data, parent){
