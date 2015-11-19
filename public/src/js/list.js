@@ -1,5 +1,6 @@
         var CONST = {};
         CONST.PROGRESS_BAR_LENGTH = 150;
+        CONST.REPEAT_TIME = 1000 * 10;
         // MSG.C
         var HABIT = {};
         HABIT.jsonArray =[];
@@ -66,7 +67,7 @@
                     renderHBTemplate($("#list-template"), HABIT.jsonArray, $("#habit-list"));
 
                     for (var j = 0; j < HABIT.jsonArray.length; j++){
-                        setInterval(printLog, 1000);
+                        setInterval(notifyHabit, CONST.REPEAT_TIME, HABIT.jsonArray[j].title, HABIT.jsonArray[j].icon_image._url);
                     }
 
                     $(".habit-entry .edit").click(function(event){
@@ -172,6 +173,35 @@
 
         function editHabit(id){
             location.href='edit.html?objectID='+id;
+        }
+
+        function notifyHabit(habitName, imgURL) {
+            $.notify({
+                icon: imgURL,
+                title: habitName,
+                message: 'Did you do you the habit <em>'+ habitName+'</em>'
+            },{
+                newest_on_top: true,
+                placement: {
+                    from: "top",
+                    align: "right"
+                },
+                type: 'minimalist',
+                delay: 5000,
+                icon_type: 'image',
+                showProgressbar: true,
+                template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                    '<img data-notify="icon" class="img-circle pull-left">' +
+                    '<span data-notify="title">{1}</span>' +
+                    '<span data-notify="message">{2}</span>' +
+                    '<div style="margin-top:10px">' +
+                        '<p id=test style="text-align:center;">' +
+                        '<input class="addbutton" type="button" value="Confirm">' +
+                        '<input class="addbutton" type="button" value="Cancel" style="margin-left:5px" onclick="Logout()">' +
+                        '</p>' +
+                    '</div>' +
+                '</div>'
+            });
         }
 
         function printLog(){
