@@ -65,6 +65,7 @@ function showMessage(str) {
   var message = document.getElementById("message");
   message.textContent = str;
   message.style.display = "block";
+  message.style.marginTop = 0;
   var signUpText = document.getElementById("signInMessage");
   signUpText.style.display = "none";
 }
