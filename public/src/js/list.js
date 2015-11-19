@@ -1,5 +1,6 @@
         var CONST = {};
         CONST.PROGRESS_BAR_LENGTH = 150;
+        // MSG.C
         var HABIT = {};
         HABIT.jsonArray =[];
 
@@ -117,6 +118,8 @@
                                 var msg = $(el).find(".message-today");
                                 msg.children(".daily-current").text(daily_current);
                                 msg.css("visibility","visible");
+
+                                $(el).find(".progress").attr('x2', 150);
                             },
                             error: function(obj, error) {
                                 alert("Error: " + error.code + " " + error.message);

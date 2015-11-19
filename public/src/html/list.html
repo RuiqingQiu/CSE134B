@@ -21,10 +21,9 @@
     </header>
 
     <section>
-    <noscript><p style=
-      "text-align: center; margin-bottom: 0;color:#a94442;background:#f2dede;border:1px solid #ebccd1;border-radius:5px;padding:5px;">Your browser doesn't support Javascript or Javascript is turned off! This website needs Javascript to function properly.</p></noscript>
-
         <h1>Habit List</h1>
+        <noscript><p style=
+      "text-align: center; margin-bottom: 0;color:#a94442;background:#f2dede;border:1px solid #ebccd1;border-radius:5px;padding:5px;">Your browser doesn't support Javascript or Javascript is turned off! This website needs Javascript to function properly.</p></noscript>
         <ul id="habit-list">
             <script id="list-template" type="text/x-handlebars-template">
                 {{#each this}}
@@ -48,7 +47,7 @@
                             <strong>{{current_value}}</strong> day(s) in a row! Best Record: <strong>{{max_value}}</strong><br>
                             <svg height="25" width="150">
                                 <line x1="0" y1="0" x2="150" y2="0" style="stroke:rgba(171,171,171,0.6);stroke-width:25" />
-                                <line x1="0" y1="0" x2="{{progress}}" y2="0" style="stroke:rgba(65, 131, 215, 0.8);stroke-width:25" />
+                                <line class="progress" x1="0" y1="0" x2="{{progress}}" y2="0" style="stroke:rgba(65, 131, 215, 0.8);stroke-width:25" />
                             </svg>
                         </span><br>
                         <span class="message-today">Completed <strong class="daily-current">{{daily_current}}</strong>/<strong>{{daily_frequency}}</strong> for today!</span>

@@ -1,6 +1,6 @@
 /* basic structure & layout */
 html{height: 100%;}
-h1{color:#888;text-align: center;}
+h1{color:#eee;text-align: center;}
 body{
     height:100%;   
     background: -webkit-linear-gradient(left top, #1ab5c2, #0572e0) fixed; /* For Safari 5.1 to 6.0 */
