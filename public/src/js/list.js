@@ -11,7 +11,9 @@
             if(Parse.User.current() == null || Parse.User.current().authenticated() == null) {
                 window.location.href = "login.html";
             }
-            listHabits();
+            else{
+            	listHabits();
+            }
         });
 
         function deleteHabit(id){
