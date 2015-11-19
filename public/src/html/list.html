@@ -5,9 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../../lib/bootstrap-customized.css">
-    <link rel="stylesheet" type="text/css" href="../css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/bootstrap-notify.min.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/animate.css">
     <link rel="stylesheet" type="text/css" href="../css/navigation.css">
     <link rel="stylesheet" type="text/css" href="../css/list.css">
+
+    <script type="text/javascript" src="../../lib/jquery-2.1.4.min.js"></script>
+    <script src="../../lib/bootstrap-customized.js"></script>
+    <script type="text/javascript" src="../../lib/parse-1.6.7.min.js"></script>
+    <script type="text/javascript" src="../../lib/handlebars-v4.0.4.js"></script>
+    <script type="text/javascript" src="../js/list.js"></script>
+    <script type="text/javascript" src="../../lib/bootstrap-notify.min.js"></script>
+    <script type="text/javascript" src="../js/navigation.js"></script>
 </head>
 <body>
     <header>
@@ -21,10 +30,9 @@
     </header>
 
     <section>
-    <noscript><p style=
-      "text-align: center; margin-bottom: 0;color:#a94442;background:#f2dede;border:1px solid #ebccd1;border-radius:5px;padding:5px;">Your browser doesn't support Javascript or Javascript is turned off! This website needs Javascript to function properly.</p></noscript>
-
         <h1>Habit List</h1>
+        <noscript><p style=
+      "text-align: center; margin-bottom: 0;color:#a94442;background:#f2dede;border:1px solid #ebccd1;border-radius:5px;padding:5px;">Your browser doesn't support Javascript or Javascript is turned off! This website needs Javascript to function properly.</p></noscript>
         <ul id="habit-list">
             <script id="list-template" type="text/x-handlebars-template">
                 {{#each this}}
@@ -45,10 +53,10 @@
 
                     <div class="message">
                         <span class="message-total">
-                            <strong>{{current_value}}</strong> day(s) in a row! Best Record: <strong>{{max_value}}</strong><br>
+                            <strong class="current-value">{{current_value}}</strong> day(s) in a row! Best Record: <strong class="max-value">{{max_value}}</strong><br>
                             <svg height="25" width="150">
                                 <line x1="0" y1="0" x2="150" y2="0" style="stroke:rgba(171,171,171,0.6);stroke-width:25" />
-                                <line x1="0" y1="0" x2="{{progress}}" y2="0" style="stroke:rgba(65, 131, 215, 0.8);stroke-width:25" />
+                                <line class="progress" x1="0" y1="0" x2="{{progress}}" y2="0" style="stroke:rgba(65, 131, 215, 0.8);stroke-width:25" />
                             </svg>
                         </span><br>
                         <span class="message-today">Completed <strong class="daily-current">{{daily_current}}</strong>/<strong>{{daily_frequency}}</strong> for today!</span>
@@ -57,7 +65,7 @@
                         <button type="button" class="op op-done" title="done">
                             <img src="../../img/done.svg" alt="Done">
                         </button>
-                        <button type="button" class="op op-dismiss"  title="dismiss">
+                        <button type="button" class="op op-skip"  title="dismiss">
                             <img src="../../img/cross.svg" alt="Del">
                         </button>
                     </div>
@@ -103,18 +111,11 @@
 		          <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="Logout()">Log Out</button>
 		        </div>
 		      </div>
-
 		    </div>
 		  </div>
 
     <!-- <footer>&copy; Team XYZ</footer> -->
 
     <button type="button" id="addHabit" onclick="location.href='add.html'" title="add habit">+</button>
-    <script type="text/javascript" src="../../lib/jquery-2.1.4.min.js"></script>
-    <script src="../../lib/bootstrap-customized.js"></script>
-    <script type="text/javascript" src="../../lib/parse-1.6.7.min.js"></script>
-    <script type="text/javascript" src="../../lib/handlebars-v4.0.4.js"></script>
-    <script type="text/javascript" src="../js/navigation.js"></script>
-    <script type="text/javascript" src="../js/list.js"></script>
 </body>
 </html>
