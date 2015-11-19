@@ -125,25 +125,30 @@
                                     obj.set("current_value", current_value++);
 
                                     // update max date
+                                    console.log("curVal:"+current_value);
+                                    console.log("cond: "+ current_value > max_value);
                                     if (current_value > max_value){
-                                        obj.set("max_value", current_value);
+                                        obj.set("max_value", max_value++);
                                     }
                                     obj.save({
                                         success: function(obj) {
                                             // current-value: set in view
+                                            $(el).find(".current-value").text(current_value);
 
                                             if(max_value == current_value){
                                                 // max-value: set in view
+                                                console.log("max:"+ max_value);
+                                                $(el).find(".max-value").text(max_value);
                                             }
 
                                             // update progress bar
-                                            $(el).find(".progress").attr('x2', current_value / max_value * CONST.PROGRESS_BAR_LENGTH);
+                                            $(el).find(".progress").attr('x2', max_value != 0 ? (current_value / max_value * CONST.PROGRESS_BAR_LENGTH)  : 0);
                                         },
                                         error: function(obj, error) {
                                             alert("Error: " + error.code + " " + error.message);
                                         }
+                                    });
                                 }
-                                
                             },
                             error: function(obj, error) {
                                 alert("Error: " + error.code + " " + error.message);
