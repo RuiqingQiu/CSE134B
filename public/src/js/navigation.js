@@ -11,6 +11,7 @@ function Logout() {
 	Parse.User.logOut();
 }
 
+/*
 function test() {
 $.notify({
 	icon: 'https://randomuser.me/api/portraits/med/men/77.jpg',
@@ -39,3 +40,4 @@ $.notify({
 	'</div>'
 });
 }
+*/
