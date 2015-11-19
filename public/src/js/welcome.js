@@ -30,8 +30,13 @@ $( document ).ready(function() {
 					from: "top",
 					align: "right"
 					},
+					animate: {
+					enter: 'animated zoomInDown',
+					exit: 'animated zoomOutUp'
+					},
 					type: 'minimalist',
-					delay: 1000,
+					showProgressbar: true,
+					delay: 2000,
 					template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
 					'<span data-notify="title">{1}</span>' +
 					'<span data-notify="message">{2}</span>' +
@@ -46,21 +51,6 @@ $( document ).ready(function() {
 			}
 		});	
 });
-
-
-function AutoNotify() {
-	
-var tomorrowDate = new Date();
-if (Notification.permission === "granted") {
-    // If it's okay let's create a notification
-    var notification = new Notification(
-				"Log Out Securely", {
-					body: tomorrowDate
-				}
-			);
-			console.log("...")
-  }
-}
 
 function TestNotify() {
 	$.notify("Hello Button");
