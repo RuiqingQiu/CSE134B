@@ -18,7 +18,7 @@ $( document ).ready(function() {
 				console.log(cur_user.id + " was retrieved successfully.")
 				// The object was retrieved successfully.
 		
-				document.getElementById("myonoffswitch").checked = user.get("Enable_notification");
+				document.getElementById("myenableswitch").checked = user.get("Enable_notification");
 			},
 			error: function(cur_user, error){
 			console.log(cur_user.id + "was not retrieved successfully.")
@@ -82,7 +82,7 @@ function progressBar() {
 
 function Notification(){
 	
-	var x = document.getElementById("myonoffswitch").checked;
+	var x = document.getElementById("myenableswitch").checked;
     console.log(x);
 	
 	// check enable of notification

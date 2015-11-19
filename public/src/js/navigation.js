@@ -25,6 +25,7 @@ $.notify({
 	type: 'minimalist',
 	delay: 5000,
 	icon_type: 'image',
+	showProgressbar: true,
 	template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
 		'<img data-notify="icon" class="img-circle pull-left">' +
 		'<span data-notify="title">{1}</span>' +

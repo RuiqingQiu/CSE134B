@@ -3,17 +3,17 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>User Profile</title>
-		<link rel="stylesheet" href="../css/profile.css">
+		<title>User Setting</title>
+		<link rel="stylesheet" href="../css/setting.css">
 		<link rel="stylesheet" href="../css/navigation.css">
 		<link rel="stylesheet" href="../css/normalize.css">
 		<link rel="stylesheet" href="../css/animate.css">
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="../../lib/jquery-2.1.4.min.js"></script>
 		<script src="../../lib/parse-1.6.7.min.js"></script>
 		<script src="../js/bootstrap-notify.min.js"></script>
-		<script src="../js/profile.js"></script>
+		<script src="../js/setting.js"></script>
 		<script src="../js/navigation.js"></script>
 		<script src="../../lib/bootstrap-customized.js"></script>
 	</head>
@@ -22,29 +22,40 @@
 		<nav>
 		  <ul>
 			<li><a href="welcome.html">Home</a></li>
-			<li><a href="profile.html">Setting</a></li>
+			<li><a href="setting.html">Setting</a></li>
 			<li><a href="#" id="logout" data-toggle="modal" data-target="#modal_logout">Log Out</a></li>
 			<li><a href="#" onclick="test()">test</a></li>
 		  </ul>
 		</nav>
 	</header>
 	<div id="wrapper">
-	  <div class="profile" id="profile">
+	  <div class="setting" id="setting">
 	    <br>
 	  	<h1>virtue / <i>vice</i></h1>
 
-		<p id="myswitch">
-		<label for="myonoffswitch">Notification Enable:</label>
+		<p id="enable">
+		<label for="myenableswitch">Notification Enable:</label>
 		</p>
 		
-		<div class="onoffswitch">
-        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick="Notification()">
-        <label class="onoffswitch-label" for="myonoffswitch">
-        <span class="onoffswitch-inner"></span>
-        <span class="onoffswitch-switch"></span>
+		<div class="enableswitch">
+        <input type="checkbox" name="enableswitch" class="enableswitch-checkbox" id="myenableswitch" onclick="Notification()">
+        <label class="enableswitch-label" for="myenableswitch">
+        <span class="enableswitch-inner"></span>
+        <span class="enableswitch-switch"></span>
         </label>
         </div>
-		             
+		
+		<p id="sleep">
+		<label for="mysleepswitch">Notification Sleep:</label>
+		</p>
+		<div class="sleepswitch">
+        <input type="checkbox" name="sleepswitch" class="sleepswitch-checkbox" id="mysleepswitch">
+        <label class="sleepswitch-label" for="mysleepswitch">
+        <span class="sleepswitch-inner"></span>
+        <span class="sleepswitch-switch"></span>
+        </label>
+        </div>	    
+			
 	  </div>
 	</div>  	
 	

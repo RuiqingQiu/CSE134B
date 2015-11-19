@@ -18,7 +18,7 @@ background: -webkit-linear-gradient(left top, #4CB8C4, #3CD3AD) fixed; /* For Sa
   margin: 0;
 }
 
-div.profile {
+div.setting {
 	position: relative;
 	margin: 0 auto;
 	top: 0%;
@@ -34,14 +34,14 @@ i  {
 	font-style: italic;
 }
 
-.profile{
+.setting{
 	position: relative;
 	margin: 0 auto;
     top: 15%;
     width: 500px;
 }
 
-.profile h1 {
+.setting h1 {
 	text-align: center;
 	color: #808080;
 	font-size: 3.5em;
@@ -51,7 +51,7 @@ i  {
 
 /* mobile version*/
 @media (max-width: 499px) {
-  div.profile {
+  div.setting {
   	position: relative;
   	margin: 0 auto;
 	top: 0%;
@@ -60,12 +60,12 @@ i  {
 	border-radius: 25px;
   }
   
-  .profile {
+  .setting {
   	width: auto;
   	margin: 0 20px;
   }
   
-  .profile h1 {
+  .setting h1 {
 	text-align: center;
 	color: #808080;
 	font-size: 2.5em;
@@ -74,47 +74,46 @@ i  {
    
 }
 
-p#myswitch{
+p#enable{
 	text-align:center;
 	margin-top: 50px;
-	
 }
 
-div.onoffswitch{
+div.enableswitch{
 	 margin:0 auto;
 }
-.onoffswitch {
+.enableswitch {
     position: relative; width: 90px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
-.onoffswitch-checkbox {
+.enableswitch-checkbox {
     display: none;
 }
-.onoffswitch-label {
+.enableswitch-label {
     display: block; overflow: hidden; cursor: pointer;
     border: 2px solid #999999; border-radius: 20px;
 }
-.onoffswitch-inner {
+.enableswitch-inner {
     display: block; width: 200%; margin-left: -100%;
     transition: margin 0.3s ease-in 0s;
 }
-.onoffswitch-inner:before, .onoffswitch-inner:after {
+.enableswitch-inner:before, .enableswitch-inner:after {
     display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
     font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
     box-sizing: border-box;
 }
-.onoffswitch-inner:before {
+.enableswitch-inner:before {
     content: "ON";
     padding-left: 10px;
     background-color: #34A7C1; color: #FFFFFF;
 }
-.onoffswitch-inner:after {
+.enableswitch-inner:after {
     content: "OFF";
     padding-right: 10px;
     background-color: #EEEEEE; color: #999999;
     text-align: right;
 }
-.onoffswitch-switch {
+.enableswitch-switch {
     display: block; width: 18px; margin: 6px;
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
@@ -122,10 +121,66 @@ div.onoffswitch{
     border: 2px solid #999999; border-radius: 20px;
     transition: all 0.3s ease-in 0s; 
 }
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+.enableswitch-checkbox:checked + .enableswitch-label .enableswitch-inner {
     margin-left: 0;
 }
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+.enableswitch-checkbox:checked + .enableswitch-label .enableswitch-switch {
+    right: 0px; 
+}
+
+
+p#sleep{
+	text-align:center;
+	margin-top: 50px;
+	
+}
+
+div.sleepswitch{
+	 margin:0 auto;
+}
+.sleepswitch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.sleepswitch-checkbox {
+    display: none;
+}
+.sleepswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.sleepswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.sleepswitch-inner:before, .sleepswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.sleepswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: #34A7C1; color: #FFFFFF;
+}
+.sleepswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.sleepswitch-switch {
+    display: block; width: 18px; margin: 6px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 56px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.sleepswitch-checkbox:checked + .sleepswitch-label .sleepswitch-inner {
+    margin-left: 0;
+}
+.sleepswitch-checkbox:checked + .sleepswitch-label .sleepswitch-switch {
     right: 0px; 
 }
 
@@ -135,7 +190,6 @@ div.onoffswitch{
 	margin: 60px auto;
 }
 
-#profile {
+#setting {
 padding-bottom:100px;
 }
-
