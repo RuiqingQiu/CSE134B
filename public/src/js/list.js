@@ -15,11 +15,8 @@
         });
 
         function deleteHabit(id){
-            // need to confirm first
             var habit = Parse.Object.extend("Habit");
-            // var currUser = Parse.User.current();
             var query = new Parse.Query(habit);
-            // query.equalTo("user_id", currUser);
             var toDelete = query.get(id, {
                 success: function(obj) {
                     obj.destroy({
@@ -111,20 +108,52 @@
             var toDelete = query.get($(el).attr("id"), {
                 success: function(obj) {
                     var daily_current = obj.get("daily_current");
-                    if(daily_current < obj.get("daily_frequency")){
+                    var daily_total = obj.get("daily_frequency");
+                    if(daily_current < daily_total){
                         obj.set("daily_current", ++daily_current);
                         obj.save({
                             success: function(obj) {
                                 var msg = $(el).find(".message-today");
                                 msg.children(".daily-current").text(daily_current);
                                 msg.css("visibility","visible");
+                                
+                                if(daily_current == daily_total){
 
-                                $(el).find(".progress").attr('x2', 150);
+                                    // update continued days
+                                    var max_value = $(el).find('max_value').text();
+                                    var current_value = $(el).find('current_value').text();
+                                    obj.set("current_value", current_value++);
+
+                                    // update max date
+                                    if (current_value > max_value){
+                                        obj.set("max_value", current_value);
+                                    }
+                                    obj.save({
+                                        success: function(obj) {
+                                            // current-value: set in view
+
+                                            if(max_value == current_value){
+                                                // max-value: set in view
+                                            }
+
+                                            // update progress bar
+                                            $(el).find(".progress").attr('x2', current_value / max_value * CONST.PROGRESS_BAR_LENGTH);
+                                        },
+                                        error: function(obj, error) {
+                                            alert("Error: " + error.code + " " + error.message);
+                                        }
+                                }
+                                
                             },
                             error: function(obj, error) {
                                 alert("Error: " + error.code + " " + error.message);
                             }
                         });
+                    }
+                    // completed today's task
+                    if(daily_current == daily_total){
+                        // TODO: show different message
+
                     }
                 },
                 error: function(obj, error) {
@@ -142,4 +171,6 @@
             $(parent).append(template(data));
         }
 
-       
+        // chk today's day & change color for item w/ date not match (maybe also sort?)
+
+       // ISSUE: which habit(s) should timer/notification work on?
