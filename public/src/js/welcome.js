@@ -23,7 +23,7 @@ $( document ).ready(function() {
 			if (user.get("Enable_notification")) {
 			$.notify({
 				title: 'Welcome',
-				message: 'Hello, Dear' +username + ' !!!'
+				message: 'Hello, Dear ' +username + ' !!!'
 			},{
 					newest_on_top: true,
 					placement: {

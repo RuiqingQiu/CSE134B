@@ -29,7 +29,9 @@ $(document).ready(function() {
     if(Parse.User.current() == null || Parse.User.current().authenticated() == null) {
         window.location.href = "login.html";
     }
-    getHabit();
+    else{
+    	getHabit();
+    }
 });
 
 function getHabit(){
@@ -127,7 +129,7 @@ function saveEditedHabit(){
 					}
 				},
 				    error: function(error) {
-				        alert(error);
+		            	alert("Error: " + error.code + " " + error.message);
 				    }
 				});
 			}
@@ -183,7 +185,7 @@ function saveEditedHabit(){
 					}
 				},
 				    error: function(error) {
-				        alert(error);
+		            	alert("Error: " + error.code + " " + error.message);
 				    }
 				});
 
@@ -239,7 +241,7 @@ function saveEditedHabit(){
 					}
 				},
 				    error: function(error) {
-				        alert(error);
+		            	alert("Error: " + error.code + " " + error.message);
 				    }
 				});
 
