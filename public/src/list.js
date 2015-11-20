@@ -1,6 +1,6 @@
         var CONST = {};
         CONST.PROGRESS_BAR_LENGTH = 150;
-        CONST.REPEAT_TIME = 1000 * 30;
+        CONST.REPEAT_TIME = 1000 * 10;
         // MSG.C
         var HABIT = {};
         HABIT.jsonArray =[];
@@ -13,7 +13,6 @@
                 window.location.href = "login.html";
             }
             else{
-                // $(document.body).append($('#modal_logout'));
             	listHabits();
             }
         });
@@ -70,7 +69,7 @@
                     renderHBTemplate($("#list-template"), HABIT.jsonArray, $("#habit-list"));
 
                     for (var j = 0; j < HABIT.jsonArray.length; j++){
-                        setInterval(notifyHabit, CONST.REPEAT_TIME, HABIT.jsonArray[j]);
+                        setInterval(notifyHabit, CONST.REPEAT_TIME, HABIT.jsonArray[j].title, HABIT.jsonArray[j].icon_image._url);
                     }
 
                     $(".habit-entry .edit").click(function(event){
@@ -175,12 +174,12 @@
                                 alert("Error: " + error.code + " " + error.message);
                             }
                         });
-                    }else{
-                        var msg = $(el).find(".message-today");
-                        msg.children(".daily-current").text(daily_current);
-                        msg.css("visibility","visible");
                     }
+                    // completed today's task
+                    if(daily_current == daily_total){
+                        // TODO: show different message
 
+                    }
                 },
                 error: function(obj, error) {
                     alert("Error: " + error.code + " " + error.message);
@@ -192,12 +191,11 @@
             location.href='edit.html?objectID='+id;
         }
 
-        function notifyHabit(obj) {
+        function notifyHabit(habitName, imgURL) {
             $.notify({
-                icon: obj.icon_image._url,
-                title: obj.title,
-                message: 'Did you do you the habit <em>'+ obj.title+'</em>',
-                target: $(obj.id)
+                icon: imgURL,
+                title: habitName,
+                message: 'Did you do you the habit <em>'+ habitName+'</em>'
             },{
                 newest_on_top: true,
                 placement: {
@@ -208,14 +206,14 @@
                 delay: 5000,
                 icon_type: 'image',
                 showProgressbar: true,
-                template: '<div data-id='+obj.id+' data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-                    '<img data-notify="icon" class="img-circle pull-left" alt="icon">' +
+                template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                    '<img data-notify="icon" class="img-circle pull-left">' +
                     '<span data-notify="title">{1}</span>' +
                     '<span data-notify="message">{2}</span>' +
                     '<div style="margin-top:10px">' +
                         '<p id=test style="text-align:center;">' +
-                        '<input class="addbutton notif-confirm" type="button" value="Confirm" onclick="doHabit('+obj.id+');" data-notify="dismiss">' +
-                        '<input class="addbutton notif-cancel" type="button" value="Cancel" style="margin-left:5px" data-notify="dismiss">' +
+                        '<input class="addbutton" type="button" value="Confirm">' +
+                        '<input class="addbutton" type="button" value="Cancel" style="margin-left:5px">' +
                         '</p>' +
                     '</div>' +
                 '</div>'
@@ -230,3 +228,7 @@
             var template = Handlebars.compile($(tmpl).html());
             $(parent).append(template(data));
         }
+
+        // chk today's day & change color for item w/ date not match (maybe also sort?)
+
+       // ISSUE: which habit(s) should timer/notification work on?
