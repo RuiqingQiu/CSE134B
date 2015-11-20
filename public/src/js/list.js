@@ -1,6 +1,6 @@
         var CONST = {};
         CONST.PROGRESS_BAR_LENGTH = 150;
-        CONST.REPEAT_TIME = 1000 * 30;
+        CONST.REPEAT_TIME = 1000 * 10;
         // MSG.C
         var HABIT = {};
         HABIT.jsonArray =[];
@@ -218,10 +218,6 @@
                     '</div>' +
                 '</div>'
             });
-        }
-
-        function printLog(){
-            console.log("notification");
         }
 
         function renderHBTemplate(tmpl, data, parent){
