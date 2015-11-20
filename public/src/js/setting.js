@@ -102,7 +102,14 @@ function Notification(){
 			user.save(null, {
 				success: function(user) {
 				// Execute any logic that should take place after the object is saved.
-				alert('New object created with objectId: ' + user.id);
+					if(document.getElementById("myenableswitch").checked){
+						alert("Notification Enabled");
+					}
+					else{
+						alert("Notification Disabled");
+
+					}
+				//alert('New object created with objectId: ' + user.id);
 				var user = Parse.User.current();
 				var username = user.get("username");
 				console.log(user.get("Enable_notification"));

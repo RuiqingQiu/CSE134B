@@ -1,68 +1,87 @@
-# CSE 134B Homework 3  
+# CSE 134B Homework 4  
 _Developed by Team XYZ_
 ## Overview:
-According to our interpretation of the wireframes, the application’s main functionality is helping people develop good habits. They can add and edit habits, such as frequency, a picture representation of the habit, and the name/description of the habit. Once they have added some good habits to develop, the habits they’ve added will be recorded and show up in the Habit List page. In the Habit List page, the user can indicate whether they have performed their habit, and the app can then
-keep track of the user’s progress in developing the habit.
-Here are the different pages that make up the web app: Login/Sign Up page, Landing page, Edit a Habit page, Add a Habit page, and Habit List page. 
-### The flow of the app is as follows: 
-User logins in or signs up through login page Logging in will take them to the Landing page. Once they click the add habit button, they will be taken to the add habit page. Once they click the add habit page, they will be taken to the habit list page. From there, they can either click “done”, which means they performed the habit, edit, which takes them to the Edit a Habit page, or delete, which deletes the habit.
-
-For the overall design, we focused on a mobile-first design by creating a mobile-optimized version first and then making sure that the pages looked good and were functional on tablet and laptop/PC sized screens. Our page elements are in the center of the page, in order to focus user attention and to make it easier for them to use the app. Furthermore, keeping all the user-interaction elements in one place reduces the distance the user has to cross to reach each element, whether by
-mouse or by finger, making the app easier to use.
+Same as last time. The minified Javascript, HTML, and CSS files are in the “build” directory. These are the actual files that will go into production, along with the libraries in the “lib” directory. The source files that are actually worked on by developers are in the “src” directory and are not minified. Each file in “src” has its corresponding minified version in “build.”
+Flow of app: Same as last time except the list page and also include navigation, logout and notification
+Library used: Parse for backend, jQuery, handlebars, animate.css, cropbox.js, BootStrap UI widgets (customized by grabbing part of the library code we need)
 
 ## Login/Sign up page:
-Since there was no wireframe for a login screen, we designed and implemented a login screen according to what we thought would be useful for the users and consistent with the theme and functionality of the app. It is a simple login screen which focuses the user on the app name and the form to either register or login. The login screen has a minimalistic look in order to make it as easy as possible for the user to login and direct the user to the form, instead of potentially
-distracting the user from logging in or signing up.
-To sign up, the user types in the email name and password, and then clicks sign up. Because currently the UI mockup does not have a backend or focus too much on actual functionality, the current login mockup will assume the user has signed up successfully as long as the "Sign Up" button is clicked in order to demonstrate the flow of the app. Once the user has "signed up", then they can enter in their email and password and click "Login" to be taken to the app's landing page.
+Login/Sign up page allows users to either register for or login to the app, using the Parse backend. If there is invalid input to the sign up or login page, there will be an error message. If the user tries to login, and the app can't find the corresponding username, or the password is incorrect, there will be an error.  If Javascript is disabled, the page will display an error message letting the user know Javascript is required for the app to function and that Javascript is currently turned off in the browser, and the login and signup buttons will not work. If the user tries to login with the incorrect username and password, there will be a HTTP request error in the console. This is a common bug in the Parse library, and I attempted to fix it in the source code, but it proved difficult to debug. The console bug does not affect the app functionality in any way and the user will almost never be looking at the console to actually use the app, so this error does not affect user interaction, usability, and other app functionality in any way. Also, using the login and signup functionality locally in Internet Explorer causes a SCRIPT5007 error in Parse. This is an IE error. However, using the Parse app hosted on the Parse server, there is no issue with login and signup in IE.
 
-## Welcome Page:
-According to the provided wireframes, our welcome page basically have the same content with the prototype welcome page. This welcome page is more like a transition page which connect Login/Signup page with Edit/Add Habit page together. After users successful login to our web-app, they will come into this welcome page, which give users a welcome and let them to think about what kind of habit that they want to keep in track. Once users finish their brainstorming, and decide which specific habits that they want to track, then they only
-need to click the "add a habit" button, this button will take them to the add habit page. We eliminate the plus sign on the button because we already have the content "add a habit". In order to make our web-app clean and simple, we remove the plus sign. We also reduce the size of button to make the entire interface more reasonable.
+## Add a habit & Edit a habit:
+The form and field are same as before. The add page will correctly detect any missing information. If everything is correct, that habit will be correctly inserted into our Parse database in order to be displayed in habit list. Habit page includes a image cropping tools for user to pick their own icons for the habit instead of using the default ones. Select the file by choosing the upload button and zoom in or out using +/- button. Once finished, save button will crop and save that image. If any fields are missing when they click add, there will be red text next to the field showing error message. Also, included a confirmation for save to confirm the addition of habit. Cancel will promote a cancel confirmation to prevent user misclick and make good usability. Image cropper is used to make sure all the habit icon are the same dimension for correctly-aligned display.
+The same thing for the edit page where all the fields and images are firstly populated with the original values. The user will perform the same task as in add page to update the habit. 
+
+## Welcome Page & Setting:
+We add a navigation bar at the top of every page (except login page) which will help customer quickly transform between each pages and log out. For “logout”, we will popup a confirmation box to make sure users are truely want to logout, not click the button just by accident. After customer click logout again, we clear the user info in our database and then direct them to login page. For “Home”, we direct user back to welcome page. For “Setting”, we create a new Setting page that customer can change the setting for notification. If they turn off the notification enable, they won’t receive any notification in our app. For “notification sleep”, our plan is blocking any notification to be pushed between 10pm - 6am. Once customer turn this on, we will not get any notification in this specific time even if they turn on the notification enable. But we haven’t implemented this yet. 
+
+## List of Tracked Habits Page:
+This page is resdesigned from the original framework due to the confusion of a confirmation and a cancel button. Now replaced with checkmark and cross to clearly indiciate that the user has done such hahbit during the day or not. As moved edit and delete button to the top right corner for usability issue. In this way, the user will not misclick and accidentially delete the habit. All the danger operations have a confirmation box to make sure that's what the user want to do. Gray out the card for user who didn't do such activity that day. However, that's purely local for right now due to time constriant. Notification for this page is local as well with a timer that will loop and display them. We will finish up the list displaying the current day habits in homework 5.
+
+## Notification:
+For now, we can only support local notification in our app with two ways to call it. The first way is triggered by onclick method, once we click something, the notification will popup and display corresponding message. Another way is we call notification during the page is loading, and we can push some notification.  In our welcome page, once the customer is login, we will popup a welcome message to show customer’s username and give him a welcome.
+Reason that we didn’t do the server side notification. 
+we first do some research on Parse Javascript push notification, but it turn out didn’t work fine with either desktop/android/iOS. For android and iOS device, parse led us to look over android/iOS development which is not related with our web development with javascript. For desktop notification, parse led us to download Visual Studio and use Package Manager Console to install their SDK. But before this, we have to change our project to native app. However, we don’t think we need native app for this course. 
+we also find a third party app: pushover which could help us to push notification to any device, but customer have to install pushover app to help them receive those notification that  we pushed, so this is not work with our project.
+Then we followed one of Ta’s suggestion to look over Roost, but we found out the basic Roost notification, we already handle in our local notification, and all other advanced notification need to pay for monthly fee which we cannot afford. 
+We finally simulates the notification to remind people to do habits and let them confirm whether they did on the notification as well. However, no project instruction tends to let us have a rule or a user setting to set time for notifications. Therefore, we instead made it notify every 10 seconds on the habit list page (list.html, it is hard to make the timer cross page as we don't have a backend for the timer) for every habit at the same time.
+
+## Individual tasks:
+Timothy:
+Added login and signup functionality with Parse to login.html, login.css, and login.js. Added error checking for the forms for Edit a Habit and Add a Habit pages. Set up the project with Gulp to allow for real-time minification of all source Javascript, HTML, and CSS files for the project. Added sliding animation effect for habit entries in habit list page. Contributed to the README.md.
+
+Ruiqing:
+Added create and edit functionality with Parse to add.html, edit.html, form.css, add.js, edit.js. Implemented all functionality such as Image cropper, error detection, UI focused javascript in the two pages. Create parse backend database format and structure. Communication between habit list and edit page. Redesigned the overall look of the app and buttons issues concerning about usability. 
+
+Jingyuan:
+Implemented most functionalities (CRUD on habits) on the habit list: create habit (outlink to add page), read list of habits from the list, update habit (click done button to change parameters of the habit), delete the habit from the database record. Added notification with relevant actions to habits.
+
+Qing:
+Added navigation bar to every pages (except login.html), Added logout functionality with Parse to all pages which have navigation bar. Added notification function to pages which need to push local notification. Added notification enable functionality to setting.html, setting.css, setting.js. Modified the functionality and style in welcome.html, welcome.css, welcome.js. Contributed to the README.md.
 
 
-## Add a Habit & Edit a Habit Page: 
-Based on the wireframe, add a habit and edit a habit page basically has the same element and layout. The main things in add page is a habit title, an icon to go with it, the weekly and daily frequency of the habit. We gave a default text to the input to give user an example of what goes to the title box, things like “Eat Healthy”, “Exercise 30 minutes” would be prefered to put in the box. 
+## Libraries;
+Parse: We decided between Parse and Firebase because these two are the biggest backend-as-a-service companies, which suits our need for a purely client-side project. In the end, we chose Parse over Firebase because Parse, with its Android and iOS SDKs and REST API wrappers in multiple languages, has a larger ecosystem in case we wanted to expand the app to multiple platforms. Furthermore, Parse provides Cloud code and push notifications in case we wanted to use Parse as an option for push notifications.
 
-For the icon selection, we understand that in a phone platform, a swipeable icon selection would be really a good way to pick the image, however, this is not intuitive from a desktop browser perspective. Therefore, I decided to only supply some frequent ones and let the user upload what they want to have. In the example, I have icon for sleep, eat and exercise. These are basically considered images that are commonly used. And the last add icon indicates that user can feel freely to
-choose whatever they want to have as an icon. We added a simple hover effect to clearly notify the user which icons are they picking. And once they selected the icon, we put a blue border to give user feedback of what they have selected. 
+jQuery: We chose jQuery because it is widely used as a standard Javascript library. It makes operations in Javascript a lot easier. Additionally, there are a lot of jQuery plugins that we could leverage for the project if the need arose. We looked into Prototype.js and other Javascript libraries, but none had the support, community, and number of plugins that jQuery has.
 
-For the frequency, we renamed it to two section “weekly frequency” to indicate on which dates the user would like to perform such activity and “daily frequency” to indicate how many times per day would he like to perform. Based on this information, our developer’s goals are to make sure we keep track how many days he kept doing it or how many days he missed. The sample layout didn’t provide options more than 3 times per day but we feel like there may be things one would like
-to perform more than 3 times so we put a optional box where user can input any values.
+animate.css: animate.css is a very useful CSS animation library. It’s extremely easy to add CSS animations to HTML elements. We also chose this library over Javascript and canvas animations because CSS animations generally have better performance and involves less code, which makes the project easier to read, maintain, and less bloated.
 
+Handlebars: handlebar.js is a lightweight frontend/js template engine. We need a frontend template engine because without any server-side template, there is barely any other way rather than use a front-end template to render a dynamic list of elements (habits, in this case) in a neat way of programming. Among all the different front-end templates, we choose Handlebars because: the library is not too large(less delay for downloading); there is no much learning curve (meaningful for project like this); it does not do complicated work (less delay for rendering); it tries to keep the original HTML DOM structure (no web component, etc.)
 
+cropbox.js: a lightweight javascript plugin for cropping images. The image cropper is used so that whenever user upload a different dimension image, they will need to fit it into a square so that the display of the image in list habit will be in the same dimension. 
 
-##List of Tracked Habits Page:
+bootstrap-notify.js/css: This is very usefully and powerful customize library based on bootstrap. We choose this library to perform a better look notification with flexible locations and time and amazing animate effect in the way notifications are enter and exit. 
 
-We removed the 85% and the thumb-up icon besides it. The reason is that it is confusing to users what that 85% means: is that percentage out of the times you done for today, for total times, or for total number of days? If it stands for the latter two, we do not really have a goal for a habit because a habit is something the user normally want to keep going on instead of keep for a period and then just let it go. Also, we already have a progress bar to compare with the best record as well as some text for it, so this duplication will only take space and may confuse users. As for the thumb-up icon aside the percentage, it makes this whole part very like social network; however, this wireframe does not seems to have social connect functionality, since others does not seems to be able to see the current user’s habits.
-
-We also removed the thumb-down button, we believe that let people click to indicate that they have done a practice of the habit is reasonable. However, there is no need to let them to press the button to show that they did not do it. A more reasonable way is that the habit list will only show the habit the user is supposed to do for that day. When this current date passes but the user did not click the "Done" (checkmark) button for that habit, then it means that the user skipped this habit for today.
-
-We changed the button icon for buttons that had thumb-up icon originally to a check icon, because this icon is widely known as “like” in social network like Facebook. Here we actually use it to let users check if they have done the thing. So we just use a check sign instead so we can avoid confusing users.
-
-We got rid of the swipe for desktop because it is not appropriate to have finger swipes for desktop. For mobile there are several reasons why we also removed the swipe action: first, swipe is not typical in mobile websites/web apps, although it is common in native mobile apps; second, it is actually not very intuitive since there is totally no indication for that (we cannot assume every user knows to swipe); the fact that the check button mentioned above is already there instead of hidden in swipe, this will let a lot of people assume it to be the only action they can have; lastly, swipe out and choose actually requires 2 actions for users while a button will only need one.
-
-As mentioned above that we keep only 3 buttons there, and we make it into a group with different icon and color with green and check icon for done, yellow and pencil icon for edit, and red trash bin icon for delete. We made it this way because this color arrangement actually tells users how dangerous an action can be, and the icons makes it very understandable for users since it follows the convention for icon meanings. Just in case (i.e. for users who are not familiar with the web or apps), we added name attribute for those icons so that a tooltip will show up if the user really don’t understand the icons.
-
-We also changed the text by explicitly say whether the number stands for number of days or number of times. This makes the app much easier to understand in the case that the habit should be done several times a day.
-
-We make the habit list into a list of cards rather than the big block with horizontal lines separating things this will make it much easier for users to differentiate different habits. Especially in the fact that environment light and different device types and settings will make a horizontal line very different in visibility. 
-
-We added a heading for this page and explicitly tell users that this page is a list of habits they put into the system to keep track of so that new users will understand what this page is for. Especially when our list of habits likes more like cards rather than lists.
-
-We also created the fixed "add" button so it will always be at a consistant place users can always easily add habit without scrolling up and down to user it or looking for it everywhere.
-
+bootstrap-customized.js/css: we only used 3~4 different UI widgets from BootStrap, so there is no need to download the full library. Bootstrap allows us to customize to combine and download dependencies for those widgets and download as our own Bootstrap library. This speeds up pages loading a lot compared with downloading the whole bootstrap.
 
 ### Version
-0.3.0
+1.0.0
 
 ### Source Files
 
-This Project has these 5 main html files:
+This Project has these 6 main html files:
 
 * _welcome.html_ - welcome page
 * _login.html_ - user login page
 * _add.html_- page for adding a habbit
 * _edit.html_ - page for editing a habit
 * _list.html_ - page to show the list of existing habits
+* _setting.html_ - page shows the setting for notification
 
 (All the CSS and JavaScript file has corresponding name to the html. add.html & edit.html use both the forms.html)
+
+Project Folder:
+* _src_ folder contains all the source files for our project
+* _build_ folder is all the files that are minified
+* _lib_ contains all the library files
+
+
+
+
+
+
+
+
+
+
