@@ -17,7 +17,7 @@ body {
   padding: 0;
   margin: 0;
 }
-section{width:500px;margin: 60px auto;}
+noscript{display:block; width:500px;margin: 60px auto;}
 
 p{
 	color:#6c6c6c;

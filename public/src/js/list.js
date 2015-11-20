@@ -1,6 +1,6 @@
         var CONST = {};
         CONST.PROGRESS_BAR_LENGTH = 150;
-        CONST.REPEAT_TIME = 1000 * 10;
+        CONST.REPEAT_TIME = 1000 * 30;
         // MSG.C
         var HABIT = {};
         HABIT.jsonArray =[];
@@ -13,6 +13,7 @@
                 window.location.href = "login.html";
             }
             else{
+                // $(document.body).append($('#modal_logout'));
             	listHabits();
             }
         });
@@ -34,7 +35,7 @@
                 },
                 error: function(obj, error) {
                     alert("Error: " + error.code + " " + error.message);
-                }                
+                }
             });
         }
 
@@ -45,7 +46,7 @@
             query.equalTo("user_id", currUser);
             query.find({
                 success: function(results) {
-                    // var a = JSON.stringify(results);                    
+                    // var a = JSON.stringify(results);
                     for (var i = 0; i < results.length; i++){
                         var jsonData = {}
                         jsonData.id = results[i].id;
@@ -69,7 +70,7 @@
                     renderHBTemplate($("#list-template"), HABIT.jsonArray, $("#habit-list"));
 
                     for (var j = 0; j < HABIT.jsonArray.length; j++){
-                        setInterval(notifyHabit, CONST.REPEAT_TIME, HABIT.jsonArray[j].title, HABIT.jsonArray[j].icon_image._url);
+                        setInterval(notifyHabit, CONST.REPEAT_TIME, HABIT.jsonArray[j]);
                     }
 
                     $(".habit-entry .edit").click(function(event){
@@ -94,13 +95,11 @@
 						event.preventDefault();
 						var current = $(this).closest(".habit-entry");
 						$(this).closest(".habit-entry").css({
-							"filter": "grayscale(100%)", 
+							"filter": "grayscale(100%)",
 							"-webkit-filter": "grayscale(100%)",
 							"-moz-filter": "grayscale(100%)",
-							"-ms-filter": "grayscale(100%)", 
-							"-o-filter": "grayscale(100%)", 
-							"filter": "url(resources.svg#desaturate)", 
-							"filter": "gray",
+							"-ms-filter": "grayscale(100%)",
+							"-o-filter": "grayscale(100%)",
 							"-webkit-filter": "grayscale(1)"});
 
 					});
@@ -124,7 +123,7 @@
             });
         }
 
-        function doHabit(el){            
+        function doHabit(el){
             var habit = Parse.Object.extend("Habit");
             var query = new Parse.Query(habit);
             var toDelete = query.get($(el).attr("id"), {
@@ -138,7 +137,7 @@
                                 var msg = $(el).find(".message-today");
                                 msg.children(".daily-current").text(daily_current);
                                 msg.css("visibility","visible");
-                                
+
                                 if(daily_current == daily_total){
 
                                     // update continued days
@@ -174,12 +173,12 @@
                                 alert("Error: " + error.code + " " + error.message);
                             }
                         });
+                    }else{
+                        var msg = $(el).find(".message-today");
+                        msg.children(".daily-current").text(daily_current);
+                        msg.css("visibility","visible");
                     }
-                    // completed today's task
-                    if(daily_current == daily_total){
-                        // TODO: show different message
 
-                    }
                 },
                 error: function(obj, error) {
                     alert("Error: " + error.code + " " + error.message);
@@ -191,11 +190,12 @@
             location.href='edit.html?objectID='+id;
         }
 
-        function notifyHabit(habitName, imgURL) {
+        function notifyHabit(obj) {
             $.notify({
-                icon: imgURL,
-                title: habitName,
-                message: 'Did you do you the habit <em>'+ habitName+'</em>'
+                icon: obj.icon_image._url,
+                title: obj.title,
+                message: 'Did you do you the habit <em>'+ obj.title+'</em>',
+                target: $(obj.id)
             },{
                 newest_on_top: true,
                 placement: {
@@ -206,14 +206,14 @@
                 delay: 5000,
                 icon_type: 'image',
                 showProgressbar: true,
-                template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-                    '<img data-notify="icon" class="img-circle pull-left">' +
+                template: '<div data-id='+obj.id+' data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                    '<img data-notify="icon" class="img-circle pull-left" alt="icon">' +
                     '<span data-notify="title">{1}</span>' +
                     '<span data-notify="message">{2}</span>' +
                     '<div style="margin-top:10px">' +
                         '<p id=test style="text-align:center;">' +
-                        '<input class="addbutton" type="button" value="Confirm">' +
-                        '<input class="addbutton" type="button" value="Cancel" style="margin-left:5px" onclick="Logout()">' +
+                        '<input class="addbutton notif-confirm" type="button" value="Confirm" onclick="doHabit('+obj.id+');" data-notify="dismiss">' +
+                        '<input class="addbutton notif-cancel" type="button" value="Cancel" style="margin-left:5px" data-notify="dismiss">' +
                         '</p>' +
                     '</div>' +
                 '</div>'
@@ -228,7 +228,3 @@
             var template = Handlebars.compile($(tmpl).html());
             $(parent).append(template(data));
         }
-
-        // chk today's day & change color for item w/ date not match (maybe also sort?)
-
-       // ISSUE: which habit(s) should timer/notification work on?

@@ -26,11 +26,11 @@
 		</nav>
 	</header>
 
-      <section>
+      <!-- <section> -->
       <noscript>
 		<p style= "text-align: center; margin-bottom: 0;color:#a94442;background:#f2dede;border:1px solid #ebccd1;border-radius:5px;padding:5px;">Your browser doesn't support Javascript or Javascript is turned off! This website needs Javascript to function properly.</p>
 	</noscript>
-      </section>
+      <!-- </section> -->
 		<div class="forms" id="habit-form">
 			<h2>Add A Habit</h2>
 
@@ -38,10 +38,10 @@
 				<p><label><span id="title_text">Habit Title </span></label><span class="error_text" id="title_error">Please enter the habit title.</span></p>
 				<p><input id="title" type="text" name="fullname" placeholder="Exercise 30 minutes"></p>
 				<p><label>Habit Icon </label><span class="error_text" id="habit_icon_error">Please select an icon for your habit.</span></p>
-				<img id="icon1" class="icon" onclick="selectImage('icon1');" src="../../img/sleep.jpg" alt="sleep image"/>
-				<img id="icon2" class="icon" onclick="selectImage('icon2');" src="../../img/salad.jpg" alt="eat image"/>
-				<img id="icon3" class="icon" onclick="selectImage('icon3');" src="../../img/run.jpg" alt="run image"/>
-				<img id="icon4" class="icon" src="../../img/add.png" alt="find a image" onclick="chooseFile();"/>
+				<img id="icon1" class="icon" onclick="selectImage('icon1');" src="../../img/sleep.jpg" alt="sleep image">
+				<img id="icon2" class="icon" onclick="selectImage('icon2');" src="../../img/salad.jpg" alt="eat image">
+				<img id="icon3" class="icon" onclick="selectImage('icon3');" src="../../img/run.jpg" alt="run image">
+				<img id="icon4" class="icon" src="../../img/add.png" alt="find a image" onclick="chooseFile();">
 				<p><label>Weekly Frequency </label><span class="error_text" id="weekly_frequency_error">Please enter the weekly frequency.</span></p>
 				<div id="ck-button">
 					<label> <input id="sunday" type="checkbox" name="date" value="sunday"><span>Sun</span></label>
@@ -78,7 +78,7 @@
 		    <div class="action">
 		   	 <div class="image-upload">
 			   	 <label id="iconupload" for="profilePhotoFileUpload">
-			   		 <img src="../../img/upload.png" width="65px" height="65px"/>
+			   		 <img src="../../img/upload.png" width="65" height="65" alt="upload image">
 			   	 </label>
 			   	 <input type="file" id="profilePhotoFileUpload" >
 		        <input type="button" id="btnZoomIn" class="btn btn-info" value="+" >
