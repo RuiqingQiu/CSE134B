@@ -35,7 +35,7 @@
                 },
                 error: function(obj, error) {
                     alert("Error: " + error.code + " " + error.message);
-                }                
+                }
             });
         }
 
@@ -46,7 +46,7 @@
             query.equalTo("user_id", currUser);
             query.find({
                 success: function(results) {
-                    // var a = JSON.stringify(results);                    
+                    // var a = JSON.stringify(results);
                     for (var i = 0; i < results.length; i++){
                         var jsonData = {}
                         jsonData.id = results[i].id;
@@ -95,13 +95,11 @@
 						event.preventDefault();
 						var current = $(this).closest(".habit-entry");
 						$(this).closest(".habit-entry").css({
-							"filter": "grayscale(100%)", 
+							"filter": "grayscale(100%)",
 							"-webkit-filter": "grayscale(100%)",
 							"-moz-filter": "grayscale(100%)",
-							"-ms-filter": "grayscale(100%)", 
-							"-o-filter": "grayscale(100%)", 
-							"filter": "url(resources.svg#desaturate)", 
-							"filter": "gray",
+							"-ms-filter": "grayscale(100%)",
+							"-o-filter": "grayscale(100%)",
 							"-webkit-filter": "grayscale(1)"});
 
 					});
@@ -125,7 +123,7 @@
             });
         }
 
-        function doHabit(el){            
+        function doHabit(el){
             var habit = Parse.Object.extend("Habit");
             var query = new Parse.Query(habit);
             var toDelete = query.get($(el).attr("id"), {
@@ -139,7 +137,7 @@
                                 var msg = $(el).find(".message-today");
                                 msg.children(".daily-current").text(daily_current);
                                 msg.css("visibility","visible");
-                                
+
                                 if(daily_current == daily_total){
 
                                     // update continued days
