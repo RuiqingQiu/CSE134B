@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "Vice and Virtue",
+  "description": "This extension is a web app for developing habits",
+  "version": "1.0",
+
+  "browser_action": {
+  },
+
+  "background": {
+    "scripts": ["/public/build/js/background.js"]
+  },
+  "permissions": [
+   "activeTab",
+   "tabs"
+   ]
+}
