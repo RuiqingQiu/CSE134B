@@ -109,7 +109,6 @@ function error_checking(){
 	});
 
 	if(habit_title == ""){
-		//console.log("Please enter the title for your habit");
 		error = 1;
 		$("#title_error").css("display", "inline-block");
 	}
@@ -119,7 +118,6 @@ function error_checking(){
 	//Habit icon
 	//If user didn't choose an image
 	if(url.substr(url.length - 11) == "default.jpg"){
-		//console.log("Please select an icon for your habit");
 		error = 1;
 		$("#habit_icon_error").css("display", "inline-block");
 	}
