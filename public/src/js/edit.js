@@ -114,6 +114,12 @@ function saveEditedHabit(){
 						                success: function(obj) {
 						                    console.log("successfully saved");
 						                   	$('#modal_save_data').modal('show');
+						                   	var dimensions = {
+								    							user_id: Parse.User.current().id,
+								    							title: obj.get("title"),
+								    							type: "Editing Habit"
+								    						};
+								    						Parse.Analytics.track('editHabit', dimensions);
 						                },
 						                error: function(obj, error) {
 						                    alert("Error: " + error.code + " " + error.message);
@@ -169,7 +175,12 @@ function saveEditedHabit(){
 						                success: function(obj) {
 						                    console.log("successfully saved");
 						                    $('#modal_save_data').modal('show');
-
+						                    var dimensions = {
+								    							user_id: Parse.User.current().id,
+								    							title: obj.get("title"),
+								    							type: "Editing Habit"
+								    						};
+								    						Parse.Analytics.track('editHabit', dimensions);
 						                },
 						                error: function(obj, error) {
 						                    alert("Error: " + error.code + " " + error.message);
@@ -226,6 +237,12 @@ function saveEditedHabit(){
 						                success: function(obj) {
 						                    console.log("successfully saved");
 						                    $('#modal_save_data').modal('show');
+						                    var dimensions = {
+								    							user_id: Parse.User.current().id,
+								    							title: obj.get("title"),
+								    							type: "Editing Habit"
+								    						};
+								    						Parse.Analytics.track('editHabit', dimensions);
 						                },
 						                error: function(obj, error) {
 						                    alert("Error: " + error.code + " " + error.message);
@@ -275,7 +292,12 @@ function saveEditedHabit(){
 			                success: function(obj) {
 			                    console.log("successfully saved");
 			                    $('#modal_save_data').modal('show');
-
+			                    var dimensions = {
+								    							user_id: Parse.User.current().id,
+								    							title: obj.get("title"),
+								    							type: "Editing Habit"
+								    						};
+								    						Parse.Analytics.track('editHabit', dimensions);
 			                },
 			                error: function(obj, error) {
 			                    alert("Error: " + error.code + " " + error.message);
@@ -322,6 +344,12 @@ function saveEditedHabit(){
 		                success: function(obj) {
 		                    console.log("successfully saved");
 		                    $('#modal_save_data').modal('show');
+		                    var dimensions = {
+								    							user_id: Parse.User.current().id,
+								    							title: obj.get("title"),
+								    							type: "Editing Habit"
+								    						};
+								    						Parse.Analytics.track('editHabit', dimensions);
 		                },
 		                error: function(obj, error) {
 		                    alert("Error: " + error.code + " " + error.message);

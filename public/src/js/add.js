@@ -205,7 +205,12 @@ function addHabit(){
 								    $('#modal_save_data').modal('show');
 									//alert("Your habit has been added");
 								    //window.location.href = "list.html";
-
+								    var dimensions = {
+								    	user_id: Parse.User.current().id,
+								    	title: habits.get("title"),
+								    	type: "Adding Habit"
+								    };
+								    Parse.Analytics.track('addHabit', dimensions);
 								  },
 								  error: function(habits, error) {
 									  alert("Error: " + error.code + " " + error.message);
@@ -258,6 +263,12 @@ function addHabit(){
 								  success: function(habits) {
 								    console.log("Successfully logged in!");
 								   	$('#modal_save_data').modal('show');
+								   	var dimensions = {
+								    	user_id: Parse.User.current().id,
+								    	title: habits.get("title"),
+								    	type: "Adding Habit"
+								    };
+								    Parse.Analytics.track('addHabit', dimensions);
 								  },
 								  error: function(habits, error) {
 									  alert("Error: " + error.code + " " + error.message);
@@ -312,7 +323,12 @@ function addHabit(){
 								  success: function(habits) {
 								    console.log("Successfully logged in!");
 								    $('#modal_save_data').modal('show');
-
+								    var dimensions = {
+								    	user_id: Parse.User.current().id,
+								    	title: habits.get("title"),
+								    	type: "Adding Habit"
+								    };
+								    Parse.Analytics.track('addHabit', dimensions);
 								  },
 								  error: function(habits, error) {
 									  alert("Error: " + error.code + " " + error.message);
@@ -364,6 +380,12 @@ function addHabit(){
 				  success: function(habits) {
 				    console.log("Successfully logged in!");
 				    $('#modal_save_data').modal('show');
+				    var dimensions = {
+								    	user_id: Parse.User.current().id,
+								    	title: habits.get("title"),
+								    	type: "Adding Habit"
+								    };
+								    Parse.Analytics.track('addHabit', dimensions);
 				  },
 				  error: function(habits, error) {
 		            alert("Error: " + error.code + " " + error.message);
