@@ -26,23 +26,23 @@
 			<li><a href="#" id="logout" data-toggle="modal" data-target="#modal_logout">Log Out</a></li>
 		  </ul>
 		</nav>
-	</header>		
+	</header>
 	 <!-- <section> -->
       <noscript>
 		<p style= "text-align: center; margin-bottom: 0;color:#a94442;background:#f2dede;border:1px solid #ebccd1;border-radius:5px;padding:5px;">Your browser doesn't support Javascript or Javascript is turned off! This website needs Javascript to function properly.</p>
 	</noscript>
       <!-- </section> -->
-	
+
 	<div class="forms" id="habit-form">
 			<h2>Edit A Habit</h2>
 			<form name="habitForm">
 				<p><label><span id="title_text">Habit Title </span></label><span class="error_text" id="title_error">Please enter the habit title.</span></p>
 				<p><input id="title" type="text" name="fullname" placeholder="Exercise 30 minutes"></p>
 				<p><label>Habit Icon</label><span class="error_text" id="habit_icon_error">Please select an icon for your habit.</span></p>
-				<img id="icon1" class="icon" onclick="selectImage('icon1');" src="../../img/sleep.jpg" alt="sleep image">
-				<img id="icon2" class="icon" onclick="selectImage('icon2');" src="../../img/salad.jpg" alt="eat image">
-				<img id="icon3" class="icon" onclick="selectImage('icon3');" src="../../img/run.jpg" alt="run image">
-				<img id="icon4" class="icon" src="../../img/add.png" alt="find a image" onclick="chooseFile();">
+				<img id="icon1" class="icon" src="../../img/sleep.jpg" alt="sleep image">
+				<img id="icon2" class="icon" src="../../img/salad.jpg" alt="eat image">
+				<img id="icon3" class="icon" src="../../img/run.jpg" alt="run image">
+				<img id="icon4" class="icon" src="../../img/add.png" alt="find a image">
 				<p><label>Weekly Frequency</label><span class="error_text" id="weekly_frequency_error">Please enter the weekly frequency.</span></p>
 				<div id="ck-button">
 					<label> <input id="sunday" type="checkbox" name="date" value="sunday"><span>Sun</span></label>
@@ -57,14 +57,14 @@
 
 				<p><label>Daily Frequency</label><span class="error_text" id="daily_frequency_error">Please enter the daily frequency.</span></p>
 				<div id="daily-button">
-					<label> <input id="day1" type="checkbox" name="day" value="1" onclick="daily_selection('day1');"><span>1</span></label>
-					<label> <input id="day2" type="checkbox" name="day" value="2" onclick="daily_selection('day2');"><span>2</span></label>
-					<label> <input id="day3" type="checkbox" name="day" value="3" onclick="daily_selection('day3');"><span>3</span></label>
+					<label> <input id="day1" type="checkbox" name="day" value="1"><span>1</span></label>
+					<label> <input id="day2" type="checkbox" name="day" value="2"><span>2</span></label>
+					<label> <input id="day3" type="checkbox" name="day" value="3"><span>3</span></label>
 					<span id="times">times</span>
 				</div>
 				<p><label><span id="others_text">Others: </span><input id="others" type="text" name="day" placeholder="More than 3 times"></label></p>
 				<span id="button-group">
-					<input id="save" type="button" value="Save It" onclick="saveEditedHabit()">
+					<input id="save" type="button" value="Save It">
 
 					<input id="cancel" type="button" value="Cancel" data-toggle="modal" data-target="#modal_save_image">
 				</span>
@@ -86,7 +86,7 @@
 		        <input type="button" id="btnZoomIn" class="btn btn-info" value="+" >
 		        <input type="button" id="btnZoomOut" class="btn btn-info" value="-">
 		        <button id="btnCrop" class="btn btn-success" >Save</button>
-		        <button id="btnCancel" onclick="closeImageSelector()" class="btn btn-danger">Cancel</button>
+		        <button id="btnCancel" class="btn btn-danger">Cancel</button>
 
 			 </div>
 
@@ -110,12 +110,12 @@
 		          <p>Your habit are successfully saved to your list!</p>
 		        </div>
 		        <div class="modal-footer">
-		          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.href ='list.html'">Okay</button>		        				</div>
+		          <button type="button" id="okayButton" class="btn btn-success" data-dismiss="modal">Okay</button>		        				</div>
 		      </div>
 
 		    </div>
 		  </div>
-		  
+
 
 		  <!-- Modal -->
 		  <div class="modal fade" id="modal_save_image" role="dialog">
@@ -131,7 +131,7 @@
 		          <p>Are you sure you want to discard your change?</p>
 		        </div>
 		        <div class="modal-footer">
-		          <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="location.href ='list.html'">Discard It</button>
+		          <button type="button" id="discardButton" class="btn btn-danger" data-dismiss="modal">Discard It</button>
 		          <button type="button" class="btn btn-default" data-dismiss="modal">No, I will keep working on it</button>
 		        </div>
 		      </div>
@@ -153,18 +153,10 @@
 		        </div>
 		        <div class="modal-footer">
 		          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-		          <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="Logout()">Log Out</button>
+		          <button type="button" id="logoutButton" class="btn btn-danger" data-dismiss="modal">Log Out</button>
 		        </div>
 		      </div>
 		    </div>
 		  </div>
-		  <script>
-			//For setting up trigger when others text field changed
-			$('#others').on('input',function(e){
-				document.getElementById('day1').checked = false;
-				document.getElementById('day2').checked = false;
-				document.getElementById('day3').checked = false;
-			});
-		  </script>
 	</body>
 </html>

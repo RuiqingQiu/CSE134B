@@ -7,9 +7,15 @@ $( document ).ready(function() {
 			else{
 				console.log(Parse.User.current().id);
 			}
-			
+			$('#logoutButton').click(Logout);
+			$('.addbutton').click(function () {
+				location.href='add.html';
+			});
+			$('.listbutton').click(function () {
+				location.href='list.html';
+			});
 			var cur_user = Parse.User.current();
-			
+
 		//console.log(cur_user);
 		var User = Parse.Object.extend("_User");
 		var query = new Parse.Query(User);
@@ -17,9 +23,9 @@ $( document ).ready(function() {
 			success:function(user) {
 			var username = user.get("username");
             console.log(username);
-	
+
             console.log(user.get("Enable_notification"));
-			
+
 			if (user.get("Enable_notification")) {
 			$.notify({
 				title: 'Welcome',
@@ -49,10 +55,10 @@ $( document ).ready(function() {
 			// The object was not retrieved successfully.
             // error is a Parse.Error with an error code and message.
 			}
-		});	
+		});
 });
 
 function TestNotify() {
 	$.notify("Hello Button");
-	
+
 }
