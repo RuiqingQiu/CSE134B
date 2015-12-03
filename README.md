@@ -24,6 +24,9 @@ Since we have handled most of the errors, these are errors that raised by make t
    ```
 We have tested both raygun and rollbar. There are not many differences and we choose rollbar since it’s easy to use and the monitoring is free to use, whereas raygun only offers a 30-day trial.
 
+## Bundling/Minification:
+All HTML, JS, and CSS files are minified. The library files in the "lib" directory are minified, and all the production files, which are in the "build" directory, are minified as well. For bundling, the Javascript libraries were bundled as much as possible. Due to some dependencies, not all Javascript library files were able to be bundled, but we bundled as many files as possible. The bundled library Javascript file is "vendor.js". For CSS, since each page has its own CSS file and used common tags such as "body" and "html", bundling the CSS for each page into one file caused funtionality errors, so we did not bundle the CSS. As for bundling the Javascript files (not library files) for each page, that would also cause functionality errors since each Javascript file has a $(document).ready() function. If given enough time, we could perhaps refactor the code, but due to the time constraints, we bundled as many files as we could.
+
 ## Chrome extension/browser app:
 To install the app as a Chrome extension, in a Chrome browser, go to “chrome://extensions”. On this page, check the “Developer mode” box at the top of the page. Then, simply click “Load unpacked extension” or drag and drop the app/project folder into the page. This will install the app as an extension. Once the extension is installed, you can click on the jigsaw icon in the window toolbar of the current tab to open the app as a Chrome extension. To ensure it’s the right icon, when the mouse hovers over the icon, it should say “Vice and Virtue”.
 ![Chrome 1](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/Chrome1.png)
@@ -40,7 +43,7 @@ For PhoneGap usage, we have to download PhoneGap desktop version to create a tem
 
 ## Individual tasks:
 Timothy:
-Added login and signup functionality with Parse to login.html, login.css, and login.js. Added error checking for the forms for Edit a Habit and Add a Habit pages. Set up the project with Gulp to allow for real-time minification of all source Javascript, HTML, and CSS files for the project. Added sliding animation effect for habit entries in habit list page. Contributed to the README.md.
+Added login and signup functionality with Parse to login.html, login.css, and login.js. Added error checking for the forms for Edit a Habit and Add a Habit pages. Set up the project with Gulp to allow for real-time minification of all source Javascript, HTML, and CSS files for the project. Bundled Javascript files. Added sliding animation effect for habit entries in habit list page. Contributed to the README.md. Created Chrome extension/browser app for the app.
 
 Ruiqing:
 Added create and edit functionality with Parse to add.html, edit.html, form.css, add.js, edit.js. Implemented all functionality such as Image cropper, error detection, UI focused javascript in the two pages. Create parse backend database format and structure. Communication between habit list and edit page. Redesigned the overall look of the app and buttons issues concerning about usability.
