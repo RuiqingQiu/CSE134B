@@ -32,6 +32,43 @@ $(document).ready(function() {
     else{
     	getHabit();
     }
+    //For setting up trigger when others text field changed
+			$('#others').on('input',function(e){
+				document.getElementById('day1').checked = false;
+				document.getElementById('day2').checked = false;
+				document.getElementById('day3').checked = false;
+			});
+		$('#icon1').click(function() {
+ 		selectImage('icon1');
+ 	});
+ 	$('#icon2').click(function() {
+ 		selectImage('icon2');
+ 	});
+ 	$('#icon3').click(function() {
+ 		selectImage('icon3');
+ 	});
+ 	$('#icon4').click(chooseFile);
+ 	$('#day1').click(function() {
+ 		daily_selection('day1');
+ 	});
+ 	$('#day2').click(function() {
+ 		daily_selection('day2');
+ 	});
+ 	$('#day3').click(function() {
+ 		daily_selection('day3');
+ 	});
+ 	$('#save').click(saveEditedHabit);
+ 	$('#btnCancel').click(closeImageSelector);
+ 	$('#okayButton').click(function() {
+ 		location.href ='../html/list.html';
+ 	});
+ 	$('#discardButton').click(function() {
+ 		location.href ='../html/list.html';
+ 	});
+ 	$('#cancelButton').click(function() {
+ 		location.href ='../html/list.html';
+ 	});
+ 	$("#logoutButton").click(Logout);
 });
 
 function getHabit(){
@@ -114,6 +151,12 @@ function saveEditedHabit(){
 						                success: function(obj) {
 						                    console.log("successfully saved");
 						                   	$('#modal_save_data').modal('show');
+						                   	var dimensions = {
+								    							user_id: Parse.User.current().id,
+								    							title: obj.get("title"),
+								    							type: "Editing Habit"
+								    						};
+								    						Parse.Analytics.track('editHabit', dimensions);
 						                },
 						                error: function(obj, error) {
 						                    alert("Error: " + error.code + " " + error.message);
@@ -169,7 +212,12 @@ function saveEditedHabit(){
 						                success: function(obj) {
 						                    console.log("successfully saved");
 						                    $('#modal_save_data').modal('show');
-
+						                    var dimensions = {
+								    							user_id: Parse.User.current().id,
+								    							title: obj.get("title"),
+								    							type: "Editing Habit"
+								    						};
+								    						Parse.Analytics.track('editHabit', dimensions);
 						                },
 						                error: function(obj, error) {
 						                    alert("Error: " + error.code + " " + error.message);
@@ -226,6 +274,12 @@ function saveEditedHabit(){
 						                success: function(obj) {
 						                    console.log("successfully saved");
 						                    $('#modal_save_data').modal('show');
+						                    var dimensions = {
+								    							user_id: Parse.User.current().id,
+								    							title: obj.get("title"),
+								    							type: "Editing Habit"
+								    						};
+								    						Parse.Analytics.track('editHabit', dimensions);
 						                },
 						                error: function(obj, error) {
 						                    alert("Error: " + error.code + " " + error.message);
@@ -275,7 +329,12 @@ function saveEditedHabit(){
 			                success: function(obj) {
 			                    console.log("successfully saved");
 			                    $('#modal_save_data').modal('show');
-
+			                    var dimensions = {
+								    							user_id: Parse.User.current().id,
+								    							title: obj.get("title"),
+								    							type: "Editing Habit"
+								    						};
+								    						Parse.Analytics.track('editHabit', dimensions);
 			                },
 			                error: function(obj, error) {
 			                    alert("Error: " + error.code + " " + error.message);
@@ -322,6 +381,12 @@ function saveEditedHabit(){
 		                success: function(obj) {
 		                    console.log("successfully saved");
 		                    $('#modal_save_data').modal('show');
+		                    var dimensions = {
+								    							user_id: Parse.User.current().id,
+								    							title: obj.get("title"),
+								    							type: "Editing Habit"
+								    						};
+								    						Parse.Analytics.track('editHabit', dimensions);
 		                },
 		                error: function(obj, error) {
 		                    alert("Error: " + error.code + " " + error.message);

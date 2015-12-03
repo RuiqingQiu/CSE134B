@@ -4,6 +4,8 @@ $(document).ready(function() {
   if (Parse.User.current() !== null && Parse.User.current().authenticated()) {
     window.location.href = "welcome.html";
   }
+  $('.loginButton').click(logIn);
+  $('.signUpButton').click(signUp);
 });
 
 function logIn(e) {
