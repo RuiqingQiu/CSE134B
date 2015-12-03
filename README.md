@@ -24,18 +24,14 @@ Since we have handled most of the errors, these are errors that raised by make t
    ```
 We have tested both raygun and rollbar. There are not many differences and we choose rollbar since it’s easy to use and the monitoring is free to use, whereas raygun only offers a 30-day trial.
 
-
-
-## List of Tracked Habits Page:
-This page is resdesigned from the original framework due to the confusion of a confirmation and a cancel button. Now replaced with checkmark and cross to clearly indiciate that the user has done such hahbit during the day or not. As moved edit and delete button to the top right corner for usability issue. In this way, the user will not misclick and accidentially delete the habit. All the danger operations have a confirmation box to make sure that's what the user want to do. Gray out the card for user who didn't do such activity that day. However, that's purely local for right now due to time constriant. Notification for this page is local as well with a timer that will loop and display them. We will finish up the list displaying the current day habits in homework 5.
-
-## Notification:
-For now, we can only support local notification in our app with two ways to call it. The first way is triggered by onclick method, once we click something, the notification will popup and display corresponding message. Another way is we call notification during the page is loading, and we can push some notification.  In our welcome page, once the customer is login, we will popup a welcome message to show customer’s username and give him a welcome.
-Reason that we didn’t do the server side notification.
-we first do some research on Parse Javascript push notification, but it turn out didn’t work fine with either desktop/android/iOS. For android and iOS device, parse led us to look over android/iOS development which is not related with our web development with javascript. For desktop notification, parse led us to download Visual Studio and use Package Manager Console to install their SDK. But before this, we have to change our project to native app. However, we don’t think we need native app for this course.
-we also find a third party app: pushover which could help us to push notification to any device, but customer have to install pushover app to help them receive those notification that  we pushed, so this is not work with our project.
-Then we followed one of Ta’s suggestion to look over Roost, but we found out the basic Roost notification, we already handle in our local notification, and all other advanced notification need to pay for monthly fee which we cannot afford.
-We finally simulates the notification to remind people to do habits and let them confirm whether they did on the notification as well. However, no project instruction tends to let us have a rule or a user setting to set time for notifications. Therefore, we instead made it notify every 10 seconds on the habit list page (list.html, it is hard to make the timer cross page as we don't have a backend for the timer) for every habit at the same time.
+## Phone app for Android:
+For PhoneGap usage, we have to download PhoneGap desktop version to create a temp server and host our project in this server, then we need to download PhoneGap mobile version for our mobile device to enter the temp server ip address. Then we can run our web app in any mobile device. Also we used PhoneGap Cloud Build trying to package our file to an .apk/.cpp file, but for iOS PhoneGap need a specific key. And for Android app, after I install the generated apk in my phone, the app allowed me to have internet access even though in the app description, this app have full access to internet. So, I changed to user Cocoon cloud compiler to generate install package for Android and iOS.  
+![Phone Screen 1](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone0.png)
+![Phone Screen 2](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone1.png)
+![Phone Screen 3](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone2.png)
+![Phone Screen 4](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone3.png)
+![Phone Screen 5](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone4.png)
+![Phone Screen 6](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone5.png)
 
 ## Individual tasks:
 Timothy:
