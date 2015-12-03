@@ -41,6 +41,21 @@ For PhoneGap usage, we have to download PhoneGap desktop version to create a tem
 <img src="https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone4.png" alt="Phone Screen 5" width="324" height="588">
 <img src="https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone5.png" alt="Phone Screen 6" width="324" height="588">
 
+*(see download section at the end of this README file for download link)*
+
+## Windows/OSX Desktop Apps
+We were trying to use the winJS to make a Modern app, but it requires a lot of changes to our current web app source code. We shifted to use Electron, it does not require much change to the source code of the current app, and it is easy to support different desktop OS platforms, which let us build both the OSX version and Windows Version.
+
+![OSX Screen 1](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/osx_2.png)
+
+![OSX Screen 2](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/osx_1.png)
+
+![Windows Screen 1](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/win_2.png)
+
+![Windows Screen 2](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/win_1.png)
+
+*(see download section at the end of this README file for download link)*
+
 ## Individual tasks:
 Timothy:
 Added login and signup functionality with Parse to login.html, login.css, and login.js. Added error checking for the forms for Edit a Habit and Add a Habit pages. Set up the project with Gulp to allow for real-time minification of all source Javascript, HTML, and CSS files for the project. Bundled Javascript files. Added sliding animation effect for habit entries in habit list page. Contributed to the README.md. Created Chrome extension/browser app for the app. Set up usage monitoring for the app using Parse Analytics.
@@ -90,3 +105,6 @@ Project Folder:
 * _src_ folder contains all the source files for our project
 * _build_ folder is all the files that are minified
 * _lib_ contains all the library files
+
+### Platform-Specific App Release Download Link
+<https://github.com/RuiqingQiu/CSE134B/releases>
