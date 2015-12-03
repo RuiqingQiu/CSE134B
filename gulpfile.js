@@ -4,11 +4,13 @@ var gulp  = require('gulp'),
   minifyCss = require('gulp-minify-css'),
   minifyHtml = require('gulp-minify-html'),
   rename = require('gulp-rename'),
+  concat = require('gulp-concat'),
 
   input = {
     'javascript': 'public/src/js/*.js',
     'css': 'public/src/css/*.css',
-    'html': 'public/src/html/*.html'
+    'html': 'public/src/html/*.html',
+    'vendorJavascript': 'public/lib/*.js'
   },
 
   output = {
@@ -23,6 +25,13 @@ gulp.task('default', ['build', 'watch']);
 // minify Javascript
 gulp.task('js', function() {
   return gulp.src(input.javascript)
+    .pipe(uglify())
+    .pipe(gulp.dest(output.javascript));
+});
+
+gulp.task('lib-js', function() {
+  return gulp.src(input.vendorJavascript)
+    .pipe(concat('vendor.js'))
     .pipe(uglify())
     .pipe(gulp.dest(output.javascript));
 });
@@ -44,10 +53,11 @@ gulp.task('html', function() {
     .pipe(gulp.dest(output.html));
 });
 
-gulp.task('build', ['js', 'css', 'html']);
+gulp.task('build', ['js', 'lib-js', 'css', 'html']);
 
 gulp.task('watch', function() {
   gulp.watch(input.javascript, ['js']);
+  gulp.watch(input.vendorJavascript, ['lib-js']);
   gulp.watch(input.css, ['css']);
   gulp.watch(input.html, ['html']);
 });
