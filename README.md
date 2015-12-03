@@ -26,7 +26,7 @@ We have tested both raygun and rollbar. There are not many differences and we ch
 
 ## Phone app for Android:
 For PhoneGap usage, we have to download PhoneGap desktop version to create a temp server and host our project in this server, then we need to download PhoneGap mobile version for our mobile device to enter the temp server ip address. Then we can run our web app in any mobile device. Also we used PhoneGap Cloud Build trying to package our file to an .apk/.cpp file, but for iOS PhoneGap need a specific key. And for Android app, after I install the generated apk in my phone, the app allowed me to have internet access even though in the app description, this app have full access to internet. So, I changed to user Cocoon cloud compiler to generate install package for Android and iOS.  
-![Phone Screen 1](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone0.png =108x196)
+![Phone Screen 1](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone0.png) {width: 108px; height: 196px}
 ![Phone Screen 2](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone1.png)
 ![Phone Screen 3](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone2.png)
 ![Phone Screen 4](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone3.png)
