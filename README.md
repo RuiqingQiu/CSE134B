@@ -43,16 +43,16 @@ For PhoneGap usage, we have to download PhoneGap desktop version to create a tem
 
 ## Individual tasks:
 Timothy:
-Added login and signup functionality with Parse to login.html, login.css, and login.js. Added error checking for the forms for Edit a Habit and Add a Habit pages. Set up the project with Gulp to allow for real-time minification of all source Javascript, HTML, and CSS files for the project. Bundled Javascript files. Added sliding animation effect for habit entries in habit list page. Contributed to the README.md. Created Chrome extension/browser app for the app.
+Added login and signup functionality with Parse to login.html, login.css, and login.js. Added error checking for the forms for Edit a Habit and Add a Habit pages. Set up the project with Gulp to allow for real-time minification of all source Javascript, HTML, and CSS files for the project. Bundled Javascript files. Added sliding animation effect for habit entries in habit list page. Contributed to the README.md. Created Chrome extension/browser app for the app. Set up usage monitoring for the app using Parse Analytics.
 
 Ruiqing:
-Added create and edit functionality with Parse to add.html, edit.html, form.css, add.js, edit.js. Implemented all functionality such as Image cropper, error detection, UI focused javascript in the two pages. Create parse backend database format and structure. Communication between habit list and edit page. Redesigned the overall look of the app and buttons issues concerning about usability.
+Added create and edit functionality with Parse to add.html, edit.html, form.css, add.js, edit.js. Implemented all functionality such as Image cropper, error detection, UI focused javascript in the two pages. Create parse backend database format and structure. Communication between habit list and edit page. Redesigned the overall look of the app and buttons issues concerning about usability. Set up error monitoring using Rollbar error monitoring service.
 
 Jingyuan:
-Implemented most functionalities (CRUD on habits) on the habit list: create habit (outlink to add page), read list of habits from the list, update habit (click done button to change parameters of the habit), delete the habit from the database record. Added notification with relevant actions to habits.
+Implemented most functionalities (CRUD on habits) on the habit list: create habit (outlink to add page), read list of habits from the list, update habit (click done button to change parameters of the habit), delete the habit from the database record. Added notification with relevant actions to habits. Developed OS X and Windows native apps for PC. Did image spriting.
 
 Qing:
-Added navigation bar to every pages (except login.html), Added logout functionality with Parse to all pages which have navigation bar. Added notification function to pages which need to push local notification. Added notification enable functionality to setting.html, setting.css, setting.js. Modified the functionality and style in welcome.html, welcome.css, welcome.js. Contributed to the README.md.
+Added navigation bar to every pages (except login.html), Added logout functionality with Parse to all pages which have navigation bar. Added notification function to pages which need to push local notification. Added notification enable functionality to setting.html, setting.css, setting.js. Modified the functionality and style in welcome.html, welcome.css, welcome.js. Contributed to the README.md. Developed Android and iOS versions of the app.
 
 
 ## Libraries;
