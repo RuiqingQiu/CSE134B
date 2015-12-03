@@ -1,4 +1,4 @@
-# CSE 134B Homework 5  
+# CSE 134B Homework 5
 _Developed by Team XYZ_
 ## Overview:
 For homework 5, we provides a complete finished version of our vice & virtue application in optimal delivery state as well as applications in many platforms.
@@ -24,8 +24,13 @@ Since we have handled most of the errors, these are errors that raised by make t
    ```
 We have tested both raygun and rollbar. There are not many differences and we choose rollbar since it’s easy to use and the monitoring is free to use, whereas raygun only offers a 30-day trial.
 
+## Chrome extension/browser app:
+To install the app as a Chrome extension, in a Chrome browser, go to “chrome://extensions”. On this page, check the “Developer mode” box at the top of the page. Then, simply click “Load unpacked extension” or drag and drop the app/project folder into the page. This will install the app as an extension. Once the extension is installed, you can click on the jigsaw icon in the window toolbar of the current tab to open the app as a Chrome extension. To ensure it’s the right icon, when the mouse hovers over the icon, it should say “Vice and Virtue”.
+<img src="https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/Chrome1.png" alt="Chrome Screen 1" width="500">
+<img src="https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/Chrome2.png" alt="Chrome Screen 2" width="500">
+
 ## Phone app for Android:
-For PhoneGap usage, we have to download PhoneGap desktop version to create a temp server and host our project in this server, then we need to download PhoneGap mobile version for our mobile device to enter the temp server ip address. Then we can run our web app in any mobile device. Also we used PhoneGap Cloud Build trying to package our file to an .apk/.cpp file, but for iOS PhoneGap need a specific key. And for Android app, after I install the generated apk in my phone, the app allowed me to have internet access even though in the app description, this app have full access to internet. So, I changed to user Cocoon cloud compiler to generate install package for Android and iOS.  
+For PhoneGap usage, we have to download PhoneGap desktop version to create a temp server and host our project in this server, then we need to download PhoneGap mobile version for our mobile device to enter the temp server ip address. Then we can run our web app in any mobile device. Also we used PhoneGap Cloud Build trying to package our file to an .apk/.cpp file, but for iOS PhoneGap need a specific key. And for Android app, after I install the generated apk in my phone, the app allowed me to have internet access even though in the app description, this app have full access to internet. So, I changed to user Cocoon cloud compiler to generate install package for Android and iOS.
 <img src="https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone0.png" alt="Phone Screen 1" width="324" height="588">
 <img src="https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone1.png" alt="Phone Screen 2" width="324" height="588">
 <img src="https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/phone2.png" alt="Phone Screen 3" width="324" height="588">
