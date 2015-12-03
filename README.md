@@ -12,7 +12,7 @@ Most of the things we have already finished in homework 4.
 ## Usage Monitoring:
 We are using Parse Analytics to monitor usage of the app. It was the best option since we are already using Parse for the backend so it keeps everything centralized and easy to use. Currently, we have set up analytics for when a habit is added and edited, and when a user completes one of their habits.
 Here’s a graph from the Parse dashboard that shows the usage metrics:
-![Usage Monitoring](./readme/usage.jpg)
+![Usage Monitoring](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/usage.png)
 Blue represents the number of times users have edited a habit, orange shows the number of times users have completed a habit, and green represents the number of times users have added a habit.:
 
 ## Welcome Page & Setting:
