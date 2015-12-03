@@ -162,6 +162,12 @@
 
                                             // update progress bar
                                             $(el).find(".progress").attr('x2', max_value != 0 ? (current_value / max_value * CONST.PROGRESS_BAR_LENGTH)  : 0);
+                                            var dimensions = {
+                                                user_id: Parse.User.current().id,
+                                                title: obj.get("title"),
+                                                type: "Doing Habit"
+                                            };
+                                            Parse.Analytics.track('doingHabit', dimensions);
                                         },
                                         error: function(obj, error) {
                                             alert("Error: " + error.code + " " + error.message);

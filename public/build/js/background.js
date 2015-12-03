@@ -1,0 +1,1 @@
+chrome.browserAction.onClicked.addListener(function(e){chrome.tabs.create({url:chrome.extension.getURL("public/build/html/login.html")},function(e){})});
