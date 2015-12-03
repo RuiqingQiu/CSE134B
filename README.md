@@ -46,13 +46,13 @@ For PhoneGap usage, we have to download PhoneGap desktop version to create a tem
 ## Windows/OSX Desktop Apps
 We were trying to use the winJS to make a Modern app, but it requires a lot of changes to our current web app source code. We shifted to use Electron, it does not require much change to the source code of the current app, and it is easy to support different desktop OS platforms, which let us build both the OSX version and Windows Version.
 
-!(OSX Screen 1)[https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/osx_2.png]
+![OSX Screen 1](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/osx_2.png)
 
-!(OSX Screen 2)[https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/osx_1.png]
+![OSX Screen 2](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/osx_1.png)
 
-!(Windows Screen 1)[https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/win_2.png]
+![Windows Screen 1](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/win_2.png)
 
-!(Windows Screen 2)[https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/win_1.png]
+![Windows Screen 2](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/win_1.png)
 
 *(see download section at the end of this README file for download link)*
 
