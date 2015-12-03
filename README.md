@@ -15,8 +15,16 @@ Here’s a graph from the Parse dashboard that shows the usage metrics:
 ![Usage Monitoring](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/usage.png)
 Blue represents the number of times users have edited a habit, orange shows the number of times users have completed a habit, and green represents the number of times users have added a habit.:
 
-## Welcome Page & Setting:
-We add a navigation bar at the top of every page (except login page) which will help customer quickly transform between each pages and log out. For “logout”, we will popup a confirmation box to make sure users are truely want to logout, not click the button just by accident. After customer click logout again, we clear the user info in our database and then direct them to login page. For “Home”, we direct user back to welcome page. For “Setting”, we create a new Setting page that customer can change the setting for notification. If they turn off the notification enable, they won’t receive any notification in our app. For “notification sleep”, our plan is blocking any notification to be pushed between 10pm - 6am. Once customer turn this on, we will not get any notification in this specific time even if they turn on the notification enable. But we haven’t implemented this yet.
+## Error Monitor:
+We used rollbar to do our error monitoring. Each page has included codes to catch any uncaught exception and report back to rollbar. Currently, we didn’t have any good way to test it besides manually generate a uncaught error in the console since most of our errors are handled right now. Here’s a page on the rollbar website that the errors are recorded.
+![Error Monitoring](https://github.com/RuiqingQiu/CSE134B/blob/gh-pages/readme/error.png)
+Since we have handled most of the errors, these are errors that raised by make this function call in the javascript console:
+   ```
+   window.onerror("TestRollbarError: testing window.onerror", window.location.href)
+   ```
+We have tested both raygun and rollbar. There are not many differences and we choose rollbar since it’s easy to use and the monitoring is free to use, whereas raygun only offers a 30-day trial.
+
+
 
 ## List of Tracked Habits Page:
 This page is resdesigned from the original framework due to the confusion of a confirmation and a cancel button. Now replaced with checkmark and cross to clearly indiciate that the user has done such hahbit during the day or not. As moved edit and delete button to the top right corner for usability issue. In this way, the user will not misclick and accidentially delete the habit. All the danger operations have a confirmation box to make sure that's what the user want to do. Gray out the card for user who didn't do such activity that day. However, that's purely local for right now due to time constriant. Notification for this page is local as well with a timer that will loop and display them. We will finish up the list displaying the current day habits in homework 5.
