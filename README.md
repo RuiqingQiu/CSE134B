@@ -29,7 +29,8 @@ All HTML, JS, and CSS files are minified. The library files in the "lib" directo
 
 ## Image Spriting
 The Image spriting for our app actually comes with 2 parts:
-- Spriting PNGs/JPGs: We actually managed to combine all PNGs/JPGs (see sprite.png and sprite-mobile.png in img/) with the tool ![CSS Sprite Generator](http://spritegen.website-performance.org). I used this tool because it is hard to do the spriting use the tools mentioned in the given link in the assignment (SpriteMe doesn't always work; Lemonade and Compass works for SASS but not pure css; Fireworks CS6 is not free and we have not used it before). But we did not finally used the sprited images because it caused some UI problems we did not figure out how to fix, and we don't really used many JPG/PNG images any way.
+- Spriting PNGs/JPGs: We actually managed to combine all PNGs/JPGs (see sprite.png and sprite-mobile.png in img/) with the tool [CSS Sprite Generator](http://spritegen.website-performance.org). I used this tool because it is hard to do the spriting use the tools mentioned in the given link in the assignment (SpriteMe doesn't always work; Lemonade and Compass works for SASS but not pure css; Fireworks CS6 is not free and we have not used it before). But we did not finally used the sprited images because it caused some UI problems we did not figure out how to fix, and we don't really used many JPG/PNG images any way.
+
 - Spriting SVGs: SVGs can be much trickier to sprite, and a key problem with SVG spriting is that it is does not work on some very recent IE versions (it will have to delegate to make a bunch of requests and need all the seperate original images ready in this case). So we used a simpler and more compatible way: we make all SVGs inline. In this way, we don't even need any seperate request for the images at all.
 
 ## Chrome extension/browser app:
