@@ -1,13 +1,13 @@
 # CSE 134B Homework 5
 _Developed by Team XYZ_
 ## Overview:
-For homework 5, we provides a complete finished version of our vice & virtue application in optimal delivery state as well as applications in many platforms.
+For homework 5, we provide a complete and finished version of our Vice & Virtue application in optimal delivery state as well as applications for distribution in many platforms.
 From the last assignment, we already have authentication and cloud storage using Parse. To track usage and error, we use Parse's analytics service to keep track of usage and Rollbar to keep track of any uncaught errors.
 Our project in the build folder is minified and bundled version. We also have image spriting supported.
 We have packaged our application for distributions in both Android and iOS for mobile platforms. For desktop platforms, we have included Chrome extension, Mac OS X application and Windows 10 application.
 
 ## Finished Application:
-Most of the things we have already finished in homework 4.
+Most of the things we have already finished in homework 4, such as minification and using Parse. We also had a working notifications solution as well.
 
 ## Usage Monitoring:
 We are using Parse Analytics to monitor usage of the app. It was the best option since we are already using Parse for the backend so it keeps everything centralized and easy to use. Currently, we have set up analytics for when a habit is added and edited, and when a user completes one of their habits.
