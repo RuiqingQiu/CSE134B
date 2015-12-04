@@ -9,6 +9,9 @@ We have packaged our application for distributions in both Android and iOS for m
 ## Finished Application:
 Most of the things we have already finished in homework 4, such as minification and using Parse. We also had a working notifications solution as well.
 
+## Issues encountered and Limitations
+There were many issues encountered over the course of development of the app, such as responsive design, making a cohesive looking UI across all pages, and coordinating third-party library usage. For the Chrome extension, all inline Javascript had to be removed and replaced with event listeners in a Javascript file. As for limitations, the applications prepared for distribution across the many platforms are proof of concept and prototypes, and thus not all kinks have been worked out. However, they are sufficient to show what our app on that platform natively would look like.
+
 ## Usage Monitoring:
 We are using Parse Analytics to monitor usage of the app. It was the best option since we are already using Parse for the backend so it keeps everything centralized and easy to use. Currently, we have set up analytics for when a habit is added and edited, and when a user completes one of their habits.
 Here’s a graph from the Parse dashboard that shows the usage metrics:
